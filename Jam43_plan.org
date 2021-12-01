@@ -1,0 +1,123 @@
+
+* SQUAREDUDE AND CIRCLEGIRL
+  The game is about our two protagonists: Squaredude and Circlegirl.
+  The game plays as a parallax 3D puzzle platformer.
+** STORY
+   Circlegirl is trying to reach her hometown of Sphertopia. Along the
+   way, she finds herself lost and stumbles upon a fellow traveler by
+   the name of Squaredude. Squaredude is the son of the mayor of the
+   nearby town Orthopolis, Quarteddy. Mayor Quarteddy has been
+   kidnapped by the evil Icosaking, in an attempt to claim Orthopolis
+   as his own. Circlegirl agrees to team up with Squaredude to stop
+   the evil Icosaking.
+** GAMEPLAY
+   The game is an open world, though actual exploration is mostly
+   linear. Though, to be clear, there are no /explicit/ level
+   designators, just different rooms you travel between.
+
+   The player initially controls Circlegirl. Upon meeting Squaredude,
+   the player gains the ability to switch between the two of them. The
+   two characters can exist in different rooms, and switching between
+   them can transition to a different room.
+
+   Both characters have the same basic movement set. They can walk in
+   one of four directions on a grid. They can jump over single gaps.
+   They can leap up half-block heights and fall one full block.
+   Falling further results in death.
+
+   The primary game mechanic is the elemental panels. There are four
+   elemental panel types: fire, water, air, and thunder. When a
+   character steps on an elemental panel, they gain the abilities of
+   that element until they step on another panel. The abilities can
+   generally be used by facing an object and pressing SPACEBAR.
+   Circlegirl and Squaredude have the same abilities when it comes to
+   elements.
+*** FIRE
+    A fire character can start fires in front of them, which destroys
+    wooden objects and lights torches. Passively, they can also pass
+    through active flames, which would kill any non-fire character.
+
+    If a fire character uses fire on their partner, the partner will
+    be launched at high speed away from the fire character, at a speed
+    high enough to destroy rocks.
+*** WATER
+    A water character can spray water. Water causes plants to grow and
+    can put out flames. Water can also fill small holes, which will
+    cause objects in those holes to float to the top.
+
+    TODO What happens if a water character uses water on their
+    partner?
+*** AIR
+    An air character can summon wind in front of them. Any round
+    objects like balls will roll when blown with wind. Air characters
+    are passively immune to fall damage; they can fall arbitrary
+    heights without taking damage.
+
+    If an air character summons wind in front of their partner, their
+    partner will fly in the given direction. During flight, they will
+    not fall, even if there's no ground below them. They will continue
+    flying until they hit something.
+*** THUNDER
+    A thunder character can summon a lightning bolt in front of them.
+    This will activate electronic devices in front of them. It also
+    conducts through metal objects and activates electronic devices
+    transitively in this way.
+
+    If a thunder character summons thunder on their partner, their
+    partner will be shocked and will move without changing direction.
+    This effect continues until the partner uses an ability or jumps.
+** FEATURES
+*** WOODEN BOX
+    A wooden box can be pushed by a player. The player's strength is
+    only able to push one box at a time. Boxes can fill in holes.
+    Wooden boxes will burn if set on fire.
+*** METAL BOX
+    A metal box is exactly like a wooden box, except that it is
+    fireproof. Also, metal boxes conduct electricity.
+*** TORCH
+    A torch can be set on fire. This usually activates or deactivates
+    a mechanism somewhere.
+*** QUANTUM BLOCK
+    A quantum block is a solid block that only exists when a character
+    is looking at it. Specifically, it counts as air if there is no
+    character facing toward it. If there is a character facing toward
+    it, then it is solid. If there is something (or someone) in the
+    way, it does not become solid. This mainly interacts with the
+    partner-thunder ability, which changes the way someone faces.
+*** ICE
+    Ice causes players to slide. Using fire on it will melt it into
+    water.
+*** ICOSASENTRY
+    This clever droid sits and waits until it sees someone
+    horizontally or vertically aligned with it (on the same Z axis).
+    If it does, it attacks and destroys them. It can't see through
+    blocks, though.
+*** CRACKED ROCK
+    A cracked rock, secured into the ground. Cannot be pushed, but can
+    be destroyed if approached at high-speed (i.e. using partner-fire)
+*** SMALL BOULDER
+    A small boulder. Can be pushed like a crate. If the air ability is
+    used on it, it will fly in one direction until it hits something.
+*** LARGE BOULDER
+    Like a small boulder but too heavy to be pushed on its own. Can
+    only be moved with the air ability.
+*** PRESSURE PLATE
+    Activates a mechanism if pressed down. Can be pressed with a box
+    or a boulder.
+*** DOOR
+    Activates based on a pressure plate, electronic switch, or other
+    control mechanism.
+*** ELEMENTAL PANEL
+    Switches the character who steps on it to the given element.
+*** WEATHER PANEL
+    Either a rain, sun, or snow panel. Causes that particular weather
+    event.
+
+    Sunny weather has no effect, but it clears all of the other
+    weather. This is the default.
+
+    Rainy weather puts out all fires, but it kills any fire characters
+    in play.
+
+    Snowy weather freezes any water into ice (this is a temporary
+    freeze and will be undone when the snowstorm ends).
