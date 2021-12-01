@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"module_Input","path":"scripts/module_Input/module_Input.yy",},"order":1,},
     {"id":{"name":"spr_Squaredude_Body","path":"sprites/spr_Squaredude_Body/spr_Squaredude_Body.yy",},"order":1,},
     {"id":{"name":"spr_World","path":"sprites/spr_World/spr_World.yy",},"order":1,},
     {"id":{"name":"module_World","path":"scripts/module_World/module_World.yy",},"order":2,},
