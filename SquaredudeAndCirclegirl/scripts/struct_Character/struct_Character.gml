@@ -19,10 +19,7 @@ function Character() : WorldObject() constructor {
     var input_dir = Input.dirPressed();
     if ((input_dir >= 0) && (!obj_World.isMovingSomething())) {
       facing_dir = input_dir;
-      var dx = xx + Dir_toX(input_dir);
-      var dy = yy + Dir_toY(input_dir);
-      active_animation = new CharacterWalkingAnimation(self, xx, yy, zz, dx, dy, zz);
-      obj_World.moveCountUp();
+      tryToMove(xx, yy, zz);
     }
 
     if (!is_undefined(active_animation)) {
@@ -43,6 +40,15 @@ function Character() : WorldObject() constructor {
       var screeny = World.toCenterY(xx, yy, zz);
       getPainter().draw(screenx, screeny, facing_dir);
     }
+  }
+
+  // Tries to move in the current facing_dir.
+  static tryToMove = function(sx, sy, sz) {
+    var dx = sx + Dir_toX(facing_dir);
+    var dy = sy + Dir_toY(facing_dir);
+    var dz = sz;
+    active_animation = new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
+    obj_World.moveCountUp();
   }
 
 }
