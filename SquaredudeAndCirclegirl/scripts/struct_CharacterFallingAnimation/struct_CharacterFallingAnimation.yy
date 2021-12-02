@@ -6,7 +6,7 @@
     "path": "folders/Characters/Animations.yy",
   },
   "resourceVersion": "1.0",
-  "name": "struct_CharacterWalkingAnimation",
+  "name": "struct_CharacterFallingAnimation",
   "tags": [],
   "resourceType": "GMScript",
 }

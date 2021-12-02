@@ -73,4 +73,21 @@ function Character() : WorldObject() constructor {
     return true;
   }
 
+  static onArrive = function(xx, yy, zz) {
+    // We just got somewhere.
+
+    // If we're at Z=0, then we're dead.
+    if (zz == 0) {
+      // TODO Animation
+      obj_World.setAt(xx, yy, zz, undefined);
+    }
+
+    // If there's nothing below us, then fall.
+    var below = obj_World.getAt(xx, yy, zz - 1);
+    if (is_undefined(below)) {
+      setAnimation(new CharacterFallingAnimation(self, xx, yy, zz));
+    }
+
+  }
+
 }

@@ -21,9 +21,8 @@
    them can transition to a different room.
 
    Both characters have the same basic movement set. They can walk in
-   one of four directions on a grid. They can jump over single gaps.
-   They can leap up half-block heights and fall one full block.
-   Falling further results in death.
+   one of four directions on a grid. They can leap up half-block
+   heights and fall one full block. Falling further results in death.
 
    The primary game mechanic is the elemental panels. There are four
    elemental panel types: fire, water, air, and thunder. When a
@@ -121,3 +120,5 @@
 
     Snowy weather freezes any water into ice (this is a temporary
     freeze and will be undone when the snowstorm ends).
+*** SPRING PANEL
+    When leaving this tile, the player automatically jumps one tile.
