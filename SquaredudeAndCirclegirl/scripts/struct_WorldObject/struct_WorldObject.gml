@@ -9,4 +9,8 @@ function WorldObject() constructor {
     // Default implementation is empty.
   }
 
+  static isDoubleHeight = function() {
+    return false;
+  }
+
 }

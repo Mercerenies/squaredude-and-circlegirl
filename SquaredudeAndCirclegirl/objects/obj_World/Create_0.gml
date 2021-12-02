@@ -18,6 +18,20 @@ getAt = function(xx, yy, zz) {
   return world[_coord(xx, yy, zz)];
 }
 
+// Get the thing at the position, or the thing immediately below if
+// the below object is double-height.
+getCovering = function(xx, yy, zz) {
+  var v = getAt(xx, yy, zz);
+  if (!is_undefined(v)) {
+    return v;
+  }
+  v = getAt(xx, yy, zz - 1);
+  if ((!is_undefined(v)) && (v.isDoubleHeight())) {
+    return v;
+  }
+  return undefined;
+}
+
 setAt = function(xx, yy, zz, v) {
   if (World.inBounds(xx, yy, zz)) {
     world[_coord(xx, yy, zz)] = v;

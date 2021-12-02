@@ -62,15 +62,14 @@ function Character() : WorldObject() constructor {
     if (!World.inBounds(dx, dy, dz)) {
       return false;
     }
-    var atDest = obj_World.getAt(dx, dy, dz);
+    var atDest = obj_World.getCovering(dx, dy, dz);
     if (!is_undefined(atDest)) {
       return false;
     }
-    var aboveDest = obj_World.getAt(dx, dy, dz + 1);
+    var aboveDest = obj_World.getCovering(dx, dy, dz + 1);
     if (!is_undefined(aboveDest)) {
       return false;
     }
-    // TODO Double-height things (including the player) at one below?
     return true;
   }
 
@@ -84,12 +83,18 @@ function Character() : WorldObject() constructor {
     }
 
     // If there's nothing below us, then fall.
-    var below = obj_World.getAt(xx, yy, zz - 1);
+    var below = obj_World.getCovering(xx, yy, zz - 1); // TODO Fall damage
     if (is_undefined(below)) {
       setAnimation(new CharacterFallingAnimation(self, xx, yy, zz));
       return;
     }
 
+    // TODO Jump animation if we know we're not going to land on something
+
+  }
+
+  static isDoubleHeight = function() {
+    return true;
   }
 
   // TODO If something (including another character) falls on us, we

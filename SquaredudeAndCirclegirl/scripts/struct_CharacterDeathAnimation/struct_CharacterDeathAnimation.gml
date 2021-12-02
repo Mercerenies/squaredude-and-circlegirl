@@ -5,9 +5,10 @@ function CharacterDeathAnimation(_owner, _sx, _sy, _sz) constructor {
   sy = _sy;
   sz = _sz;
   progress = 0;
+  custom_paint = new _CharacterDeathAnimation_Paint(self);
 
   static step = function() {
-    progress += 0.1;
+    progress += 0.05;
   }
 
   static onStart = function() {
@@ -27,10 +28,46 @@ function CharacterDeathAnimation(_owner, _sx, _sy, _sz) constructor {
     var screen_x = World.toCenterX(sx, sy, sz);
     var screen_y = World.toCenterY(sx, sy, sz);
 
-    draw_set_alpha(1 - progress);
-    owner.getPainter().draw(screen_x, screen_y, owner.getFacingDir());
+    var a = 1 - 2 * max(progress - 0.5, 0);
+    draw_set_alpha(a);
+    owner.getPainter().draw(screen_x, screen_y, owner.getFacingDir(), custom_paint);
     draw_set_alpha(1);
 
+  }
+
+}
+
+function _CharacterDeathAnimation_Paint(_owner) : Paint() constructor {
+  owner = _owner;
+
+  static headX = function(anim_index) {
+    var p = 2 * min(owner.progress, 0.5);
+    return - 10 * p;
+  }
+
+  static headY = function(anim_index) {
+    var p = 2 * min(owner.progress, 0.5);
+    return CHARACTER_HEAD_OFFSET_Y - 16 * p * (1 - p) + 16 * p;
+  }
+
+  static headRot = function(anim_index) {
+    var p = 2 * min(owner.progress, 0.5);
+    return lerp(0, 90, p);
+  }
+
+  static bodyX = function(anim_index) {
+    var p = 2 * min(owner.progress, 0.5);
+    return 10 * p;
+  }
+
+  static bodyY = function(anim_index) {
+    var p = 2 * min(owner.progress, 0.5);
+    return CHARACTER_BODY_OFFSET_Y - 18 * p * (1 - p) + 2 * p;
+  }
+
+  static bodyRot = function(anim_index) {
+    var p = 2 * min(owner.progress, 0.5);
+    return lerp(0, -180, p);
   }
 
 }
