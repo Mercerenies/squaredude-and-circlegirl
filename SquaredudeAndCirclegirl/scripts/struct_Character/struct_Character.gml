@@ -138,6 +138,8 @@ function Character() : WorldObject() constructor {
     // Let the thing below us know we're here
     if (!is_undefined(below)) {
       below.landedOn(self);
+      // The thing might not exist anymore
+      below = obj_World.getCovering(xx, yy, zz - 1);
     }
 
     // If we're at Z=0, then we're dead.
@@ -160,8 +162,6 @@ function Character() : WorldObject() constructor {
     }
 
     falling = 0;
-
-    // TODO Jump animation if we know we're not going to land on something
 
   }
 
