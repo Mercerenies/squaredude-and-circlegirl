@@ -1,9 +1,12 @@
 
-#macro WORLD_WIDTH 25
-#macro WORLD_LENGTH 25
+#macro WORLD_WIDTH 20
+#macro WORLD_LENGTH 14
 #macro WORLD_HEIGHT 5
 
 #macro GRID_SIZE 48
+
+#macro SCREEN_OFFSET_X 203
+#macro SCREEN_OFFSET_Y 96
 
 #macro World global.__module_World
 
@@ -18,11 +21,11 @@ World.inBounds = function(xx, yy, zz) {
 }
 
 World.toScreenX = function(xx, yy, zz) {
-  return xx * GRID_SIZE;
+  return SCREEN_OFFSET_X + xx * GRID_SIZE;
 }
 
 World.toScreenY = function(xx, yy, zz) {
-  return (yy - zz / 2) * GRID_SIZE;
+  return SCREEN_OFFSET_Y + (yy - zz / 2) * GRID_SIZE;
 }
 
 World.toCenterX = function(xx, yy, zz) {
