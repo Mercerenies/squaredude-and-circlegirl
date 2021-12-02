@@ -1,6 +1,8 @@
 
 world = [];
 move_count = 0;
+channel_index = 0;
+channels = [new Circlegirl().characterChannel(), new Squaredude().characterChannel()];
 
 // Fill in reverse order so we only allocate memory once
 for (var i = WORLD_WIDTH * WORLD_LENGTH * WORLD_HEIGHT - 1; i >= 0; i--) {
@@ -42,6 +44,14 @@ move = function(x1, y1, z1, x2, y2, z2) {
   var v = getAt(x1, y1, z1);
   setAt(x1, y1, z1, undefined);
   setAt(x2, y2, z2, v);
+}
+
+getChannel = function() {
+  return channels[channel_index];
+}
+
+cycleChannel = function() {
+  channel_index = (channel_index + 1) % array_length(channels);
 }
 
 // We keep track of the number of objects moving in the game

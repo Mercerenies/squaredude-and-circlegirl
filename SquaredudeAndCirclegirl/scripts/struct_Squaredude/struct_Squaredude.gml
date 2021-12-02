@@ -6,4 +6,8 @@ function Squaredude() : Character() constructor {
     return painter;
   }
 
+  static characterChannel = function() {
+    return "Squaredude.characterChannel";
+  }
+
 }

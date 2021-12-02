@@ -1,20 +1,17 @@
 
-function Paint() constructor {
+function IdlePaint() : Paint() constructor {
 
+/*
   static headX = function(anim_index) {
     return 0;
   }
 
   static headY = function(anim_index) {
-    return CHARACTER_HEAD_OFFSET_Y - 3 * sin(anim_index * 2 * pi / 45 + pi / 3)
+    return CHARACTER_HEAD_OFFSET_Y - 2 * sin(anim_index * 2 * pi / 60 + pi / 3)
   }
 
   static headRot = function(anim_index) {
     return 0;
-  }
-
-  static headColor = function(anim_index) {
-    return c_white;
   }
 
   static bodyX = function(anim_index) {
@@ -22,15 +19,20 @@ function Paint() constructor {
   }
 
   static bodyY = function(anim_index) {
-    return CHARACTER_BODY_OFFSET_Y - 3 * sin(anim_index * 2 * pi / 45);
+    return CHARACTER_BODY_OFFSET_Y - 2 * sin(anim_index * 2 * pi / 60);
   }
 
   static bodyRot = function(anim_index) {
     return 0;
   }
+*/
 
   static bodyColor = function(anim_index) {
-    return c_white;
+    return $999999;
+  }
+
+  static headColor = function(anim_index) {
+    return $999999;
   }
 
 }

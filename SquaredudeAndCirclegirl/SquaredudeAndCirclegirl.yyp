@@ -1,9 +1,11 @@
 {
   "resources": [
+    {"id":{"name":"struct_Circlegirl","path":"scripts/struct_Circlegirl/struct_Circlegirl.yy",},"order":2,},
     {"id":{"name":"struct_CharacterFallingAnimation","path":"scripts/struct_CharacterFallingAnimation/struct_CharacterFallingAnimation.yy",},"order":1,},
     {"id":{"name":"module_Input","path":"scripts/module_Input/module_Input.yy",},"order":1,},
     {"id":{"name":"spr_Squaredude_Body","path":"sprites/spr_Squaredude_Body/spr_Squaredude_Body.yy",},"order":1,},
     {"id":{"name":"spr_World","path":"sprites/spr_World/spr_World.yy",},"order":1,},
+    {"id":{"name":"spr_Circlegirl_Head","path":"sprites/spr_Circlegirl_Head/spr_Circlegirl_Head.yy",},"order":1,},
     {"id":{"name":"spr_SimpleTile","path":"sprites/spr_SimpleTile/spr_SimpleTile.yy",},"order":0,},
     {"id":{"name":"module_World","path":"scripts/module_World/module_World.yy",},"order":2,},
     {"id":{"name":"struct_CharacterHopUpAnimation","path":"scripts/struct_CharacterHopUpAnimation/struct_CharacterHopUpAnimation.yy",},"order":3,},
@@ -14,6 +16,8 @@
     {"id":{"name":"enum_Dir","path":"scripts/enum_Dir/enum_Dir.yy",},"order":0,},
     {"id":{"name":"obj_Squaredude_TestModel","path":"objects/obj_Squaredude_TestModel/obj_Squaredude_TestModel.yy",},"order":0,},
     {"id":{"name":"struct_Character","path":"scripts/struct_Character/struct_Character.yy",},"order":3,},
+    {"id":{"name":"spr_Circlegirl_Body","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"order":0,},
+    {"id":{"name":"struct_IdlePaint","path":"scripts/struct_IdlePaint/struct_IdlePaint.yy",},"order":2,},
     {"id":{"name":"obj_World","path":"objects/obj_World/obj_World.yy",},"order":0,},
     {"id":{"name":"struct_CharacterHopAnimation","path":"scripts/struct_CharacterHopAnimation/struct_CharacterHopAnimation.yy",},"order":4,},
     {"id":{"name":"struct_WorldObject","path":"scripts/struct_WorldObject/struct_WorldObject.yy",},"order":3,},
@@ -49,6 +53,7 @@
     {"folderPath":"folders/World/Tiles.yy","order":4,"resourceVersion":"1.0","name":"Tiles","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Characters/Animations.yy","order":5,"resourceVersion":"1.0","name":"Animations","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Characters/Painting.yy","order":6,"resourceVersion":"1.0","name":"Painting","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Characters/Circlegirl.yy","order":7,"resourceVersion":"1.0","name":"Circlegirl","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

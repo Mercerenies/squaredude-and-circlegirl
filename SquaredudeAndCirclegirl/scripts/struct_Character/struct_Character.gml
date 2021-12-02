@@ -3,11 +3,17 @@ function Character() : WorldObject() constructor {
   facing_dir = Dir.Down;
   active_animation = undefined;
   falling = 0;
+  default_paint = new Paint();
+  idle_paint = new IdlePaint();
 
   static getPainter = function() {
     // Abstract parent method.
     show_debug_message("Character.getPainter not implemented!");
     return new CharacterPainter(spr_Squaredude_Head, spr_Squaredude_Body, 0);
+  }
+
+  static characterChannel = function() {
+    return "Character.characterChannel";
   }
 
   static getFacingDir = function() {
@@ -19,11 +25,15 @@ function Character() : WorldObject() constructor {
     active_animation = anim;
   }
 
+  static isActiveCharacter = function() {
+    return characterChannel() == obj_World.getChannel();
+  }
+
   static step = function(xx, yy, zz) {
     getPainter().step();
 
     var input_dir = Input.dirPressed();
-    if ((input_dir >= 0) && (!obj_World.isMovingSomething())) {
+    if ((input_dir >= 0) && (!obj_World.isMovingSomething()) && (isActiveCharacter())) {
       facing_dir = input_dir;
       tryToMove(xx, yy, zz);
     }
@@ -45,7 +55,11 @@ function Character() : WorldObject() constructor {
     } else {
       var screenx = World.toCenterX(xx, yy, zz);
       var screeny = World.toCenterY(xx, yy, zz);
-      getPainter().draw(screenx, screeny, facing_dir);
+      var paint = default_paint;
+      if (!isActiveCharacter()) {
+        paint = idle_paint;
+      }
+      getPainter().draw(screenx, screeny, facing_dir, paint);
     }
   }
 

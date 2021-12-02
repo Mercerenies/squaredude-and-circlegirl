@@ -9,3 +9,8 @@ for (var yy = 0; yy < WORLD_LENGTH; yy++) {
     }
   }
 }
+
+// Check for shift
+if ((Input.shiftPressed()) && (!isMovingSomething())) {
+  cycleChannel(); // TODO Visual indicator of this
+}

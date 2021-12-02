@@ -8,6 +8,7 @@ for (var xx = 0; xx < WORLD_WIDTH; xx++) {
   }
 }
 setAt(2, 2, 1, new Squaredude());
+setAt(2, 5, 1, new Circlegirl());
 
 setAt(4, 4, 1, new Wall(spr_SimpleTile));
 setAt(4, 4, 2, new Wall(spr_SimpleTile));

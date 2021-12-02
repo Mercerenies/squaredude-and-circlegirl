@@ -13,7 +13,7 @@ function CharacterPainter(_head, _body, _anim_index) constructor {
   }
 
   static draw = function(xorigin, yorigin, dir, paint) {
-    var xx, yy, rot;
+    var xx, yy, rot, color;
 
     if (is_undefined(paint)) {
       paint = new Paint();
@@ -25,13 +25,15 @@ function CharacterPainter(_head, _body, _anim_index) constructor {
     xx = xorigin + paint.bodyX(anim_index);
     yy = yorigin + paint.bodyY(anim_index);
     rot = paint.bodyRot(anim_index);
-    draw_sprite_ext(body, dir, xx, yy, 1, 1, rot, c_white, alpha);
+    color = paint.bodyColor(anim_index);
+    draw_sprite_ext(body, dir, xx, yy, 1, 1, rot, color, alpha);
 
     // Head
     xx = xorigin + paint.headX(anim_index);
     yy = yorigin + paint.headY(anim_index);
     rot = paint.headRot(anim_index);
-    draw_sprite_ext(head, dir, xx, yy, 1, 1, rot, c_white, alpha);
+    color = paint.headColor(anim_index);
+    draw_sprite_ext(head, dir, xx, yy, 1, 1, rot, color, alpha);
 
   }
 

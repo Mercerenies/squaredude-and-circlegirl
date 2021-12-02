@@ -1,7 +1,7 @@
 
 #macro WORLD_WIDTH 20
 #macro WORLD_LENGTH 14
-#macro WORLD_HEIGHT 5
+#macro WORLD_HEIGHT 7
 
 #macro GRID_SIZE 48
 

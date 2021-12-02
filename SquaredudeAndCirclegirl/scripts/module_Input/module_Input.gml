@@ -16,3 +16,11 @@ Input.dirPressed = function() {
     return -1;
   }
 }
+
+Input.spacePressed = function() {
+  return keyboard_check_pressed(vk_space);
+}
+
+Input.shiftPressed = function() {
+  return keyboard_check_pressed(vk_shift);
+}
