@@ -1,6 +1,6 @@
 
-#macro CHARACTER_BODY_OFFSET_Y -4
-#macro CHARACTER_HEAD_OFFSET_Y -28
+#macro CHARACTER_BODY_OFFSET_Y -6
+#macro CHARACTER_HEAD_OFFSET_Y -30
 
 // Pass the two sprites and the animation index.
 function CharacterPainter(_head, _body, _anim_index) constructor {
