@@ -6,6 +6,7 @@
     {"id":{"name":"spr_World","path":"sprites/spr_World/spr_World.yy",},"order":1,},
     {"id":{"name":"spr_SimpleTile","path":"sprites/spr_SimpleTile/spr_SimpleTile.yy",},"order":0,},
     {"id":{"name":"module_World","path":"scripts/module_World/module_World.yy",},"order":2,},
+    {"id":{"name":"struct_CharacterHopUpAnimation","path":"scripts/struct_CharacterHopUpAnimation/struct_CharacterHopUpAnimation.yy",},"order":3,},
     {"id":{"name":"struct_Wall","path":"scripts/struct_Wall/struct_Wall.yy",},"order":1,},
     {"id":{"name":"struct_CharacterPainter","path":"scripts/struct_CharacterPainter/struct_CharacterPainter.yy",},"order":0,},
     {"id":{"name":"obj_Testing","path":"objects/obj_Testing/obj_Testing.yy",},"order":2,},

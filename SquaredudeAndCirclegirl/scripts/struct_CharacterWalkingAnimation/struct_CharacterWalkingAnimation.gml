@@ -1,4 +1,5 @@
 
+// Precondition: sz == dz
 function CharacterWalkingAnimation(_owner, _sx, _sy, _sz, _dx, _dy, _dz) constructor {
   owner = _owner;
   sx = _sx;

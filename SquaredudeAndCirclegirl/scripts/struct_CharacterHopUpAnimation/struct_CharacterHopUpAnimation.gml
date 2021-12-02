@@ -1,16 +1,20 @@
 
-function CharacterFallingAnimation(_owner, _sx, _sy, _sz) constructor {
+// Precondition: dz == sz + 1
+function CharacterHopUpAnimation(_owner, _sx, _sy, _sz, _dx, _dy, _dz) constructor {
   owner = _owner;
   sx = _sx;
   sy = _sy;
   sz = _sz;
+  dx = _dx;
+  dy = _dy;
+  dz = _dz;
   progress = 0;
 
   static step = function() {
     var prev_progress = progress;
-    progress += 0.2;
+    progress += 0.05;
     if ((prev_progress < 0.5) && (progress >= 0.5)) {
-      obj_World.move(sx, sy, sz, sx, sy, sz - 1);
+      obj_World.move(sx, sy, sz, dx, dy, dz);
     }
   }
 
@@ -20,7 +24,7 @@ function CharacterFallingAnimation(_owner, _sx, _sy, _sz) constructor {
 
   static onEnd = function() {
     obj_World.moveCountDown();
-    owner.onArrive(sx, sy, sz - 1);
+    owner.onArrive(dx, dy, dz);
   }
 
   static isDone = function() {
@@ -30,11 +34,14 @@ function CharacterFallingAnimation(_owner, _sx, _sy, _sz) constructor {
   static draw = function() {
     var screen_sx = World.toCenterX(sx, sy, sz);
     var screen_sy = World.toCenterY(sx, sy, sz);
-    var screen_dx = World.toCenterX(sx, sy, sz - 1);
-    var screen_dy = World.toCenterY(sx, sy, sz - 1);
+    var screen_dx = World.toCenterX(dx, dy, sz); // Note: sz
+    var screen_dy = World.toCenterY(dx, dy, sz); // Note: sz
 
     var screen_x = lerp(screen_sx, screen_dx, progress);
     var screen_y = lerp(screen_sy, screen_dy, progress);
+    // Hop anim
+    screen_y -= GRID_SIZE * 4 * progress * (1 - progress) + GRID_SIZE * progress / 2;
+
     owner.getPainter().draw(screen_x, screen_y, owner.getFacingDir());
 
   }
