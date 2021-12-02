@@ -47,8 +47,10 @@ function Character() : WorldObject() constructor {
     var dx = sx + Dir_toX(facing_dir);
     var dy = sy + Dir_toY(facing_dir);
     var dz = sz;
-    active_animation = new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
-    obj_World.moveCountUp();
+    if (World.inBounds(dx, dy, dz)) {
+      active_animation = new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
+      obj_World.moveCountUp();
+    }
   }
 
 }
