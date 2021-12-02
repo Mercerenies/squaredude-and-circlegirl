@@ -70,6 +70,7 @@ function Character() : WorldObject() constructor {
     if (!is_undefined(aboveDest)) {
       return false;
     }
+    // TODO Double-height things (including the player) at one below?
     return true;
   }
 
@@ -90,5 +91,8 @@ function Character() : WorldObject() constructor {
     }
 
   }
+
+  // TODO If something (including another character) falls on us, we
+  // need to make sure we die.
 
 }

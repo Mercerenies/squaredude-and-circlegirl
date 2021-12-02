@@ -12,18 +12,26 @@ function CharacterPainter(_head, _body, _anim_index) constructor {
     anim_index += 1;
   }
 
-  static draw = function(xorigin, yorigin, dir) {
-    var xx, yy;
+  static draw = function(xorigin, yorigin, dir, paint) {
+    var xx, yy, rot;
+
+    if (is_undefined(paint)) {
+      paint = new Paint();
+    }
+
+    var alpha = draw_get_alpha();
 
     // Body
-    xx = xorigin;
-    yy = yorigin + CHARACTER_BODY_OFFSET_Y - 3 * sin(anim_index * 2 * pi / 45);
-    draw_sprite(body, dir, xx, yy);
+    xx = xorigin + paint.bodyX(anim_index);
+    yy = yorigin + paint.bodyY(anim_index);
+    rot = paint.bodyRot(anim_index);
+    draw_sprite_ext(body, dir, xx, yy, 1, 1, rot, c_white, alpha);
 
     // Head
-    xx = xorigin;
-    yy = yorigin + CHARACTER_HEAD_OFFSET_Y - 3 * sin(anim_index * 2 * pi / 45 + pi / 3);
-    draw_sprite(head, dir, xx, yy);
+    xx = xorigin + paint.headX(anim_index);
+    yy = yorigin + paint.headY(anim_index);
+    rot = paint.headRot(anim_index);
+    draw_sprite_ext(head, dir, xx, yy, 1, 1, rot, c_white, alpha);
 
   }
 
