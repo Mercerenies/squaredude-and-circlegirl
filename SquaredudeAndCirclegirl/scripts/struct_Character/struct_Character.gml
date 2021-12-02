@@ -2,6 +2,7 @@
 function Character() : WorldObject() constructor {
   facing_dir = Dir.Down;
   active_animation = undefined;
+  falling = 0;
 
   static getPainter = function() {
     // Abstract parent method.
@@ -115,9 +116,18 @@ function Character() : WorldObject() constructor {
     // If there's nothing below us, then fall.
     var below = obj_World.getCovering(xx, yy, zz - 1); // TODO Fall damage
     if (is_undefined(below)) {
+      falling += 1;
       setAnimation(new CharacterFallingAnimation(self, xx, yy, zz));
       return;
     }
+
+    // If we've fallen too far, then we're dead.
+    if (falling > 2) {
+      setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
+      return;
+    }
+
+    falling = 0;
 
     // TODO Jump animation if we know we're not going to land on something
 
