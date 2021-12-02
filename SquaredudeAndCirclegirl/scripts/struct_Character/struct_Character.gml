@@ -121,6 +121,13 @@ function Character() : WorldObject() constructor {
   static onArrive = function(xx, yy, zz) {
     // We just got somewhere.
 
+    var below = obj_World.getCovering(xx, yy, zz - 1);
+
+    // Let the thing below us know we're here
+    if (!is_undefined(below)) {
+      below.landedOn(xx, yy, zz - 1, self);
+    }
+
     // If we're at Z=0, then we're dead.
     if (zz == 0) {
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
@@ -128,7 +135,6 @@ function Character() : WorldObject() constructor {
     }
 
     // If there's nothing below us, then fall.
-    var below = obj_World.getCovering(xx, yy, zz - 1); // TODO Fall damage
     if (is_undefined(below)) {
       falling += 1;
       setAnimation(new CharacterFallingAnimation(self, xx, yy, zz));
@@ -149,6 +155,11 @@ function Character() : WorldObject() constructor {
 
   static isDoubleHeight = function() {
     return true;
+  }
+
+  static landedOn = function(xx, yy, zz, top) {
+    // Oh no, we are crushed :(
+    //setAnimation(new CharacterDeathAnimation(self, xx, yy, zz)); //// Doesn't work yet
   }
 
   // TODO If something (including another character) falls on us, we

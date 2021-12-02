@@ -13,4 +13,9 @@ function WorldObject() constructor {
     return false;
   }
 
+  // Called when something lands on top of this object.
+  static landedOn = function(xx, yy, zz, top) {
+    // Default implementation is empty.
+  }
+
 }
