@@ -17,6 +17,7 @@
     {"id":{"name":"struct_WorldObject","path":"scripts/struct_WorldObject/struct_WorldObject.yy",},"order":3,},
     {"id":{"name":"spr_Squaredude_Head","path":"sprites/spr_Squaredude_Head/spr_Squaredude_Head.yy",},"order":0,},
     {"id":{"name":"struct_CharacterWalkingAnimation","path":"scripts/struct_CharacterWalkingAnimation/struct_CharacterWalkingAnimation.yy",},"order":0,},
+    {"id":{"name":"struct_CharacterDeathAnimation","path":"scripts/struct_CharacterDeathAnimation/struct_CharacterDeathAnimation.yy",},"order":2,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":1,},
   ],
   "Options": [
