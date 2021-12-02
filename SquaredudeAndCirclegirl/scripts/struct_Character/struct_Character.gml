@@ -155,6 +155,12 @@ function Character() : WorldObject() constructor {
       return;
     }
 
+    // If we're standing on spikes, then die.
+    if (below.isSharp()) {
+      setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
+      return;
+    }
+
     // If we've fallen too far, then we're dead.
     if (falling > 2) {
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));

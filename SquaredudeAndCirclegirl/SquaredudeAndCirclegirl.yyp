@@ -6,6 +6,7 @@
     {"id":{"name":"spr_Squaredude_Body","path":"sprites/spr_Squaredude_Body/spr_Squaredude_Body.yy",},"order":1,},
     {"id":{"name":"spr_World","path":"sprites/spr_World/spr_World.yy",},"order":1,},
     {"id":{"name":"spr_Circlegirl_Head","path":"sprites/spr_Circlegirl_Head/spr_Circlegirl_Head.yy",},"order":1,},
+    {"id":{"name":"struct_Spikes","path":"scripts/struct_Spikes/struct_Spikes.yy",},"order":3,},
     {"id":{"name":"spr_SimpleTile","path":"sprites/spr_SimpleTile/spr_SimpleTile.yy",},"order":0,},
     {"id":{"name":"module_World","path":"scripts/module_World/module_World.yy",},"order":2,},
     {"id":{"name":"struct_CharacterHopUpAnimation","path":"scripts/struct_CharacterHopUpAnimation/struct_CharacterHopUpAnimation.yy",},"order":3,},
@@ -25,6 +26,7 @@
     {"id":{"name":"struct_CharacterWalkingAnimation","path":"scripts/struct_CharacterWalkingAnimation/struct_CharacterWalkingAnimation.yy",},"order":0,},
     {"id":{"name":"struct_Paint","path":"scripts/struct_Paint/struct_Paint.yy",},"order":1,},
     {"id":{"name":"struct_CharacterDeathAnimation","path":"scripts/struct_CharacterDeathAnimation/struct_CharacterDeathAnimation.yy",},"order":2,},
+    {"id":{"name":"spr_Spikes","path":"sprites/spr_Spikes/spr_Spikes.yy",},"order":2,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":1,},
   ],
   "Options": [

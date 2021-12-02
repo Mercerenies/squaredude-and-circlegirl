@@ -39,4 +39,8 @@ function WorldObject() constructor {
     // Default implementation is empty.
   }
 
+  static isSharp = function() {
+    return false;
+  }
+
 }
