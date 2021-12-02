@@ -7,6 +7,7 @@ function CharacterPainter(_head, _body, _anim_index) constructor {
   head = _head;
   body = _body;
   anim_index = _anim_index;
+  default_paint = new Paint();
 
   static step = function() {
     anim_index += 1;
@@ -16,7 +17,7 @@ function CharacterPainter(_head, _body, _anim_index) constructor {
     var xx, yy, rot, color;
 
     if (is_undefined(paint)) {
-      paint = new Paint();
+      paint = default_paint;
     }
 
     var alpha = draw_get_alpha();

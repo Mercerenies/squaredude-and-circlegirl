@@ -13,11 +13,15 @@ function CharacterDeathAnimation(_owner, _sx, _sy, _sz) constructor {
 
   static onStart = function() {
     obj_World.moveCountUp();
+    obj_World.setAt(sx, sy, sz, undefined);
+    obj_World.setVisualsAt(sx, sy, sz, owner);
   }
 
   static onEnd = function() {
     obj_World.moveCountDown();
-    obj_World.setAt(sx, sy, sz, undefined);
+    if (obj_World.getVisualsAt(sx, sy, sz) == owner) {
+      obj_World.setVisualsAt(sx, sy, sz, undefined);
+    }
   }
 
   static isDone = function() {

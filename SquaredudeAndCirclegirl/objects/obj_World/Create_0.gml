@@ -1,5 +1,11 @@
 
 world = [];
+
+// This array never shrinks and only grows. When things are "removed",
+// they're replaced with undefined and reused as slots later. This is
+// so we're not constantly reallocating array space.
+visuals = [];
+
 move_count = 0;
 channel_index = 0;
 channels = [new Circlegirl().characterChannel(), new Squaredude().characterChannel()];
@@ -7,10 +13,11 @@ channels = [new Circlegirl().characterChannel(), new Squaredude().characterChann
 // Fill in reverse order so we only allocate memory once
 for (var i = WORLD_WIDTH * WORLD_LENGTH * WORLD_HEIGHT - 1; i >= 0; i--) {
   world[i] = undefined;
+  visuals[i] = undefined;
 }
 
 _coord = function(xx, yy, zz) {
-  return (xx * WORLD_LENGTH + yy) * WORLD_HEIGHT + zz;
+  return (yy * WORLD_HEIGHT + zz) * WORLD_WIDTH + xx;
 }
 
 getAt = function(xx, yy, zz) {
@@ -44,6 +51,20 @@ setAt = function(xx, yy, zz, v) {
       v.setPosition(xx, yy, zz);
     }
     world[_coord(xx, yy, zz)] = v;
+  }
+}
+
+// Might include some undefined padding, make sure to check for that.
+getVisualsAt = function(xx, yy, zz) {
+  if (!World.inBounds(xx, yy, zz)) {
+    return undefined;
+  }
+  return visuals[_coord(xx, yy, zz)];
+}
+
+setVisualsAt = function(xx, yy, zz, v) {
+  if (World.inBounds(xx, yy, zz)) {
+    visuals[_coord(xx, yy, zz)] = v;
   }
 }
 
