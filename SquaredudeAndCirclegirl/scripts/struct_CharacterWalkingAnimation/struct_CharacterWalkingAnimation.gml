@@ -17,6 +17,14 @@ function CharacterWalkingAnimation(_owner, _sx, _sy, _sz, _dx, _dy, _dz) constru
     }
   }
 
+  static onStart = function() {
+    obj_World.moveCountUp();
+  }
+
+  static onEnd = function() {
+    obj_World.moveCountDown();
+  }
+
   static isDone = function() {
     return progress >= 1;
   }

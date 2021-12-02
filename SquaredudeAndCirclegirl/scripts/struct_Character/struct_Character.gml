@@ -13,6 +13,11 @@ function Character() : WorldObject() constructor {
     return facing_dir;
   }
 
+  static setAnimation = function(anim) {
+    anim.onStart();
+    active_animation = anim;
+  }
+
   static step = function(xx, yy, zz) {
     getPainter().step();
 
@@ -25,8 +30,9 @@ function Character() : WorldObject() constructor {
     if (!is_undefined(active_animation)) {
       active_animation.step();
       if (active_animation.isDone()) {
+        var tmp = active_animation;
         active_animation = undefined;
-        obj_World.moveCountDown();
+        tmp.onEnd();
       }
     }
 
@@ -48,8 +54,7 @@ function Character() : WorldObject() constructor {
     var dy = sy + Dir_toY(facing_dir);
     var dz = sz;
     if (canWalkTo(sx, sy, sz, dx, dy, dz)) {
-      active_animation = new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
-      obj_World.moveCountUp();
+      setAnimation(new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz));
     }
   }
 
