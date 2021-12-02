@@ -6,3 +6,11 @@ for (var xx = 0; xx < WORLD_WIDTH; xx++) {
   }
 }
 setAt(2, 2, 1, new Squaredude());
+
+setAt(4, 4, 1, new Wall(spr_SimpleTile));
+setAt(4, 4, 2, new Wall(spr_SimpleTile));
+
+
+setAt(8, 4, 1, new Wall(spr_SimpleTile));
+setAt(8, 4, 2, new Wall(spr_SimpleTile));
+setAt(9, 4, 1, new Wall(spr_SimpleTile));

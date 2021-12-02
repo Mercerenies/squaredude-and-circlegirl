@@ -47,10 +47,25 @@ function Character() : WorldObject() constructor {
     var dx = sx + Dir_toX(facing_dir);
     var dy = sy + Dir_toY(facing_dir);
     var dz = sz;
-    if (World.inBounds(dx, dy, dz)) {
+    if (canWalkTo(sx, sy, sz, dx, dy, dz)) {
       active_animation = new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
       obj_World.moveCountUp();
     }
+  }
+
+  static canWalkTo = function(sx, sy, sz, dx, dy, dz) {
+    if (!World.inBounds(dx, dy, dz)) {
+      return false;
+    }
+    var atDest = obj_World.getAt(dx, dy, dz);
+    if (!is_undefined(atDest)) {
+      return false;
+    }
+    var aboveDest = obj_World.getAt(dx, dy, dz + 1);
+    if (!is_undefined(aboveDest)) {
+      return false;
+    }
+    return true;
   }
 
 }

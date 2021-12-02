@@ -12,11 +12,16 @@ _coord = function(xx, yy, zz) {
 }
 
 getAt = function(xx, yy, zz) {
+  if (!World.inBounds(xx, yy, zz)) {
+    return undefined;
+  }
   return world[_coord(xx, yy, zz)];
 }
 
 setAt = function(xx, yy, zz, v) {
-  world[_coord(xx, yy, zz)] = v;
+  if (World.inBounds(xx, yy, zz)) {
+    world[_coord(xx, yy, zz)] = v;
+  }
 }
 
 move = function(x1, y1, z1, x2, y2, z2) {
