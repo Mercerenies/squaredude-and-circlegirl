@@ -1,7 +1,28 @@
 
 function WorldObject() constructor {
+  xpos = -1;
+  ypos = -1;
+  zpos = -1;
 
-  static step = function(xx, yy, zz) {
+  static setPosition = function(xx, yy, zz) {
+    xpos = xx;
+    ypos = yy;
+    zpos = zz;
+  }
+
+  static getX = function() {
+    return xpos;
+  }
+
+  static getY = function() {
+    return ypos;
+  }
+
+  static getZ = function() {
+    return zpos;
+  }
+
+  static step = function() {
     // Default implementation is empty.
   }
 
@@ -14,7 +35,7 @@ function WorldObject() constructor {
   }
 
   // Called when something lands on top of this object.
-  static landedOn = function(xx, yy, zz, top) {
+  static landedOn = function(top) {
     // Default implementation is empty.
   }
 

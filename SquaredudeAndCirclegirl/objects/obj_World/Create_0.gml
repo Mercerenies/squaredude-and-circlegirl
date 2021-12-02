@@ -36,6 +36,13 @@ getCovering = function(xx, yy, zz) {
 
 setAt = function(xx, yy, zz, v) {
   if (World.inBounds(xx, yy, zz)) {
+    var prev_v = world[_coord(xx, yy, zz)];
+    if (!is_undefined(prev_v)) {
+      prev_v.setPosition(-1, -1, -1);
+    }
+    if (!is_undefined(v)) {
+      v.setPosition(xx, yy, zz);
+    }
     world[_coord(xx, yy, zz)] = v;
   }
 }

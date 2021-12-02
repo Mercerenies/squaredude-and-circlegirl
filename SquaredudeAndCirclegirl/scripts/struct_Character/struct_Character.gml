@@ -29,13 +29,14 @@ function Character() : WorldObject() constructor {
     return characterChannel() == obj_World.getChannel();
   }
 
-  static step = function(xx, yy, zz) {
+  static step = function() {
+
     getPainter().step();
 
     var input_dir = Input.dirPressed();
     if ((input_dir >= 0) && (!obj_World.isMovingSomething()) && (isActiveCharacter())) {
       facing_dir = input_dir;
-      tryToMove(xx, yy, zz);
+      tryToMove();
     }
 
     if (!is_undefined(active_animation)) {
@@ -49,7 +50,11 @@ function Character() : WorldObject() constructor {
 
   }
 
-  static draw = function(xx, yy, zz) {
+  static draw = function() {
+    var xx = getX();
+    var yy = getY();
+    var zz = getZ();
+
     if (!is_undefined(active_animation)) {
       active_animation.draw();
     } else {
@@ -64,7 +69,11 @@ function Character() : WorldObject() constructor {
   }
 
   // Tries to move in the current facing_dir.
-  static tryToMove = function(sx, sy, sz) {
+  static tryToMove = function() {
+    var sx = getX();
+    var sy = getY();
+    var sz = getZ();
+
     var dx = sx + Dir_toX(facing_dir);
     var dy = sy + Dir_toY(facing_dir);
     var dz = sz;
@@ -118,14 +127,17 @@ function Character() : WorldObject() constructor {
     return true;
   }
 
-  static onArrive = function(xx, yy, zz) {
+  static onArrive = function() {
     // We just got somewhere.
+    var xx = getX();
+    var yy = getY();
+    var zz = getZ();
 
     var below = obj_World.getCovering(xx, yy, zz - 1);
 
     // Let the thing below us know we're here
     if (!is_undefined(below)) {
-      below.landedOn(xx, yy, zz - 1, self);
+      below.landedOn(self);
     }
 
     // If we're at Z=0, then we're dead.
@@ -157,9 +169,9 @@ function Character() : WorldObject() constructor {
     return true;
   }
 
-  static landedOn = function(xx, yy, zz, top) {
+  static landedOn = function(top) {
     // Oh no, we are crushed :(
-    //setAnimation(new CharacterDeathAnimation(self, xx, yy, zz)); //// Doesn't work yet
+    setAnimation(new CharacterDeathAnimation(self, getX(), getY(), getZ()));
   }
 
   // TODO If something (including another character) falls on us, we
