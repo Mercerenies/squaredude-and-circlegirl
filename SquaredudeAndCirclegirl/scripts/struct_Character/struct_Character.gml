@@ -55,7 +55,14 @@ function Character() : WorldObject() constructor {
     var dz = sz;
 
     if (canWalkTo(sx, sy, sz, dx, dy, dz)) {
-      setAnimation(new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz));
+      var anim;
+      if (is_undefined(obj_World.getCovering(dx, dy, dz - 1))) {
+        // Hop if there's nothing below us.
+        anim = new CharacterHopAnimation(self, sx, sy, sz, dx, dy, dz);
+      } else {
+        anim = new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
+      }
+      setAnimation(anim);
       return;
     }
 

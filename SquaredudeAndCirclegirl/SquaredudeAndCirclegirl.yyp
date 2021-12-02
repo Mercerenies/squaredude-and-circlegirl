@@ -15,6 +15,7 @@
     {"id":{"name":"obj_Squaredude_TestModel","path":"objects/obj_Squaredude_TestModel/obj_Squaredude_TestModel.yy",},"order":0,},
     {"id":{"name":"struct_Character","path":"scripts/struct_Character/struct_Character.yy",},"order":3,},
     {"id":{"name":"obj_World","path":"objects/obj_World/obj_World.yy",},"order":0,},
+    {"id":{"name":"struct_CharacterHopAnimation","path":"scripts/struct_CharacterHopAnimation/struct_CharacterHopAnimation.yy",},"order":4,},
     {"id":{"name":"struct_WorldObject","path":"scripts/struct_WorldObject/struct_WorldObject.yy",},"order":3,},
     {"id":{"name":"spr_Squaredude_Head","path":"sprites/spr_Squaredude_Head/spr_Squaredude_Head.yy",},"order":0,},
     {"id":{"name":"struct_CharacterWalkingAnimation","path":"scripts/struct_CharacterWalkingAnimation/struct_CharacterWalkingAnimation.yy",},"order":0,},
