@@ -24,3 +24,11 @@ Input.spacePressed = function() {
 Input.shiftPressed = function() {
   return keyboard_check_pressed(vk_shift);
 }
+
+Input.escPressed = function() {
+  return keyboard_check(vk_escape);
+}
+
+Input.backspacePressed = function() {
+  return keyboard_check_pressed(vk_backspace);
+}

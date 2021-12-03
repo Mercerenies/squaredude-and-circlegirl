@@ -19,3 +19,4 @@ for (var idx = 0; idx < WORLD_HEIGHT * WORLD_LENGTH * WORLD_WIDTH; idx++) {
 if ((Input.shiftPressed()) && (!isMovingSomething())) {
   cycleChannel(); // TODO Visual indicator of this
 }
+
