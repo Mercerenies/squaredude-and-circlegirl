@@ -83,6 +83,13 @@ function Character() : WorldObject() constructor {
     var dy = sy + Dir_toY(facing_dir);
     var dz = sz;
 
+    if (canHopTo(sx, sy, sz, dx, dy, dz + 1)) {
+      ctrl_UndoManager.pushStack(UndoCut);
+      ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), prev_dir));
+      setAnimation(new CharacterHopUpAnimation(self, sx, sy, sz, dx, dy, dz + 1));
+      return true;
+    }
+
     if (canWalkTo(sx, sy, sz, dx, dy, dz)) {
       ctrl_UndoManager.pushStack(UndoCut);
       ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), prev_dir));
@@ -100,13 +107,6 @@ function Character() : WorldObject() constructor {
         anim = new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
       }
       setAnimation(anim);
-      return true;
-    }
-
-    if (canHopTo(sx, sy, sz, dx, dy, dz + 1)) {
-      ctrl_UndoManager.pushStack(UndoCut);
-      ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), prev_dir));
-      setAnimation(new CharacterHopUpAnimation(self, sx, sy, sz, dx, dy, dz + 1));
       return true;
     }
 
@@ -140,6 +140,10 @@ function Character() : WorldObject() constructor {
 
   static canHopTo = function(sx, sy, sz, dx, dy, dz) {
     if (!World.inBounds(dx, dy, dz)) {
+      return false;
+    }
+    var belowDest = obj_World.getCovering(dx, dy, dz - 1);
+    if (is_undefined(belowDest)) {
       return false;
     }
     var atDest = obj_World.getCovering(dx, dy, dz);
