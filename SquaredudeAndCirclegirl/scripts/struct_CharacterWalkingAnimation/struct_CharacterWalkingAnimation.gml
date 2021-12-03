@@ -25,7 +25,7 @@ function CharacterWalkingAnimation(_owner, _sx, _sy, _sz, _dx, _dy, _dz) constru
 
   static onEnd = function() {
     obj_World.moveCountDown();
-    owner.onArrive(dx, dy, dz);
+    owner.onArrive();
   }
 
   static isDone = function() {

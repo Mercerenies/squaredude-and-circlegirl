@@ -73,7 +73,7 @@ function Character() : WorldObject() constructor {
     }
   }
 
-  // Tries to move in the current facing_dir.
+  // Tries to move in the current facing_dir. Returns whether successful.
   static tryToMove = function(prev_dir) {
     var sx = getX();
     var sy = getY();
@@ -86,6 +86,12 @@ function Character() : WorldObject() constructor {
     if (canWalkTo(sx, sy, sz, dx, dy, dz)) {
       ctrl_UndoManager.pushStack(UndoCut);
       ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), prev_dir));
+      var atDest = obj_World.getCovering(dx, dy, dz);
+      if (!is_undefined(atDest)) {
+        // In this case, we already determined (in canWalkTo) that we
+        // can push it, so do it.
+        atDest.tryToMove(facing_dir);
+      }
       var anim;
       if (is_undefined(obj_World.getCovering(dx, dy, dz - 1))) {
         // Hop if there's nothing below us.
@@ -94,16 +100,17 @@ function Character() : WorldObject() constructor {
         anim = new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
       }
       setAnimation(anim);
-      return;
+      return true;
     }
 
     if (canHopTo(sx, sy, sz, dx, dy, dz + 1)) {
       ctrl_UndoManager.pushStack(UndoCut);
       ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), prev_dir));
       setAnimation(new CharacterHopUpAnimation(self, sx, sy, sz, dx, dy, dz + 1));
-      return;
+      return true;
     }
 
+    return false;
   }
 
   static canWalkTo = function(sx, sy, sz, dx, dy, dz) {
@@ -112,6 +119,16 @@ function Character() : WorldObject() constructor {
     }
     var atDest = obj_World.getCovering(dx, dy, dz);
     if (!is_undefined(atDest)) {
+      // See if we can push the thing
+      if (atDest.canBePushed()) {
+        // Go one further in that direction
+        var objx = atDest.getX();
+        var objy = atDest.getY();
+        var objz = atDest.getZ();
+        if (atDest.canMoveTo(objx, objy, objz, objx + (dx - sx), objy + (dy - sy), objz + (dz - sz))) {
+          return true;
+        }
+      }
       return false;
     }
     var aboveDest = obj_World.getCovering(dx, dy, dz + 1);
@@ -189,8 +206,5 @@ function Character() : WorldObject() constructor {
     // Oh no, we are crushed :(
     setAnimation(new CharacterDeathAnimation(self, getX(), getY(), getZ()));
   }
-
-  // TODO If something (including another character) falls on us, we
-  // need to make sure we die.
 
 }
