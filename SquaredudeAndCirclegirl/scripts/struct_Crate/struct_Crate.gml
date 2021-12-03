@@ -103,6 +103,12 @@ function Crate(_sprite) : WorldObject() constructor {
       below = obj_World.getCovering(xx, yy, zz - 1);
     }
 
+    // If we're at Z=0, then we're dead.
+    if (zz == 0) {
+      setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
+      return;
+    }
+
     // If there's nothing below us, then fall.
     if (is_undefined(below)) {
       setAnimation(new CharacterFallingAnimation(self, xx, yy, zz));

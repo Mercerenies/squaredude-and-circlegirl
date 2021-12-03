@@ -68,12 +68,13 @@ function CharacterWalkingAnimation(_owner, _sx, _sy, _sz, _dx, _dy, _dz) constru
 
   static onEnd = function() {
     obj_World.moveCountDown();
-    owner.onArrive();
 
     // Move at the end if going up
     if (move_dir == Dir.Up) {
       _performMoveAction();
     }
+
+    owner.onArrive();
   }
 
   static isDone = function() {
