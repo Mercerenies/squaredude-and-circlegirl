@@ -12,6 +12,8 @@ setAt(2, 5, 1, new Circlegirl());
 
 setAt(9, 1, 0, new Spikes());
 
+setAt(8, 5, 1, new Crate(spr_WoodenCrate));
+
 setAt(4, 4, 1, new Wall(spr_SimpleTile));
 setAt(4, 4, 2, new Wall(spr_SimpleTile));
 
