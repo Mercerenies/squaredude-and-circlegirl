@@ -43,7 +43,7 @@ function CharacterHopAnimation(_owner, _sx, _sy, _sz, _dx, _dy, _dz) constructor
     // Hop anim
     screen_y -= GRID_SIZE * 4 * progress * (1 - progress);
 
-    owner.getPainter().draw(screen_x, screen_y, owner.getFacingDir());
+    owner.getPainter().draw(screen_x, screen_y, owner.getFacingDir(), owner.getActiveElement());
 
   }
 

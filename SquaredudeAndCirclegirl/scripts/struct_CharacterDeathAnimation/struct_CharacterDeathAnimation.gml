@@ -40,7 +40,7 @@ function CharacterDeathAnimation(_owner, _sx, _sy, _sz) constructor {
 
     var a = 1 - 2 * max(progress - 0.5, 0);
     draw_set_alpha(a);
-    owner.getPainter().draw(screen_x, screen_y, owner.getFacingDir(), custom_paint);
+    owner.getPainter().draw(screen_x, screen_y, owner.getFacingDir(), owner.getActiveElement(), custom_paint);
     draw_set_alpha(1);
 
   }

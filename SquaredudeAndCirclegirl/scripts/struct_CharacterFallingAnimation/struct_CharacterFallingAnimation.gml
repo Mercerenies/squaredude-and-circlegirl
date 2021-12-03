@@ -35,7 +35,7 @@ function CharacterFallingAnimation(_owner, _sx, _sy, _sz) constructor {
 
     var screen_x = lerp(screen_sx, screen_dx, progress);
     var screen_y = lerp(screen_sy, screen_dy, progress);
-    owner.getPainter().draw(screen_x, screen_y, owner.getFacingDir());
+    owner.getPainter().draw(screen_x, screen_y, owner.getFacingDir(), owner.getActiveElement());
 
   }
 

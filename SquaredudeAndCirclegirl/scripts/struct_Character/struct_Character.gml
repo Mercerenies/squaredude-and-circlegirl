@@ -5,6 +5,7 @@ function Character() : WorldObject() constructor {
   falling = 0;
   default_paint = new Paint();
   idle_paint = new IdlePaint();
+  element = Element.None;
 
   static getPainter = function() {
     // Abstract parent method.
@@ -14,6 +15,14 @@ function Character() : WorldObject() constructor {
 
   static characterChannel = function() {
     return "Character.characterChannel";
+  }
+
+  static getActiveElement = function() {
+    return element;
+  }
+
+  static setActiveElement = function(e) {
+    element = e;
   }
 
   static getFacingDir = function() {
@@ -69,7 +78,7 @@ function Character() : WorldObject() constructor {
       if (!isActiveCharacter()) {
         paint = idle_paint;
       }
-      getPainter().draw(screenx, screeny, facing_dir, paint);
+      getPainter().draw(screenx, screeny, facing_dir, element, paint);
     }
   }
 
@@ -191,6 +200,21 @@ function Character() : WorldObject() constructor {
       return;
     }
 
+    // If we're standing on an element panel, transform.
+    var belowElt = below.elementPanelOn();
+    if ((!is_undefined(belowElt)) && (element != belowElt)) {
+      // TODO Animation
+      setAnimation(new CharacterTransformAnimation(self, belowElt, method(self, self._onArrive_postContinuation)));
+    } else {
+      _onArrive_postContinuation();
+    }
+  }
+
+  static _onArrive_postContinuation = function() {
+    var xx = getX();
+    var yy = getY();
+    var zz = getZ();
+
     // If we've fallen too far, then we're dead.
     if (falling > 2) {
       falling = 0;
@@ -199,7 +223,6 @@ function Character() : WorldObject() constructor {
     }
 
     falling = 0;
-
   }
 
   static isDoubleHeight = function() {

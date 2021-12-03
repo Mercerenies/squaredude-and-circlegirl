@@ -36,6 +36,18 @@
     {"compositeImage":{"FrameId":{"name":"80b926df-49cb-41a2-b9a7-bd43e00b16b4","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"80b926df-49cb-41a2-b9a7-bd43e00b16b4","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"LayerId":{"name":"e35d8c28-1c83-400a-a20d-33daf071dc67","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_Circlegirl_Body","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","name":"80b926df-49cb-41a2-b9a7-bd43e00b16b4","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"c16cdc18-0783-47d2-bf97-0aa369bc3215","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"c16cdc18-0783-47d2-bf97-0aa369bc3215","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"LayerId":{"name":"e35d8c28-1c83-400a-a20d-33daf071dc67","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_Circlegirl_Body","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","name":"c16cdc18-0783-47d2-bf97-0aa369bc3215","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"49d2fa8b-ba9d-45b5-9719-59984d150ea4","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"49d2fa8b-ba9d-45b5-9719-59984d150ea4","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"LayerId":{"name":"e35d8c28-1c83-400a-a20d-33daf071dc67","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_Circlegirl_Body","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","name":"49d2fa8b-ba9d-45b5-9719-59984d150ea4","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"43d9b19a-e393-4626-a485-2c9a038a7b10","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"43d9b19a-e393-4626-a485-2c9a038a7b10","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"LayerId":{"name":"e35d8c28-1c83-400a-a20d-33daf071dc67","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_Circlegirl_Body","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","name":"43d9b19a-e393-4626-a485-2c9a038a7b10","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"95a1a771-f7cd-457d-83ec-63fe7c54c231","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"95a1a771-f7cd-457d-83ec-63fe7c54c231","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"LayerId":{"name":"e35d8c28-1c83-400a-a20d-33daf071dc67","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_Circlegirl_Body","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","name":"95a1a771-f7cd-457d-83ec-63fe7c54c231","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_Circlegirl_Body","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},
@@ -45,7 +57,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 4.0,
+    "length": 8.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -54,6 +66,10 @@
             {"id":"b297b4a0-3d85-4f20-b4e0-e1bf401ff54c","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"52e89f0d-e36e-4e4a-9fef-88d0dc2256a3","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"89ff8600-17ca-4efa-86e3-118dc89f5411","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"610c9491-de9a-4425-9b11-1026f4847506","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"c9ba2d37-ae73-46f8-ae56-e0b8b4a6337d","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"80b926df-49cb-41a2-b9a7-bd43e00b16b4","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"28aab17e-07f5-4833-8c2d-cc52f6eab832","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c16cdc18-0783-47d2-bf97-0aa369bc3215","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"db86adce-3083-4cde-af0e-b2b8e4c28279","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"49d2fa8b-ba9d-45b5-9719-59984d150ea4","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"38b07e69-a326-4e28-9e5d-8d86ed2f7202","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"43d9b19a-e393-4626-a485-2c9a038a7b10","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3e6b0e8c-ca9d-4f48-b3ab-ea9dd34de3fe","Key":7.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"95a1a771-f7cd-457d-83ec-63fe7c54c231","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,

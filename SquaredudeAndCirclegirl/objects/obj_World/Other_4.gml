@@ -19,6 +19,7 @@ setAt(6, 7, 0, new Wall(spr_SimpleTile, Element.None));
 setAt(9, 1, 0, new Spikes());
 
 setAt(8, 5, 1, new Crate(spr_WoodenCrate));
+setAt(8, 4, 3, new Crate(spr_WoodenCrate));
 
 setAt(4, 4, 1, new Wall(spr_SimpleTile));
 setAt(4, 4, 2, new Wall(spr_SimpleTile));
@@ -29,3 +30,10 @@ setAt(7, 4, 3, new Wall(spr_SimpleTile));
 setAt(8, 4, 1, new Wall(spr_SimpleTile));
 setAt(8, 4, 2, new Wall(spr_SimpleTile));
 setAt(9, 4, 1, new Wall(spr_SimpleTile));
+
+setAt(7, 3, 1, new Wall(spr_SimpleTile));
+setAt(7, 3, 2, new Wall(spr_SimpleTile));
+setAt(7, 3, 3, new Wall(spr_SimpleTile));
+setAt(8, 3, 1, new Wall(spr_SimpleTile));
+setAt(8, 3, 2, new Wall(spr_SimpleTile));
+setAt(9, 3, 1, new Wall(spr_SimpleTile));

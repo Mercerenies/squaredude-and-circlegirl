@@ -9,6 +9,10 @@ function Crate(_sprite) : WorldObject() constructor {
     return Dir.Down; // Unused but the painter needs it to exist.
   }
 
+  static getActiveElement = function() {
+    return Element.None; // Unused but the painter needs it to exist.
+  }
+
   static getPainter = function() {
     return painter;
   }
@@ -72,10 +76,12 @@ function Crate(_sprite) : WorldObject() constructor {
   }
 
   static canMoveTo = function(sx, sy, sz, dx, dy, dz) {
-    // TODO Make sure there's nothing above us (too heavy in that
-    // case)
     if (!World.inBounds(dx, dy, dz)) {
       return false;
+    }
+    var aboveMe = obj_World.getCovering(sx, sy, sz + 2);
+    if (!is_undefined(aboveMe)) {
+      return false; // Too heavy; there's something on top of us
     }
     var atDest = obj_World.getCovering(dx, dy, dz);
     if (!is_undefined(atDest)) {
@@ -126,7 +132,7 @@ function Crate(_sprite) : WorldObject() constructor {
 function _Crate_Painter(_crate) constructor {
   crate = _crate;
 
-  static draw = function(screenx, screeny, dir) {
+  static draw = function(screenx, screeny, dir, elt) {
     draw_sprite(crate.sprite, 0, screenx, screeny);
   }
 
