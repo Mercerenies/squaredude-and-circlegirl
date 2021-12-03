@@ -20,6 +20,8 @@
     {"id":{"name":"struct_SetActivePlayerEvent","path":"scripts/struct_SetActivePlayerEvent/struct_SetActivePlayerEvent.yy",},"order":5,},
     {"id":{"name":"enum_Dir","path":"scripts/enum_Dir/enum_Dir.yy",},"order":0,},
     {"id":{"name":"ctrl_UndoManager","path":"objects/ctrl_UndoManager/ctrl_UndoManager.yy",},"order":0,},
+    {"id":{"name":"spr_ElementPanel","path":"sprites/spr_ElementPanel/spr_ElementPanel.yy",},"order":1,},
+    {"id":{"name":"enum_Element","path":"scripts/enum_Element/enum_Element.yy",},"order":0,},
     {"id":{"name":"obj_Squaredude_TestModel","path":"objects/obj_Squaredude_TestModel/obj_Squaredude_TestModel.yy",},"order":0,},
     {"id":{"name":"struct_Character","path":"scripts/struct_Character/struct_Character.yy",},"order":3,},
     {"id":{"name":"spr_Circlegirl_Body","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"order":0,},
@@ -66,6 +68,7 @@
     {"folderPath":"folders/Characters/Circlegirl.yy","order":7,"resourceVersion":"1.0","name":"Circlegirl","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Undo.yy","order":7,"resourceVersion":"1.0","name":"Undo","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/World/Boxes.yy","order":5,"resourceVersion":"1.0","name":"Boxes","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Elements.yy","order":8,"resourceVersion":"1.0","name":"Elements","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

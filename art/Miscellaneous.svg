@@ -24,8 +24,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="490.10651"
-     inkscape:cy="382.12319"
+     inkscape:cx="617.11271"
+     inkscape:cy="770.78883"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -35,7 +35,7 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:snap-global="true" />
+     inkscape:snap-global="false" />
   <metadata
      id="metadata126">
     <rdf:RDF>
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -205,5 +205,277 @@
        id="path1131"
        inkscape:export-xdpi="19.613274"
        inkscape:export-ydpi="19.613274" />
+    <path
+       style="fill:#f8ec59;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -52.297494,147.32654 c 0,0 -11.425772,-6.94901 -11.626225,-9.15398 -0.200451,-2.20498 1.202714,-11.49259 0,-13.09621 -1.202711,-1.60362 -2.539061,-3.74177 -2.539061,-3.74177 0,0 1.469983,-1.33635 3.674957,-1.26953 2.204974,0.0668 -0.200451,-7.684 -0.400905,-8.21854 -0.200451,-0.53454 0.334087,-1.93771 0.334087,-1.93771 0,0 1.069078,0.80181 1.469982,1.5368 0.400905,0.735 1.469983,1.67044 1.469983,1.67044 0,0 1.403165,-8.0849 -0.267269,-9.95579 -1.670433,-1.87089 -1.069078,-3.741778 -1.069078,-3.741778 0,0 1.069078,-0.8018 1.737252,-0.8018 0.668173,0 5.545844,4.610398 5.545844,4.610398 0,0 -0.601359,-8.552628 -1.536801,-10.223058 -0.935445,-1.67044 -3.073601,-3.40769 -3.073601,-3.40769 0,0 4.677217,-2.20497 6.347653,-0.20045 1.670434,2.00452 6.414468,14.432548 6.414468,14.432548 0,0 5.078122,-2.27179 4.476764,-4.877668 -0.601356,-2.60587 1.202716,-2.60587 1.202716,-2.60587 l 3.20723,5.879928 -5.412207,9.55488 c 0,0 7.951267,-4.07586 8.084907,-5.67948 0.13363,-1.60361 -0.60136,-5.21175 1.20271,-5.67947 1.80407,-0.467728 7.48355,2.93996 5.47903,7.41673 -2.00453,4.47676 -10.08943,32.40643 -11.82668,33.34187 -1.737253,0.93544 -12.895756,6.1472 -12.895756,6.1472 z"
+       id="path1817" />
+    <path
+       style="fill:#da1414;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -53.633841,126.05243 c 0,0 1.870885,-8.28536 2.204972,-8.35218 0.334089,-0.0668 0.467722,9.62171 0.467722,9.62171 0,0 5.545844,-4.34313 5.144939,-7.684 -0.400904,-3.34087 2.004521,-0.93545 2.605879,1.06908 0.601355,2.00452 -4.610402,8.41899 -4.610402,8.41899 0,0 6.013567,-1.73726 6.347653,-3.40769 0.334087,-1.67044 1.26953,-0.53454 1.26953,-0.53454 0,0 0.20045,1.06908 -0.267269,2.27179 -0.146872,0.37767 -1.34133,10.97767 -2.910973,12.27481 -3.428971,2.83369 -8.648435,6.72751 -8.648435,6.72751 0,0 -6.857298,-4.27595 -8.669122,-7.6866 -2.01676,-3.79644 -1.687572,-11.89656 -1.687572,-12.7857 0,-3.4745 0.668174,-5.27857 0.668174,-5.27857 0,0 0.734991,3.40768 2.204974,5.07812 1.469982,1.67043 1.403164,0.73499 1.403164,0.73499 0,0 -0.200451,-4.34313 1.269532,-5.41221 1.46998,-1.06908 3.207234,4.94449 3.207234,4.94449 z"
+       id="path1815"
+       sodipodi:nodetypes="cscsscscsscascscsc" />
+    <g
+       id="g1891"
+       transform="translate(207.88691,-195.41369)">
+      <ellipse
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#911717;fill-opacity:1;stroke:#d4ce7d;stroke-width:2.8071;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         id="path1789"
+         cx="37.016834"
+         cy="205.88368"
+         rx="19.824476"
+         ry="19.337425" />
+      <text
+         xml:space="preserve"
+         style="font-size:24.7286px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;stroke-width:0.618216"
+         x="24.283371"
+         y="212.87587"
+         id="text1821"><tspan
+           sodipodi:role="line"
+           id="tspan1819"
+           x="24.283371"
+           y="212.87587"
+           style="font-weight:normal;fill:#d4ce7d;fill-opacity:1;stroke-width:0.618216">火 </tspan></text>
+    </g>
+    <g
+       id="g1896"
+       transform="translate(207.88691,-195.41369)">
+      <ellipse
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#20a7ba;fill-opacity:1;stroke:#9bdde6;stroke-width:2.8071;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         id="ellipse1823"
+         cx="98.437965"
+         cy="206.26166"
+         rx="19.824476"
+         ry="19.337425" />
+      <text
+         xml:space="preserve"
+         style="font-size:24.6427px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;stroke-width:0.616069"
+         x="85.842583"
+         y="213.26257"
+         id="text1827"><tspan
+           sodipodi:role="line"
+           id="tspan1825"
+           x="85.842583"
+           y="213.26257"
+           style="fill:#9bdde6;fill-opacity:1;stroke-width:0.616069">水 </tspan></text>
+    </g>
+    <g
+       id="g1901"
+       transform="translate(90.336314,-141.74107)">
+      <ellipse
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#99adb0;fill-opacity:1;stroke:#cdd7d9;stroke-width:2.8071;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         id="ellipse1829"
+         cx="151.35464"
+         cy="206.26166"
+         rx="19.824476"
+         ry="19.337425" />
+      <text
+         xml:space="preserve"
+         style="font-size:29.3864px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;stroke-width:0.734661"
+         x="136.84885"
+         y="215.45799"
+         id="text1833"><tspan
+           sodipodi:role="line"
+           id="tspan1831"
+           x="136.84885"
+           y="215.45799"
+           style="fill:#cdd7d9;fill-opacity:1;stroke-width:0.734661">風 </tspan></text>
+    </g>
+    <g
+       id="g1906"
+       transform="translate(90.336314,-141.74107)">
+      <ellipse
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#cdbb09;fill-opacity:1;stroke:#f8eb6a;stroke-width:2.8071;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         id="ellipse1835"
+         cx="214.09869"
+         cy="204.74976"
+         rx="19.824476"
+         ry="19.337425" />
+      <text
+         xml:space="preserve"
+         style="font-size:29.3864px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;stroke-width:0.734661"
+         x="199.5929"
+         y="213.94609"
+         id="text1839"><tspan
+           sodipodi:role="line"
+           id="tspan1837"
+           x="199.5929"
+           y="213.94609"
+           style="fill:#f8eb6a;fill-opacity:1;stroke-width:0.734661">光</tspan></text>
+    </g>
+    <g
+       id="g2070"
+       transform="translate(-8.2853554,1.6036172)"
+       inkscape:export-xdpi="19.613274"
+       inkscape:export-ydpi="19.613274">
+      <ellipse
+         style="font-variation-settings:normal;vector-effect:none;fill:#d4ce7d;fill-opacity:1;stroke:#d4ce7d;stroke-width:2.47561;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+         id="ellipse1950"
+         cx="104.20422"
+         cy="196.91269"
+         rx="19.887493"
+         ry="14.992353" />
+      <g
+         id="g1924"
+         transform="matrix(1.0031787,0,0,0.77530247,67.069586,33.057289)">
+        <ellipse
+           style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#911717;fill-opacity:1;stroke:#d4ce7d;stroke-width:2.8071;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+           id="ellipse1918"
+           cx="37.016834"
+           cy="205.88368"
+           rx="19.824476"
+           ry="19.337425" />
+        <text
+           xml:space="preserve"
+           style="font-size:24.7286px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;stroke-width:0.618216"
+           x="24.283371"
+           y="212.87587"
+           id="text1922"><tspan
+             sodipodi:role="line"
+             id="tspan1920"
+             x="24.283371"
+             y="212.87587"
+             style="font-weight:normal;fill:#d4ce7d;fill-opacity:1;stroke-width:0.618216">火 </tspan></text>
+      </g>
+    </g>
+    <g
+       id="g2077"
+       transform="translate(-16.570711,2.9399648)"
+       inkscape:export-xdpi="19.613274"
+       inkscape:export-ydpi="19.613274">
+      <ellipse
+         style="font-variation-settings:normal;vector-effect:none;fill:#9bdde6;fill-opacity:1;stroke:#9bdde6;stroke-width:2.47561;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+         id="ellipse1958"
+         cx="165.82033"
+         cy="197.20573"
+         rx="19.887493"
+         ry="14.992353" />
+      <g
+         id="g1932"
+         transform="matrix(1.0031787,0,0,0.77530247,67.069586,33.057289)">
+        <ellipse
+           style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#20a7ba;fill-opacity:1;stroke:#9bdde6;stroke-width:2.8071;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+           id="ellipse1926"
+           cx="98.437965"
+           cy="206.26166"
+           rx="19.824476"
+           ry="19.337425" />
+        <text
+           xml:space="preserve"
+           style="font-size:24.6427px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;stroke-width:0.616069"
+           x="85.842583"
+           y="213.26257"
+           id="text1930"><tspan
+             sodipodi:role="line"
+             id="tspan1928"
+             x="85.842583"
+             y="213.26257"
+             style="fill:#9bdde6;fill-opacity:1;stroke-width:0.616069">水 </tspan></text>
+      </g>
+    </g>
+    <g
+       id="g2084"
+       transform="translate(100.22607,-38.219543)"
+       inkscape:export-xdpi="19.613274"
+       inkscape:export-ydpi="19.613274">
+      <ellipse
+         style="font-variation-settings:normal;vector-effect:none;fill:#cdd7d9;fill-opacity:1;stroke:#cdd7d9;stroke-width:2.47561;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+         id="ellipse1966"
+         cx="100.98114"
+         cy="238.81825"
+         rx="19.887493"
+         ry="14.992353" />
+      <g
+         id="g1940"
+         transform="matrix(1.0031787,0,0,0.77530247,-50.854673,74.669803)">
+        <ellipse
+           style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#99adb0;fill-opacity:1;stroke:#cdd7d9;stroke-width:2.8071;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+           id="ellipse1934"
+           cx="151.35464"
+           cy="206.26166"
+           rx="19.824476"
+           ry="19.337425" />
+        <text
+           xml:space="preserve"
+           style="font-size:29.3864px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;stroke-width:0.734661"
+           x="136.84885"
+           y="215.45799"
+           id="text1938"><tspan
+             sodipodi:role="line"
+             id="tspan1936"
+             x="136.84885"
+             y="215.45799"
+             style="fill:#cdd7d9;fill-opacity:1;stroke-width:0.734661">風 </tspan></text>
+      </g>
+    </g>
+    <g
+       id="g2091"
+       transform="translate(94.880683,-36.348656)"
+       inkscape:export-xdpi="19.613274"
+       inkscape:export-ydpi="19.613274">
+      <ellipse
+         style="font-variation-settings:normal;vector-effect:none;fill:#f8eb6a;fill-opacity:1;stroke:#f8eb6a;stroke-width:2.47561;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+         id="ellipse1974"
+         cx="163.92438"
+         cy="237.64607"
+         rx="19.887493"
+         ry="14.992353" />
+      <g
+         id="g1948"
+         transform="matrix(1.0031787,0,0,0.77530247,-50.854673,74.669803)">
+        <ellipse
+           style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#cdbb09;fill-opacity:1;stroke:#f8eb6a;stroke-width:2.8071;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+           id="ellipse1942"
+           cx="214.09869"
+           cy="204.74976"
+           rx="19.824476"
+           ry="19.337425" />
+        <text
+           xml:space="preserve"
+           style="font-size:29.3864px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;stroke-width:0.734661"
+           x="199.5929"
+           y="213.94609"
+           id="text1946"><tspan
+             sodipodi:role="line"
+             id="tspan1944"
+             x="199.5929"
+             y="213.94609"
+             style="fill:#f8eb6a;fill-opacity:1;stroke-width:0.734661">光</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g2114"
+       transform="translate(-120.32771,2.4578004)"
+       inkscape:export-xdpi="19.613274"
+       inkscape:export-ydpi="19.613274">
+      <ellipse
+         style="font-variation-settings:normal;vector-effect:none;fill:#585858;fill-opacity:1;stroke:#585858;stroke-width:2.47561;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+         id="ellipse2104"
+         cx="165.82033"
+         cy="197.20573"
+         rx="19.887493"
+         ry="14.992353" />
+      <g
+         id="g2112"
+         transform="matrix(1.0031787,0,0,0.77530247,67.069586,33.057289)">
+        <ellipse
+           style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#e5e5e5;fill-opacity:1;stroke:#585858;stroke-width:2.8071;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+           id="ellipse2106"
+           cx="98.437965"
+           cy="206.26166"
+           rx="19.824476"
+           ry="19.337425" />
+        <text
+           xml:space="preserve"
+           style="font-size:24.6427px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;stroke-width:0.616069"
+           x="85.842583"
+           y="213.26257"
+           id="text2110"><tspan
+             sodipodi:role="line"
+             id="tspan2108"
+             x="85.842583"
+             y="213.26257"
+             style="fill:#585858;fill-opacity:1;stroke-width:0.616069">空</tspan></text>
+      </g>
+    </g>
   </g>
 </svg>

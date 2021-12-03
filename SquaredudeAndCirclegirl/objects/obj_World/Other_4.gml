@@ -10,6 +10,12 @@ for (var xx = 0; xx < WORLD_WIDTH; xx++) {
 setAt(2, 2, 1, new Squaredude());
 setAt(2, 5, 1, new Circlegirl());
 
+setAt(6, 1, 0, new Wall(spr_SimpleTile, Element.Fire));
+setAt(6, 2, 0, new Wall(spr_SimpleTile, Element.Water));
+setAt(6, 3, 0, new Wall(spr_SimpleTile, Element.Air));
+setAt(6, 4, 0, new Wall(spr_SimpleTile, Element.Thunder));
+setAt(6, 5, 0, new Wall(spr_SimpleTile, Element.None));
+
 setAt(9, 1, 0, new Spikes());
 
 setAt(8, 5, 1, new Crate(spr_WoodenCrate));

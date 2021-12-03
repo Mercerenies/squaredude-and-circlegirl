@@ -50,4 +50,12 @@ function WorldObject() constructor {
     return false;
   }
 
+  static elementPanelOn = function() {
+    // Note: Not all WorldObject's can support an elemental
+    // panel. Consult the specific struct for details.
+    // undefined means there is no panel. Element.None means
+    // there is specifically the "none" panel.
+    return undefined;
+  }
+
 }
