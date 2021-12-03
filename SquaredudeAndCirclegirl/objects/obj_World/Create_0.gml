@@ -79,7 +79,12 @@ getChannel = function() {
 }
 
 cycleChannel = function() {
+  ctrl_UndoManager.pushStack(new SetActivePlayerEvent(channel_index));
   channel_index = (channel_index + 1) % array_length(channels);
+}
+
+setChannelIndex = function(idx) {
+  channel_index = idx;
 }
 
 // We keep track of the number of objects moving in the game

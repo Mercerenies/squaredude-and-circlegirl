@@ -20,6 +20,10 @@ function Character() : WorldObject() constructor {
     return facing_dir;
   }
 
+  static setFacingDir = function(d) {
+    facing_dir = d;
+  }
+
   static setAnimation = function(anim) {
     anim.onStart();
     active_animation = anim;
@@ -35,8 +39,9 @@ function Character() : WorldObject() constructor {
 
     var input_dir = Input.dirPressed();
     if ((input_dir >= 0) && (!obj_World.isMovingSomething()) && (isActiveCharacter())) {
+      var prev_dir = facing_dir;
       facing_dir = input_dir;
-      tryToMove();
+      tryToMove(prev_dir);
     }
 
     if (!is_undefined(active_animation)) {
@@ -69,7 +74,7 @@ function Character() : WorldObject() constructor {
   }
 
   // Tries to move in the current facing_dir.
-  static tryToMove = function() {
+  static tryToMove = function(prev_dir) {
     var sx = getX();
     var sy = getY();
     var sz = getZ();
@@ -79,6 +84,8 @@ function Character() : WorldObject() constructor {
     var dz = sz;
 
     if (canWalkTo(sx, sy, sz, dx, dy, dz)) {
+      ctrl_UndoManager.pushStack(UndoCut);
+      ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), prev_dir));
       var anim;
       if (is_undefined(obj_World.getCovering(dx, dy, dz - 1))) {
         // Hop if there's nothing below us.
@@ -91,6 +98,8 @@ function Character() : WorldObject() constructor {
     }
 
     if (canHopTo(sx, sy, sz, dx, dy, dz + 1)) {
+      ctrl_UndoManager.pushStack(UndoCut);
+      ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), prev_dir));
       setAnimation(new CharacterHopUpAnimation(self, sx, sy, sz, dx, dy, dz + 1));
       return;
     }
@@ -163,6 +172,7 @@ function Character() : WorldObject() constructor {
 
     // If we've fallen too far, then we're dead.
     if (falling > 2) {
+      falling = 0;
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
       return;
     }

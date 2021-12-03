@@ -13,12 +13,18 @@ function CharacterDeathAnimation(_owner, _sx, _sy, _sz) constructor {
 
   static onStart = function() {
     obj_World.moveCountUp();
-    obj_World.setAt(sx, sy, sz, undefined);
-    obj_World.setVisualsAt(sx, sy, sz, owner);
+    if (is_undefined(obj_World.getVisualsAt(sx, sy, sz))) {
+      obj_World.setAt(sx, sy, sz, undefined);
+      obj_World.setVisualsAt(sx, sy, sz, owner);
+    }
+    ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(owner, sx, sy, sz, undefined));
   }
 
   static onEnd = function() {
     obj_World.moveCountDown();
+    if (obj_World.getAt(sx, sy, sz) == owner) {
+      obj_World.setAt(sx, sy, sz, undefined);
+    }
     if (obj_World.getVisualsAt(sx, sy, sz) == owner) {
       obj_World.setVisualsAt(sx, sy, sz, undefined);
     }
