@@ -54,7 +54,6 @@ setAt = function(xx, yy, zz, v) {
   }
 }
 
-// Might include some undefined padding, make sure to check for that.
 getVisualsAt = function(xx, yy, zz) {
   if (!World.inBounds(xx, yy, zz)) {
     return undefined;

@@ -14,7 +14,24 @@ function CharacterWalkingAnimation(_owner, _sx, _sy, _sz, _dx, _dy, _dz) constru
     var prev_progress = progress;
     progress += 0.1;
     if ((prev_progress < 0.5) && (progress >= 0.5)) {
-      obj_World.move(sx, sy, sz, dx, dy, dz);
+
+      // If there's something at the destination, assume we're pushing
+      // it and throw it in the visuals layer for now.
+      var obstacle = obj_World.getAt(dx, dy, dz);
+      if (!is_undefined(obstacle)) {
+        obj_World.setAt(dx, dy, dz, undefined);
+        obj_World.setVisualsAt(dx, dy, dz, obstacle);
+      }
+
+      // Remove from whichever layer we're in
+      if (obj_World.getAt(sx, sy, sz) == owner) {
+        obj_World.setAt(sx, sy, sz, undefined);
+      }
+      if (obj_World.getVisualsAt(sx, sy, sz) == owner) {
+        obj_World.setVisualsAt(sx, sy, sz, undefined);
+      }
+      obj_World.setAt(dx, dy, dz, owner);
+
     }
   }
 
