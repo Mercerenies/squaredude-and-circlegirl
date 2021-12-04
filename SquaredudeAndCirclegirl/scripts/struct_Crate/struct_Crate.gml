@@ -82,7 +82,7 @@ function Crate(_sprite) : WorldObject() constructor {
     return false;
   }
 
-  static tryToLaunch = function(dir) {
+  static tryToLaunch = function(dir, initial) {
     var sx = getX();
     var sy = getY();
     var sz = getZ();
@@ -117,7 +117,7 @@ function Crate(_sprite) : WorldObject() constructor {
       transitive = aboveDest;
     }
     if (!is_undefined(transitive)) {
-      transitive.onImpact(dir, Strength.Block);
+      transitive.onImpact(dir, initial ? Strength.PlayerFlying : Strength.Block);
       // Don't want to trip again due to the same air effect, so fill
       // the animation slot with something useless for a few frames.
       setAnimation(new DelayAnimation(self, sx, sy, sz, 0.334));
@@ -210,7 +210,7 @@ function Crate(_sprite) : WorldObject() constructor {
       if (!is_undefined(arrow)) {
         launching = arrow;
       }
-      tryToLaunch(launching);
+      tryToLaunch(launching, false);
     }
 
   }
@@ -238,7 +238,7 @@ function Crate(_sprite) : WorldObject() constructor {
       } else {
         launch_dir = Dir.Up;
       }
-      tryToLaunch(launch_dir);
+      tryToLaunch(launch_dir, true);
     }
   }
 
@@ -306,7 +306,7 @@ function Crate(_sprite) : WorldObject() constructor {
 
   static onImpact = function(dir, strength) {
     if (strength >= Strength.Block) {
-      tryToLaunch(dir);
+      tryToLaunch(dir, false);
     }
   }
 

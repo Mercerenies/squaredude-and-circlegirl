@@ -254,7 +254,7 @@ function Character() : WorldObject() constructor {
     return true;
   }
 
-  static tryToLaunch = function(dir) {
+  static tryToLaunch = function(dir, initial) {
     var sx = getX();
     var sy = getY();
     var sz = getZ();
@@ -283,7 +283,7 @@ function Character() : WorldObject() constructor {
       transitive = aboveDest;
     }
     if (!is_undefined(transitive)) {
-      transitive.onImpact(dir, Strength.PlayerRunning);
+      transitive.onImpact(dir, initial ? Strength.PlayerFlying : Strength.PlayerRunning);
       // Don't want to trip again due to the same effect, so fill
       // the animation slot with something useless for a few frames.
       setAnimation(new DelayAnimation(self, sx, sy, sz, 0.334));
@@ -407,7 +407,7 @@ function Character() : WorldObject() constructor {
       if (!is_undefined(arrow)) {
         launching = arrow;
       }
-      tryToLaunch(launching);
+      tryToLaunch(launching, false);
     }
   }
 
@@ -441,7 +441,7 @@ function Character() : WorldObject() constructor {
     }
     if ((element == Element.Fire) && (is_undefined(active_animation))) {
       // Flaming run
-      tryToLaunch(launch_dir);
+      tryToLaunch(launch_dir, true);
     }
   }
 

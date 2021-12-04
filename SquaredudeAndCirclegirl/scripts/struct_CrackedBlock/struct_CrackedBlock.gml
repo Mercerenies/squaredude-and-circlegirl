@@ -29,8 +29,8 @@ function CrackedBlock() : WorldObject() constructor {
     var zz = getZ();
 
     // Note: Doesn't draw the active animation (the only animation
-    // that plays on this is ShockAnimation and it doesn't need to
-    // draw)
+    // that plays on this is CrackedToDeathAnimation and it doesn't
+    // need to draw)
 
     if (xx >= 0) {
       var sx = World.toCenterX(xx, yy, zz);
