@@ -66,9 +66,11 @@ function Character() : WorldObject() constructor {
       var input_dir = Input.dirPressed();
       if (input_dir >= 0) {
         var prev_dir = facing_dir;
-        facing_dir = input_dir;
-        obj_World.updateQuantumStates();
-        tryToMove(prev_dir);
+        if (!shocked) {
+          facing_dir = input_dir;
+          obj_World.updateQuantumStates();
+        }
+        tryToMove(prev_dir, input_dir);
       } else if (Input.spacePressed()) {
         emitElement();
       }
@@ -148,14 +150,14 @@ function Character() : WorldObject() constructor {
 
   }
 
-  // Tries to move in the current facing_dir. Returns whether successful.
-  static tryToMove = function(prev_dir) {
+  // Tries to move in new_dir. Returns whether successful.
+  static tryToMove = function(prev_dir, new_dir) {
     var sx = getX();
     var sy = getY();
     var sz = getZ();
 
-    var dx = sx + Dir_toX(facing_dir);
-    var dy = sy + Dir_toY(facing_dir);
+    var dx = sx + Dir_toX(new_dir);
+    var dy = sy + Dir_toY(new_dir);
     var dz = sz;
 
     if (canHopTo(sx, sy, sz, dx, dy, dz + 1)) {
@@ -174,7 +176,7 @@ function Character() : WorldObject() constructor {
       if (!is_undefined(atDest)) {
         // In this case, we already determined (in canWalkTo) that we
         // can push it, so do it.
-        atDest.tryToMove(facing_dir);
+        atDest.tryToMove(new_dir);
       }
       var anim;
       if ((is_undefined(obj_World.getCovering(dx, dy, dz - 1))) && (!shocked)) {
@@ -388,8 +390,6 @@ function Character() : WorldObject() constructor {
     // If we're standing on an element panel, transform.
     var belowElt = (is_undefined(below) ? undefined : below.elementPanelOn());
     if ((!is_undefined(belowElt)) && (element != belowElt)) {
-      ctrl_UndoManager.pushStack(new _Character_ShockedEvent(self, shocked));
-      shocked = false;
       setAnimation(new CharacterTransformAnimation(self, belowElt, method(self, self._onArrive_postContinuation)));
     } else {
       _onArrive_postContinuation();
@@ -509,6 +509,8 @@ function Character() : WorldObject() constructor {
     }
 
     ctrl_UndoManager.pushStack(UndoCut);
+    ctrl_UndoManager.pushStack(new _Character_ShockedEvent(self, shocked));
+    shocked = false;
 
     switch (element) {
     case Element.None:

@@ -56,7 +56,7 @@
     partner will fly in the given direction. During flight, they will
     not fall, even if there's no ground below them. They will continue
     flying until they hit something.
-*** THUNDER
+*** DONE THUNDER
     A thunder character can summon a lightning bolt in front of them.
     This will activate electronic devices in front of them. It also
     conducts through metal objects and activates electronic devices
