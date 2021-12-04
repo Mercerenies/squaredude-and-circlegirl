@@ -292,24 +292,31 @@ function Character() : WorldObject() constructor {
       return;
     }
 
-    ctrl_UndoManager.pushStack(UndoCut);
+    ctrl_UndoManager.pushStack(UndoCut); // TODO Pop consecutive cuts if nothing has changed?
 
     switch (element) {
     case Element.None:
       // Nothing to be done here.
       break;
     case Element.Fire:
-      obj_World.setVisualsAt(dx, dy, dz, new FireVisuals(dx, dy, dz));
+      obj_World.setAttackAt(dx, dy, dz, new FireVisuals(dx, dy, dz));
       break;
     case Element.Water:
-      obj_World.setVisualsAt(dx, dy, dz, new WaterVisuals(dx, dy, dz));
+      obj_World.setAttackAt(dx, dy, dz, new WaterVisuals(dx, dy, dz));
       break;
     case Element.Air:
-      obj_World.setVisualsAt(dx, dy, dz, new AirVisuals(dx, dy, dz));
+      obj_World.setAttackAt(dx, dy, dz, new AirVisuals(dx, dy, dz));
       break;
     case Element.Thunder:
-      obj_World.setVisualsAt(dx, dy, dz, new ThunderVisuals(dx, dy, dz));
+      obj_World.setAttackAt(dx, dy, dz, new ThunderVisuals(dx, dy, dz));
       break;
+    }
+
+    if (element != Element.None) {
+      var target = obj_World.getCovering(dx, dy, dz);
+      if (!is_undefined(target)) {
+        target.hitWith(self, element);
+      }
     }
 
   }

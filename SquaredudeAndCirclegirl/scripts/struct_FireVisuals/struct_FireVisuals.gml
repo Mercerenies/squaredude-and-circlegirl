@@ -11,9 +11,9 @@ function FireVisuals(_xx, _yy, _zz) constructor {
     timer -= 1;
     if ((timer <= 0) && (!finished)) {
       finished = true;
-      var obj = obj_World.getVisualsAt(xx, yy, zz);
+      var obj = obj_World.getAttackAt(xx, yy, zz);
       if (obj == self) {
-        obj_World.setVisualsAt(xx, yy, zz, undefined);
+        obj_World.setAttackAt(xx, yy, zz, undefined);
       }
       obj_World.moveCountDown();
     }

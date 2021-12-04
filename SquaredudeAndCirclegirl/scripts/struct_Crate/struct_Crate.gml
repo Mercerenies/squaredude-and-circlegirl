@@ -4,6 +4,10 @@ function Crate(_sprite) : WorldObject() constructor {
   active_animation = undefined;
   painter = new _Crate_Painter(self);
 
+  part_system = part_system_create_layer("Instances", false);
+  part_system_automatic_draw(part_system, false);
+  part_emitter = part_emitter_create(part_system);
+
   static getFacingDir = function() {
     return Dir.Down; // Unused but the painter needs it to exist.
   }
@@ -48,6 +52,9 @@ function Crate(_sprite) : WorldObject() constructor {
       var sy = World.toCenterY(xx, yy, zz);
       painter.draw(sx, sy, getFacingDir());
     }
+
+    part_system_drawit(part_system);
+
   }
 
   static isDoubleHeight = function() {
@@ -124,6 +131,21 @@ function Crate(_sprite) : WorldObject() constructor {
 
   static canBePushed = function() {
     return true;
+  }
+
+  static hitWith = function(source, element) {
+    // TODO Time permitting, some cutesy animations for the other elements
+    if ((element == Element.Fire) && (sprite == spr_WoodenCrate)) {
+      var xx = getX();
+      var yy = getY();
+      var zz = getZ();
+      setAnimation(new BurningToDeathAnimation(self, xx, yy, zz));
+      var above = obj_World.getAt(xx, yy, zz + 2);
+      if (!is_undefined(above)) {
+        // Check to see if the thing above us wants to fall down.
+        above.onArrive();
+      }
+    }
   }
 
 }

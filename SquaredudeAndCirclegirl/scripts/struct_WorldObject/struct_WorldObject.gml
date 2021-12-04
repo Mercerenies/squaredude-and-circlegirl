@@ -62,4 +62,9 @@ function WorldObject() constructor {
     // Empty
   }
 
+  // Called when hit with the given elemental ability
+  static hitWith = function(source, element) {
+    // Empty
+  }
+
 }

@@ -2,6 +2,7 @@
 world = [];
 visuals = [];
 quantum = [];
+attack = [];
 
 move_count = 0;
 channel_index = 0;
@@ -15,6 +16,7 @@ for (var i = WORLD_WIDTH * WORLD_LENGTH * WORLD_HEIGHT - 1; i >= 0; i--) {
   world[i] = undefined;
   visuals[i] = undefined;
   quantum[i] = undefined;
+  attack[i] = undefined;
 }
 
 _coord = function(xx, yy, zz) {
@@ -84,6 +86,19 @@ getQuantumAt = function(xx, yy, zz) {
 setQuantumAt = function(xx, yy, zz, v) {
   if (World.inBounds(xx, yy, zz)) {
     quantum[_coord(xx, yy, zz)] = v;
+  }
+}
+
+getAttackAt = function(xx, yy, zz) {
+  if (!World.inBounds(xx, yy, zz)) {
+    return undefined;
+  }
+  return attack[_coord(xx, yy, zz)];
+}
+
+setAttackAt = function(xx, yy, zz, v) {
+  if (World.inBounds(xx, yy, zz)) {
+    attack[_coord(xx, yy, zz)] = v;
   }
 }
 

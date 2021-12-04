@@ -19,7 +19,11 @@ for (var idx = 0; idx < WORLD_HEIGHT * WORLD_LENGTH * WORLD_WIDTH; idx++) {
     value.quantumDraw();
   }
 
+  // Attack
+  value = attack[idx];
+  if (!is_undefined(value)) {
+    value.draw();
+  }
+
 }
 // TODO Shadows
-
-// TODO Undo mechanics

@@ -19,6 +19,12 @@ for (var idx = 0; idx < WORLD_HEIGHT * WORLD_LENGTH * WORLD_WIDTH; idx++) {
     value.quantumStep();
   }
 
+  // Attack
+  value = attack[idx];
+  if (!is_undefined(value)) {
+    value.step();
+  }
+
 }
 
 updateQuantumStates();
