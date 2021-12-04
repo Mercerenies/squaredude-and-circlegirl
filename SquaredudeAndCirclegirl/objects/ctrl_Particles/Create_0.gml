@@ -84,3 +84,15 @@ part_type_orientation(attack_thunder, 0, 0, 0, 0, false);
 part_type_colour_mix(attack_thunder, $6aebf8, $09bbcd);
 part_type_alpha1(attack_thunder, 1);
 part_type_life(attack_thunder, 5, 10);
+
+static_thunder = part_type_create();
+part_type_shape(static_thunder, pt_shape_pixel);
+part_type_size(static_thunder, 1, 1, 0, 0);
+part_type_scale(static_thunder, 1, 1);
+part_type_speed(static_thunder, 2.5, 2.5, 0, 0);
+part_type_direction(static_thunder, 0, 360, 0, 0);
+part_type_gravity(static_thunder, 0, 0);
+part_type_orientation(static_thunder, 0, 0, 0, 0, false);
+part_type_colour_mix(static_thunder, $6aebf8, $09bbcd);
+part_type_alpha1(static_thunder, 1);
+part_type_life(static_thunder, 2, 4);

@@ -75,6 +75,10 @@ function WorldObject() constructor {
     // Empty
   }
 
+  static spreadShock = function() {
+    // Empty
+  }
+
   static updateMech = function() {
     // Empty
   }

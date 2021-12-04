@@ -24,6 +24,9 @@ setAt(9, 1, 0, new Spikes());
 setAt(8, 5, 1, new Crate(spr_WoodenCrate));
 setAt(8, 3, 3, new Crate(spr_WoodenCrate));
 
+setAt(12, 5, 1, new Crate(spr_MetalCrate));
+setAt(12, 6, 1, new Crate(spr_MetalCrate));
+
 setAt(4, 4, 1, new Wall(spr_SimpleTile));
 setAt(4, 4, 2, new Wall(spr_SimpleTile));
 

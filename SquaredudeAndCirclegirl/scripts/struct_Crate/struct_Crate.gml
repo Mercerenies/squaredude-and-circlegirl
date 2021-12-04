@@ -204,6 +204,9 @@ function Crate(_sprite) : WorldObject() constructor {
     if ((element == Element.Fire) && (sprite == spr_WoodenCrate)) {
       burnAndSpreadFire();
     }
+    if ((element == Element.Thunder) && (sprite == spr_MetalCrate)) {
+      spreadShock();
+    }
     if ((element == Element.Air) && (is_undefined(active_animation))) {
       // Launch
       var launch_dir;
@@ -221,7 +224,7 @@ function Crate(_sprite) : WorldObject() constructor {
   }
 
   static burnAndSpreadFire = function() {
-    if ((sprite == spr_WoodenCrate) && (instanceof(active_animation) != "BurningToDeathAnimation")) {
+    if ((sprite == spr_WoodenCrate) && (is_undefined(active_animation))) {
       var xx = getX();
       var yy = getY();
       var zz = getZ();
@@ -249,6 +252,34 @@ function Crate(_sprite) : WorldObject() constructor {
       if (!is_undefined(above)) {
         // Check to see if the thing above us wants to fall down.
         above.onArrive();
+      }
+
+    }
+  }
+
+  static spreadShock = function() {
+    if ((sprite == spr_MetalCrate) && (is_undefined(active_animation))) {
+      var xx = getX();
+      var yy = getY();
+      var zz = getZ();
+      setAnimation(new ShockAnimation(self, xx, yy, zz));
+
+      // Spread the shock
+      for (var x1 = xx - 1; x1 <= xx + 1; x1++) {
+        for (var y1 = yy - 1; y1 <= yy + 1; y1++) {
+          for (var z1 = zz - 1; z1 <= zz + 2; z1++) {
+            // At least two coordinates must match
+            var xmatch = (x1 == xx) ? 1 : 0;
+            var ymatch = (y1 == yy) ? 1 : 0;
+            var zmatch = (z1 == zz) ? 1 : 0;
+            if (xmatch + ymatch + zmatch >= 2) {
+              var adjacent = obj_World.getCovering(x1, y1, z1);
+              if (!is_undefined(adjacent)) {
+                adjacent.spreadShock();
+              }
+            }
+          }
+        }
       }
 
     }

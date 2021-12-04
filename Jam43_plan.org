@@ -47,10 +47,10 @@
     If used on the partner, launches them higher into the air and
     allows them to land on a higher platform.
 *** AIR
-    An air character can summon wind in front of them. Any round
-    objects like balls will roll when blown with wind. Air characters
-    are passively immune to fall damage; they can fall arbitrary
-    heights without taking damage.
+    An air character can summon wind in front of them. Any crates will
+    be launched when blown with wind. Air characters are passively
+    immune to fall damage; they can fall arbitrary heights without
+    taking damage.
 
     If an air character summons wind in front of their partner, their
     partner will fly in the given direction. During flight, they will
