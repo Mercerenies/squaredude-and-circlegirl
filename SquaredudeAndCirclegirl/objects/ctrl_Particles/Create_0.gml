@@ -1,4 +1,6 @@
 
+player_spawn_system = undefined;
+
 player_fire = part_type_create();
 part_type_shape(player_fire, pt_shape_pixel);
 part_type_size(player_fire, 1, 1, 0, 0);

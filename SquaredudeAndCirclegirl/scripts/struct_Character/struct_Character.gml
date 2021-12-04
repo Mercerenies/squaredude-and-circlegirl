@@ -12,7 +12,6 @@ function Character() : WorldObject() constructor {
   part_system_automatic_draw(part_system, false);
   part_emitter = part_emitter_create(part_system);
 
-
   static getPainter = function() {
     // Abstract parent method.
     show_debug_message("Character.getPainter not implemented!");
@@ -58,11 +57,15 @@ function Character() : WorldObject() constructor {
 
     getPainter().step();
 
-    var input_dir = Input.dirPressed();
-    if ((input_dir >= 0) && (!obj_World.isMovingSomething()) && (!obj_World.isSomeoneDead()) && (isActiveCharacter())) {
-      var prev_dir = facing_dir;
-      facing_dir = input_dir;
-      tryToMove(prev_dir);
+    if ((!obj_World.isMovingSomething()) && (!obj_World.isSomeoneDead()) && (isActiveCharacter())) {
+      var input_dir = Input.dirPressed();
+      if (input_dir >= 0) {
+        var prev_dir = facing_dir;
+        facing_dir = input_dir;
+        tryToMove(prev_dir);
+      } else if (Input.spacePressed()) {
+        emitElement();
+      }
     }
 
     if (!is_undefined(active_animation)) {
@@ -276,6 +279,35 @@ function Character() : WorldObject() constructor {
   static landedOn = function(top) {
     // Oh no, we are crushed :(
     setAnimation(new CharacterDeathAnimation(self, getX(), getY(), getZ()));
+  }
+
+  static emitElement = function() {
+
+    var dx = getX() + Dir_toX(facing_dir);
+    var dy = getY() + Dir_toY(facing_dir);
+    var dz = getZ();
+    if (!World.inBounds(dx, dy, dz)) {
+      return;
+    }
+
+    switch (element) {
+    case Element.None:
+      // Nothing to be done here.
+      break;
+    case Element.Fire:
+      obj_World.setVisualsAt(dx, dy, dz, new FireVisuals(dx, dy, dz));
+      break;
+    case Element.Water:
+      ////
+      break;
+    case Element.Air:
+      ////
+      break;
+    case Element.Thunder:
+      ////
+      break;
+    }
+
   }
 
 }

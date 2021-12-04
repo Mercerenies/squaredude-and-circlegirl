@@ -33,6 +33,7 @@
     {"id":{"name":"spr_Circlegirl_Body","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"order":0,},
     {"id":{"name":"rm_Init","path":"rooms/rm_Init/rm_Init.yy",},"order":1,},
     {"id":{"name":"struct_UndoEvent","path":"scripts/struct_UndoEvent/struct_UndoEvent.yy",},"order":2,},
+    {"id":{"name":"struct_FireVisuals","path":"scripts/struct_FireVisuals/struct_FireVisuals.yy",},"order":3,},
     {"id":{"name":"struct_DynamicResource","path":"scripts/struct_DynamicResource/struct_DynamicResource.yy",},"order":4,},
     {"id":{"name":"ctrl_Init","path":"objects/ctrl_Init/ctrl_Init.yy",},"order":1,},
     {"id":{"name":"struct_IdlePaint","path":"scripts/struct_IdlePaint/struct_IdlePaint.yy",},"order":2,},
