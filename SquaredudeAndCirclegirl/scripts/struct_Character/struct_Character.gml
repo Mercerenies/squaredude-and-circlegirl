@@ -269,7 +269,7 @@ function Character() : WorldObject() constructor {
       launching = dir;
       ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), facing_dir));
       facing_dir = dir;
-      var anim = new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
+      var anim = new CharacterFireWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
       setAnimation(anim);
       return true;
     }
