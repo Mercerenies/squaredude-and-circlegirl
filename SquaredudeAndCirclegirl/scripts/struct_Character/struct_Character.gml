@@ -267,6 +267,7 @@ function Character() : WorldObject() constructor {
     var zz = getZ();
 
     var below = obj_World.getCovering(xx, yy, zz - 1);
+    var quantumBelow = obj_World.getQuantumAt(xx, yy, zz - 1);
 
     // If we have an element, passively use it on the ground below
     if ((element != Element.None) && (element != Element.Air) && (!is_undefined(below))) {
@@ -274,6 +275,10 @@ function Character() : WorldObject() constructor {
       if ((instanceof(below) != "Squaredude") && (instanceof(below) != "Circlegirl")) {
         below.hitWith(self, element);
       }
+    }
+    if ((element != Element.None) && (element != Element.Air) && (!is_undefined(quantumBelow))) {
+      // Note: Air would be far too chaotic if allowed here.
+      quantumBelow.hitWith(self, element);
     }
 
     // If we're standing on flames, then die.
@@ -332,17 +337,16 @@ function Character() : WorldObject() constructor {
 
     if (element != Element.None) {
       var target;
-      target = obj_World.getCovering(dx, dy, dz + 1);
-      if (!is_undefined(target)) {
-        target.hitWith(self, element);
-      }
-      target = obj_World.getCovering(dx, dy, dz);
-      if (!is_undefined(target)) {
-        target.hitWith(self, element);
-      }
-      target = obj_World.getCovering(dx, dy, dz - 1);
-      if (!is_undefined(target)) {
-        target.hitWith(self, element);
+      for (var zz = dz - 1; zz <= dz + 1; zz++) {
+        target = obj_World.getCovering(dx, dy, zz);
+        if (!is_undefined(target)) {
+          target.hitWith(self, element);
+        }
+        // Flowers are in the quantum layer, so hit them too.
+        target = obj_World.getQuantumAt(dx, dy, zz);
+        if (!is_undefined(target)) {
+          target.hitWith(self, element);
+        }
       }
     }
 

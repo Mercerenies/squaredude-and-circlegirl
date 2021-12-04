@@ -1,9 +1,7 @@
 
-// Doors should exist at (x, y, z) and then be placed at the quantum layer for (x, y, z - 1).
-function Door(_channel, _up_when_on) : WorldObject() constructor {
-  sprite = spr_Door;
-  channel = _channel;
-  up_when_on = _up_when_on;
+// Flowers should be placed at the quantum layer for (x, y, z - 1).
+function Flower() : WorldObject() constructor {
+  sprite = spr_Flower;
   moving = false;
 
   // Set these to the object's actual position (not its quantum position)
@@ -11,11 +9,11 @@ function Door(_channel, _up_when_on) : WorldObject() constructor {
   originY = -1;
   originZ = -1;
 
-  image_idx = 6;
+  image_idx = 0;
+  grown = false;
 
   static shouldBeUp = function() {
-    var status = obj_World.getMechChannel(channel);
-    return status ^ !up_when_on;
+    return grown;
   }
 
   static updateQuantumState = function() {
@@ -25,13 +23,13 @@ function Door(_channel, _up_when_on) : WorldObject() constructor {
   static quantumStep = function() {
     if (moving) {
       if (shouldBeUp()) {
-        image_idx++;
+        image_idx += 0.5;
         if (image_idx == 6) {
           moving = false;
           obj_World.moveCountDown();
         }
       } else {
-        image_idx--;
+        image_idx -= 0.5;
         if (image_idx == 0) {
           moving = false;
           obj_World.moveCountDown();
@@ -43,16 +41,16 @@ function Door(_channel, _up_when_on) : WorldObject() constructor {
       }
     } else {
       if ((shouldBeUp()) && (image_idx < 6)) {
-        ctrl_UndoManager.pushStack(new _Door_StatusEvent(self, false));
+        ctrl_UndoManager.pushStack(new _Flower_StatusEvent(self, false));
         moving = true;
         obj_World.moveCountUp();
         var occupying = obj_World.getAt(originX, originY, originZ);
         if (!is_undefined(occupying)) {
-          occupying.setAnimation(new RisingAnimation(occupying, originX, originY, originZ, 0.1667)); // Six frames
+          occupying.setAnimation(new RisingAnimation(occupying, originX, originY, originZ, 0.08334)); // 12 frames
         }
         obj_World.setAt(originX, originY, originZ, self);
       } else if ((!shouldBeUp()) && (image_idx > 0)) {
-        ctrl_UndoManager.pushStack(new _Door_StatusEvent(self, true));
+        ctrl_UndoManager.pushStack(new _Flower_StatusEvent(self, true));
         moving = true;
         obj_World.moveCountUp();
         obj_World.setAt(originX, originY, originZ, undefined);
@@ -68,7 +66,6 @@ function Door(_channel, _up_when_on) : WorldObject() constructor {
     var sx = World.toCenterX(xx, yy, zz);
     var sy = World.toCenterY(xx, yy, zz);
     draw_sprite(sprite, image_idx, sx, sy);
-    draw_sprite(spr_Zodiac, channel, sx, sy - 8 * image_idx);
 
   }
 
@@ -80,18 +77,25 @@ function Door(_channel, _up_when_on) : WorldObject() constructor {
     return false;
   }
 
+  static hitWith = function(source, element) {
+    if (element == Element.Water) {
+      grown = true;
+    }
+  }
+
 }
 
-function _Door_StatusEvent(_door, _state) : UndoEvent() constructor {
-  door = _door;
+function _Flower_StatusEvent(_flower, _state) : UndoEvent() constructor {
+  flower = _flower;
   state = _state;
   static run = function() {
-    door.image_idx = (state ? 6 : 0);
+    flower.grown = state;
+    flower.image_idx = (state ? 6 : 0);
     if (state) {
-      obj_World.setAt(door.originX, door.originY, door.originZ, door);
+      obj_World.setAt(flower.originX, flower.originY, flower.originZ, flower);
     } else {
-      if (obj_World.getAt(door.originX, door.originY, door.originZ) == door) {
-        obj_World.setAt(door.originX, door.originY, door.originZ, undefined);
+      if (obj_World.getAt(flower.originX, flower.originY, flower.originZ) == flower) {
+        obj_World.setAt(flower.originX, flower.originY, flower.originZ, undefined);
       }
     }
   }

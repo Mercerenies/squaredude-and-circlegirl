@@ -73,7 +73,7 @@
 *** METAL BOX
     A metal box is exactly like a wooden box, except that it is
     fireproof. Also, metal boxes conduct electricity.
-*** TORCH
+*** DONE TORCH
     A torch can be set on fire. This usually activates or deactivates
     a mechanism somewhere.
 *** DONE QUANTUM BLOCK
@@ -100,10 +100,10 @@
 *** +LARGE BOULDER+
     Like a small boulder but too heavy to be pushed on its own. Can
     only be moved with the air ability.
-*** PRESSURE PLATE
+*** DONE PRESSURE PLATE
     Activates a mechanism if pressed down. Can be pressed with a box
     or a boulder.
-*** DOOR
+*** DONE DOOR
     Activates based on a pressure plate, electronic switch, or other
     control mechanism.
 *** DONE ELEMENTAL PANEL
@@ -126,6 +126,6 @@
     Explodes when it falls or is set on fire. Kills anyone adjacent to
     it and breaks cracked blocks nearby (the same blocks a flaming
     player can run into)
-*** BURNING TILE
+*** DONE BURNING TILE
     Kills anyone who touches it, unless they have the fire ability.
     Also burns wooden objects that land on it.

@@ -1,5 +1,5 @@
 
-function RisingAnimation(_owner, _sx, _sy, _sz) constructor {
+function RisingAnimation(_owner, _sx, _sy, _sz, _spd) constructor {
   owner = _owner;
   sx = _sx;
   sy = _sy;
@@ -7,10 +7,11 @@ function RisingAnimation(_owner, _sx, _sy, _sz) constructor {
   dx = _sx;
   dy = _sy;
   dz = _sz + 2;
+  spd = _spd;
   progress = 0;
 
   static step = function() {
-    progress += 0.1667; // Take six frames
+    progress += spd;
   }
 
   static _performMoveAction = function() {
@@ -39,7 +40,7 @@ function RisingAnimation(_owner, _sx, _sy, _sz) constructor {
 
     var occupying = obj_World.getAt(dx, dy, dz);
     if (!is_undefined(occupying)) {
-      occupying.setAnimation(new RisingAnimation(occupying, dx, dy, dz));
+      occupying.setAnimation(new RisingAnimation(occupying, dx, dy, dz, spd));
     }
 
     obj_World.moveCountUp();
