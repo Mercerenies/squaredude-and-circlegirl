@@ -71,4 +71,8 @@ function WorldObject() constructor {
     // Empty
   }
 
+  static updateMech = function() {
+    // Empty
+  }
+
 }

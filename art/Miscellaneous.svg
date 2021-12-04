@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="406.14461"
-     inkscape:cy="1245.3396"
+     inkscape:zoom="0.9899495"
+     inkscape:cx="529.37992"
+     inkscape:cy="1440.9754"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -704,5 +704,41 @@
          inkscape:export-xdpi="19.613274"
          inkscape:export-ydpi="19.613274" />
     </g>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#171379;fill-opacity:1;stroke:none;stroke-width:0.299292;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect2099"
+       width="61.620903"
+       height="62.262764"
+       x="135.83121"
+       y="398.87613"
+       inkscape:export-xdpi="19.613274"
+       inkscape:export-ydpi="19.613274" />
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#251fc1;fill-opacity:1;stroke:none;stroke-width:0.299292;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect2101"
+       width="50.990662"
+       height="51.52179"
+       x="141.14635"
+       y="404.24661"
+       inkscape:export-xdpi="19.613274"
+       inkscape:export-ydpi="19.613274" />
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#1b178c;fill-opacity:1;stroke:none;stroke-width:0.299292;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect2107"
+       width="61.620903"
+       height="62.262764"
+       x="135.83121"
+       y="336.61337"
+       inkscape:export-xdpi="19.613274"
+       inkscape:export-ydpi="19.613274" />
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#2923d7;fill-opacity:1;stroke:none;stroke-width:0.299292;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect2109"
+       width="50.990662"
+       height="51.52179"
+       x="141.14635"
+       y="341.98386"
+       inkscape:export-xdpi="19.613274"
+       inkscape:export-ydpi="19.613274" />
   </g>
 </svg>

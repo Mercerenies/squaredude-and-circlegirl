@@ -1,8 +1,12 @@
 
+#macro MECH_CHANNEL_COUNT 13
+
 world = [];
 visuals = [];
 quantum = [];
 attack = [];
+
+mech_channels = [];
 
 move_count = 0;
 channel_index = 0;
@@ -17,6 +21,10 @@ for (var i = WORLD_WIDTH * WORLD_LENGTH * WORLD_HEIGHT - 1; i >= 0; i--) {
   visuals[i] = undefined;
   quantum[i] = undefined;
   attack[i] = undefined;
+}
+
+for (var i = 0; i < MECH_CHANNEL_COUNT; i++) {
+  mech_channels[i] = false;
 }
 
 _coord = function(xx, yy, zz) {
@@ -149,4 +157,12 @@ updateQuantumStates = function() {
       value.updateQuantumState();
     }
   }
+}
+
+getMechChannel = function(idx) {
+  return mech_channels[idx];
+}
+
+setMechChannel = function(idx, m) {
+  mech_channels[idx] = m;
 }

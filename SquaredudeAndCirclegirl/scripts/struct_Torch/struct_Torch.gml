@@ -59,6 +59,12 @@ function Torch(_channel) : WorldObject() constructor {
     on_fire = true;
   }
 
+  static updateMech = function() {
+    if (on_fire) {
+      obj_World.setMechChannel(channel, true);
+    }
+  }
+
 }
 
 function _Torch_OnFireEvent(_torch, _on_fire) : UndoEvent() constructor {

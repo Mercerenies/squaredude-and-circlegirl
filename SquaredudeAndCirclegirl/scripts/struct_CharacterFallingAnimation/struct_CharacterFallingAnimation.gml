@@ -24,6 +24,7 @@ function CharacterFallingAnimation(_owner, _sx, _sy, _sz, _slow) constructor {
 
   static onStart = function() {
     obj_World.moveCountUp();
+    ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(owner, sx, sy, sz, undefined));
   }
 
   static onEnd = function() {
