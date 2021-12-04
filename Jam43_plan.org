@@ -129,3 +129,5 @@
 *** DONE BURNING TILE
     Kills anyone who touches it, unless they have the fire ability.
     Also burns wooden objects that land on it.
+*** DONE FLOWER
+    Spray with water and it will grow into a platform
