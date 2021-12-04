@@ -9,8 +9,20 @@ function CharacterPainter(_head, _body, _anim_index) constructor {
   anim_index = _anim_index;
   default_paint = new Paint();
 
+  // Terrible hack :)
+  //
+  // These four are public fields
+  last_draw_head_x = 0;
+  last_draw_head_y = 0;
+  last_draw_body_x = 0;
+  last_draw_body_y = 0;
+
   static step = function() {
     anim_index += 1;
+  }
+
+  static getAnimIndex = function() {
+    return anim_index;
   }
 
   static _determineImageIndex = function(dir, elt) {
@@ -28,18 +40,18 @@ function CharacterPainter(_head, _body, _anim_index) constructor {
     var img_index = _determineImageIndex(dir, elt);
 
     // Body
-    xx = xorigin + paint.bodyX(anim_index);
-    yy = yorigin + paint.bodyY(anim_index);
+    last_draw_body_x = xorigin + paint.bodyX(anim_index);
+    last_draw_body_y = yorigin + paint.bodyY(anim_index);
     rot = paint.bodyRot(anim_index);
     color = paint.bodyColor(anim_index);
-    draw_sprite_ext(body, img_index, xx, yy, 1, 1, rot, color, alpha);
+    draw_sprite_ext(body, img_index, last_draw_body_x, last_draw_body_y, 1, 1, rot, color, alpha);
 
     // Head
-    xx = xorigin + paint.headX(anim_index);
-    yy = yorigin + paint.headY(anim_index);
+    last_draw_head_x = xorigin + paint.headX(anim_index);
+    last_draw_head_y = yorigin + paint.headY(anim_index);
     rot = paint.headRot(anim_index);
     color = paint.headColor(anim_index);
-    draw_sprite_ext(head, img_index, xx, yy, 1, 1, rot, color, alpha);
+    draw_sprite_ext(head, img_index, last_draw_head_x, last_draw_head_y, 1, 1, rot, color, alpha);
 
   }
 

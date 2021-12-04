@@ -1,4 +1,5 @@
 
+// TODO Forbid either character from moving if the other is dead.
 function Character() : WorldObject() constructor {
   facing_dir = Dir.Down;
   active_animation = undefined;
@@ -6,6 +7,11 @@ function Character() : WorldObject() constructor {
   default_paint = new Paint();
   idle_paint = new IdlePaint();
   element = Element.None;
+
+  part_system = part_system_create_layer("Instances", false);
+  part_system_automatic_draw(part_system, false);
+  part_emitter = part_emitter_create(part_system);
+
 
   static getPainter = function() {
     // Abstract parent method.
@@ -43,6 +49,12 @@ function Character() : WorldObject() constructor {
   }
 
   static step = function() {
+    var xx = getX();
+    var yy = getY();
+    var zz = getZ();
+
+    var screenx = World.toCenterX(xx, yy, zz);
+    var screeny = World.toCenterY(xx, yy, zz);
 
     getPainter().step();
 
@@ -60,6 +72,28 @@ function Character() : WorldObject() constructor {
         active_animation = undefined;
         tmp.onEnd();
       }
+    }
+
+    var headX = getPainter().last_draw_head_x;
+    var headY = getPainter().last_draw_head_y;
+    var bodyX = getPainter().last_draw_body_x;
+    var bodyY = getPainter().last_draw_body_y;
+    switch (element) {
+    case Element.None:
+      break;
+    case Element.Fire:
+      part_emitter_region(part_system, part_emitter, headX - 8, headX + 8, headY - 16, headY - 8, ps_shape_ellipse, ps_distr_linear);
+      part_emitter_burst(part_system, part_emitter, ctrl_Particles.player_fire, 80);
+      break;
+    case Element.Water:
+      ////
+      break;
+    case Element.Air:
+      ////
+      break;
+    case Element.Thunder:
+      ////
+      break;
     }
 
   }
@@ -80,6 +114,13 @@ function Character() : WorldObject() constructor {
       }
       getPainter().draw(screenx, screeny, facing_dir, element, paint);
     }
+
+    if (instanceof(active_animation) == "CharacterTransformAnimation") {
+      active_animation.setupShader();
+    }
+    part_system_drawit(part_system);
+    shader_reset();
+
   }
 
   // Tries to move in the current facing_dir. Returns whether successful.

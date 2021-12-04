@@ -35,13 +35,17 @@ function CharacterTransformAnimation(_owner, _target_elem, _k) constructor {
     var screen_x = World.toCenterX(sx, sy, sz);
     var screen_y = World.toCenterY(sx, sy, sz);
 
+    setupShader();
+    owner.getPainter().draw(screen_x, screen_y, owner.getFacingDir(), owner.getActiveElement());
+    shader_reset();
+
+  }
+
+  static setupShader = function() {
     shader_set(sh_ElementTransition);
     var amount_u = shader_get_uniform(sh_ElementTransition, "amount");
     var amount = sqrt(sin(progress * pi));
     shader_set_uniform_f(amount_u, amount);
-    owner.getPainter().draw(screen_x, screen_y, owner.getFacingDir(), owner.getActiveElement());
-    shader_reset();
-
   }
 
 }
