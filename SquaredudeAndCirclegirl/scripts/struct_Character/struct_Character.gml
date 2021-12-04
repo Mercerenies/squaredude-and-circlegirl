@@ -1,14 +1,16 @@
 
-// TODO Forbid either character from moving if the other is dead.
 function Character() : WorldObject() constructor {
   facing_dir = Dir.Down;
   active_animation = undefined;
   falling = 0;
   default_paint = new Paint();
   idle_paint = new IdlePaint();
+  shocked_paint = new ShockedPaint();
+  shocked_idle_paint = new ShockedIdlePaint();
   element = Element.None;
   launching = undefined; // Undefined or a direction constant
   flying = false;
+  shocked = false;
 
   part_system = part_system_create_layer("Instances", false);
   part_system_automatic_draw(part_system, false);
@@ -106,6 +108,11 @@ function Character() : WorldObject() constructor {
       break;
     }
 
+    if (shocked) {
+      part_emitter_region(part_system, part_emitter, bodyX - 24, bodyX + 24, bodyY - 24, bodyY + 24, ps_shape_rectangle, ps_distr_invgaussian);
+      part_emitter_burst(part_system, part_emitter, ctrl_Particles.static_thunder, 180);
+    }
+
   }
 
   static draw = function() {
@@ -113,17 +120,25 @@ function Character() : WorldObject() constructor {
     var yy = getY();
     var zz = getZ();
 
+    if ((shocked) && (ctrl_Spinning.tick % 30 > 15)) {
+      shader_set(sh_Shock);
+    }
     if (!is_undefined(active_animation)) {
       active_animation.draw();
     } else {
       var screenx = World.toCenterX(xx, yy, zz);
       var screeny = World.toCenterY(xx, yy, zz);
       var paint = default_paint;
-      if (!isActiveCharacter()) {
+      if ((!isActiveCharacter()) && (shocked)) {
+        paint = shocked_idle_paint;
+      } else if (shocked) {
+        paint = shocked_paint;
+      } else if (!isActiveCharacter()) {
         paint = idle_paint;
       }
       getPainter().draw(screenx, screeny, facing_dir, element, paint);
     }
+    shader_reset();
 
     if (instanceof(active_animation) == "CharacterTransformAnimation") {
       active_animation.setupShader();
@@ -146,6 +161,8 @@ function Character() : WorldObject() constructor {
     if (canHopTo(sx, sy, sz, dx, dy, dz + 1)) {
       ctrl_UndoManager.pushStack(UndoCut);
       ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), prev_dir));
+      ctrl_UndoManager.pushStack(new _Character_ShockedEvent(self, shocked));
+      shocked = false;
       setAnimation(new CharacterHopUpAnimation(self, sx, sy, sz, dx, dy, dz + 1));
       return true;
     }
@@ -160,7 +177,7 @@ function Character() : WorldObject() constructor {
         atDest.tryToMove(facing_dir);
       }
       var anim;
-      if (is_undefined(obj_World.getCovering(dx, dy, dz - 1))) {
+      if ((is_undefined(obj_World.getCovering(dx, dy, dz - 1))) && (!shocked)) {
         // Hop if there's nothing below us.
         anim = new CharacterHopAnimation(self, sx, sy, sz, dx, dy, dz);
       } else {
@@ -188,9 +205,13 @@ function Character() : WorldObject() constructor {
     if (canHighJumpTo(sx, sy, sz, dx, dy, dz)) {
       // Note: falling = -2 so we don't take fall damage simply for missing the jump
       falling = -2;
+      ctrl_UndoManager.pushStack(new _Character_ShockedEvent(self, shocked));
+      shocked = false;
       setAnimation(new CharacterHighJumpAnimation(self, sx, sy, sz, dx, dy, dz));
     } else {
       // Failed, just show a small hop and go nowhere
+      ctrl_UndoManager.pushStack(new _Character_ShockedEvent(self, shocked));
+      shocked = false;
       setAnimation(new CharacterHopAnimation(self, sx, sy, sz, sx, sy, sz));
     }
 
@@ -271,6 +292,8 @@ function Character() : WorldObject() constructor {
       flying = do_fly;
       ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), facing_dir));
       facing_dir = dir;
+      ctrl_UndoManager.pushStack(new _Character_ShockedEvent(self, shocked));
+      shocked = false;
       var anim = new CharacterFireWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
       if (flying) {
         anim = new CharacterAirWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
@@ -364,7 +387,9 @@ function Character() : WorldObject() constructor {
 
     // If we're standing on an element panel, transform.
     var belowElt = (is_undefined(below) ? undefined : below.elementPanelOn());
-    if ((!is_undefined(belowElt)) && (element != belowElt) && (!flying)) {
+    if ((!is_undefined(belowElt)) && (element != belowElt)) {
+      ctrl_UndoManager.pushStack(new _Character_ShockedEvent(self, shocked));
+      shocked = false;
       setAnimation(new CharacterTransformAnimation(self, belowElt, method(self, self._onArrive_postContinuation)));
     } else {
       _onArrive_postContinuation();
@@ -465,6 +490,13 @@ function Character() : WorldObject() constructor {
       // Flaming run
       tryToLaunch(launch_dir, true, true);
     }
+    if ((element == Element.Thunder) && (!shocked)) {
+      // Shocked
+      ctrl_UndoManager.pushStack(new _Character_ShockedEvent(self, shocked));
+      ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), facing_dir));
+      facing_dir = launch_dir;
+      shocked = true;
+    }
   }
 
   static emitElement = function() {
@@ -538,4 +570,12 @@ function Character() : WorldObject() constructor {
 
   }
 
+}
+
+function _Character_ShockedEvent(_c, _shocked) : UndoEvent() constructor {
+  c = _c;
+  shocked = _shocked;
+  static run = function() {
+    c.shocked = shocked;
+  }
 }

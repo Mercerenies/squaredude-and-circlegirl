@@ -31,7 +31,7 @@
    generally be used by facing an object and pressing SPACEBAR.
    Circlegirl and Squaredude have the same abilities when it comes to
    elements.
-*** FIRE
+*** DONE FIRE
     A fire character can start fires in front of them, which destroys
     wooden objects and lights torches. Passively, they can also pass
     through active flames, which would kill any non-fire character.
@@ -39,14 +39,14 @@
     If a fire character uses fire on their partner, the partner will
     be launched at high speed away from the fire character, at a speed
     high enough to destroy rocks.
-*** WATER
+*** DONE WATER
     A water character can spray water. Water causes plants to grow and
     can put out flames. +Water can also fill small holes, which will
     cause objects in those holes to float to the top.+
 
     If used on the partner, launches them higher into the air and
     allows them to land on a higher platform.
-*** AIR
+*** DONE AIR
     An air character can summon wind in front of them. Any crates will
     be launched when blown with wind. Air characters are passively
     immune to fall damage; they can fall arbitrary heights without
@@ -88,14 +88,15 @@
 *** +ICE+
     Ice causes players to slide. Using fire on it will melt it into
     water.
-*** ICOSASENTRY
+*** +ICOSASENTRY+
     This clever droid sits and waits until it sees someone
     horizontally or vertically aligned with it (on the same Z axis).
     If it does, it attacks and destroys them. It can't see through
     blocks, though.
-*** CRACKED ROCK
+*** DONE CRACKED ROCK
     A cracked rock, secured into the ground. Cannot be pushed, but can
-    be destroyed if approached at high-speed (i.e. using partner-fire)
+    be destroyed if approached at high-speed (i.e. using partner-fire
+    or by launching a block into it)
 *** +SMALL BOULDER+
     A small boulder. Can be pushed like a crate. If the air ability is
     used on it, it will fly in one direction until it hits something.
@@ -122,9 +123,9 @@
 
     Snowy weather freezes any water into ice (this is a temporary
     freeze and will be undone when the snowstorm ends).
-*** SPRING PANEL
+*** +SPRING PANEL+
     When leaving this tile, the player automatically jumps one tile.
-*** BOMB
+*** +BOMB+
     Explodes when it falls or is set on fire. Kills anyone adjacent to
     it and breaks cracked blocks nearby (the same blocks a flaming
     player can run into)
