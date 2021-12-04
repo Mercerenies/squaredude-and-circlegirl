@@ -1,5 +1,4 @@
 
-///// Pushing this doesn't work; correct and test fully
 function Crate(_sprite) : WorldObject() constructor {
   sprite = _sprite;
   active_animation = undefined;
