@@ -8,6 +8,7 @@ function Character() : WorldObject() constructor {
   idle_paint = new IdlePaint();
   element = Element.None;
   launching = undefined; // Undefined or a direction constant
+  flying = false;
 
   part_system = part_system_create_layer("Instances", false);
   part_system_automatic_draw(part_system, false);
@@ -254,7 +255,7 @@ function Character() : WorldObject() constructor {
     return true;
   }
 
-  static tryToLaunch = function(dir, initial) {
+  static tryToLaunch = function(dir, initial, do_fly) {
     var sx = getX();
     var sy = getY();
     var sz = getZ();
@@ -267,9 +268,13 @@ function Character() : WorldObject() constructor {
     var aboveDest = obj_World.getCovering(dx, dy, dz + 1);
     if (canLaunchTo(sx, sy, sz, dx, dy, dz)) {
       launching = dir;
+      flying = do_fly;
       ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), facing_dir));
       facing_dir = dir;
       var anim = new CharacterFireWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
+      if (flying) {
+        anim = new CharacterAirWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
+      }
       setAnimation(anim);
       return true;
     }
@@ -283,22 +288,24 @@ function Character() : WorldObject() constructor {
       transitive = aboveDest;
     }
     if (!is_undefined(transitive)) {
-      transitive.onImpact(dir, initial ? Strength.PlayerFlying : Strength.PlayerRunning);
+      var strength = Strength.PlayerRunning;
+      if (initial || do_fly) {
+        strength = Strength.PlayerFlying;
+      }
+      transitive.onImpact(dir, strength);
       // Don't want to trip again due to the same effect, so fill
       // the animation slot with something useless for a few frames.
       setAnimation(new DelayAnimation(self, sx, sy, sz, 0.334));
     }
 
     launching = undefined;
+    flying = false;
     return false;
   }
 
   static canLaunchTo = function(sx, sy, sz, dx, dy, dz) {
     if (!World.inBounds(dx, dy, dz)) {
       return false;
-    }
-    if (canWalkTo(sx, sy, sz, dx, dy, dz)) {
-      return true;
     }
     var aboveMe = obj_World.getCovering(sx, sy, sz + 2);
     if (!is_undefined(aboveMe)) {
@@ -334,11 +341,12 @@ function Character() : WorldObject() constructor {
     if (zz == 0) {
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
       launching = undefined;
+      flying = false;
       return;
     }
 
     // If there's nothing below us, then fall.
-    if (is_undefined(below)) {
+    if ((is_undefined(below)) && (!flying)) {
       if (element != Element.Air) {
         falling += 1;
       }
@@ -347,16 +355,16 @@ function Character() : WorldObject() constructor {
     }
 
     // If we're standing on spikes, then die.
-    if (below.isSharp()) {
+    if ((!is_undefined(below)) && (below.isSharp()) && (!flying)) {
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
       launching = undefined;
+      flying = false;
       return;
     }
 
     // If we're standing on an element panel, transform.
-    var belowElt = below.elementPanelOn();
-    if ((!is_undefined(belowElt)) && (element != belowElt)) {
-      // TODO Animation
+    var belowElt = (is_undefined(below) ? undefined : below.elementPanelOn());
+    if ((!is_undefined(belowElt)) && (element != belowElt) && (!flying)) {
       setAnimation(new CharacterTransformAnimation(self, belowElt, method(self, self._onArrive_postContinuation)));
     } else {
       _onArrive_postContinuation();
@@ -384,9 +392,10 @@ function Character() : WorldObject() constructor {
     }
 
     // If we're standing on flames, then die.
-    if (below.isFlaming() && (element != Element.Fire)) {
+    if ((!is_undefined(below)) && below.isFlaming() && (element != Element.Fire) && (!flying)) {
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
       launching = undefined;
+      flying = false;
       return;
     }
 
@@ -395,21 +404,30 @@ function Character() : WorldObject() constructor {
       falling = 0;
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
       launching = undefined;
+      flying = false;
       return;
     }
 
     falling = 0;
 
     // Continue moving
+    var prev_flying = flying;
     if (!is_undefined(launching)) {
       // Are we on an arrow panel?
-      var arrow = below.getArrow();
+      var arrow = (is_undefined(below) ? undefined : below.getArrow());
       if (!is_undefined(arrow)) {
         launching = arrow;
       }
-      tryToLaunch(launching, false);
+      tryToLaunch(launching, false, flying);
     }
-  }
+
+    if (is_undefined(launching) && prev_flying) {
+      // If we were flying but we just hit something, then stop flying
+      // and run this again to catch collisions on the ground.
+      flying = false;
+      onArrive();
+    }
+ }
 
   static isDoubleHeight = function() {
     return true;
@@ -441,7 +459,11 @@ function Character() : WorldObject() constructor {
     }
     if ((element == Element.Fire) && (is_undefined(active_animation))) {
       // Flaming run
-      tryToLaunch(launch_dir, true);
+      tryToLaunch(launch_dir, true, false);
+    }
+    if ((element == Element.Air) && (is_undefined(active_animation))) {
+      // Flaming run
+      tryToLaunch(launch_dir, true, true);
     }
   }
 
