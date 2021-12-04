@@ -17,6 +17,7 @@ setAt(6, 4, 0, new Wall(spr_SimpleTile, Element.Water));
 setAt(6, 5, 0, new Wall(spr_SimpleTile, Element.Air));
 setAt(6, 6, 0, new Wall(spr_SimpleTile, Element.Thunder));
 setAt(6, 7, 0, new Wall(spr_SimpleTile, Element.None));
+setAt(6, 8, 0, new Wall(spr_SimpleTile, undefined, 2));
 
 setAt(9, 1, 0, new Spikes());
 
