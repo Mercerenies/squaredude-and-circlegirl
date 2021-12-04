@@ -117,7 +117,7 @@ function Crate(_sprite) : WorldObject() constructor {
       transitive = aboveDest;
     }
     if (!is_undefined(transitive)) {
-      transitive.onImpact(dir);
+      transitive.onImpact(dir, Strength.Block);
       // Don't want to trip again due to the same air effect, so fill
       // the animation slot with something useless for a few frames.
       setAnimation(new DelayAnimation(self, sx, sy, sz, 0.334));
@@ -304,8 +304,10 @@ function Crate(_sprite) : WorldObject() constructor {
     }
   }
 
-  static onImpact = function(dir) {
-    tryToLaunch(dir);
+  static onImpact = function(dir, strength) {
+    if (strength >= Strength.Block) {
+      tryToLaunch(dir);
+    }
   }
 
 }

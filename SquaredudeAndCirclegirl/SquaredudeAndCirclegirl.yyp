@@ -9,6 +9,7 @@
     {"id":{"name":"struct_ThunderVisuals","path":"scripts/struct_ThunderVisuals/struct_ThunderVisuals.yy",},"order":6,},
     {"id":{"name":"sh_ElementTransition","path":"shaders/sh_ElementTransition/sh_ElementTransition.yy",},"order":2,},
     {"id":{"name":"singleton_UndoCut","path":"scripts/singleton_UndoCut/singleton_UndoCut.yy",},"order":3,},
+    {"id":{"name":"enum_Strength","path":"scripts/enum_Strength/enum_Strength.yy",},"order":8,},
     {"id":{"name":"module_Input","path":"scripts/module_Input/module_Input.yy",},"order":1,},
     {"id":{"name":"spr_Particles","path":"sprites/spr_Particles/spr_Particles.yy",},"order":6,},
     {"id":{"name":"spr_Squaredude_Body","path":"sprites/spr_Squaredude_Body/spr_Squaredude_Body.yy",},"order":1,},

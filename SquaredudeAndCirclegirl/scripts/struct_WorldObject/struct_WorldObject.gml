@@ -66,7 +66,7 @@ function WorldObject() constructor {
     // Empty
   }
 
-  static onImpact = function(dir) {
+  static onImpact = function(dir, strength) { // See enum strength for strength arg
     // Empty
   }
 

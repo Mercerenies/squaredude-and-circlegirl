@@ -7,6 +7,7 @@ function Character() : WorldObject() constructor {
   default_paint = new Paint();
   idle_paint = new IdlePaint();
   element = Element.None;
+  launching = undefined; // Undefined or a direction constant
 
   part_system = part_system_create_layer("Instances", false);
   part_system_automatic_draw(part_system, false);
@@ -253,6 +254,67 @@ function Character() : WorldObject() constructor {
     return true;
   }
 
+  static tryToLaunch = function(dir) {
+    var sx = getX();
+    var sy = getY();
+    var sz = getZ();
+
+    var dx = sx + Dir_toX(dir);
+    var dy = sy + Dir_toY(dir);
+    var dz = sz;
+
+    var atDest = obj_World.getCovering(dx, dy, dz);
+    var aboveDest = obj_World.getCovering(dx, dy, dz + 1);
+    if (canLaunchTo(sx, sy, sz, dx, dy, dz)) {
+      launching = dir;
+      ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), facing_dir));
+      facing_dir = dir;
+      var anim = new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
+      setAnimation(anim);
+      return true;
+    }
+
+    var transitive = undefined;
+    if ((!is_undefined(atDest)) && (is_undefined(aboveDest))) {
+      transitive = atDest;
+    } else if ((!is_undefined(aboveDest)) && (is_undefined(atDest))) {
+      transitive = aboveDest;
+    } else if ((!is_undefined(aboveDest)) && (atDest == aboveDest)) {
+      transitive = aboveDest;
+    }
+    if (!is_undefined(transitive)) {
+      transitive.onImpact(dir, Strength.PlayerRunning);
+      // Don't want to trip again due to the same effect, so fill
+      // the animation slot with something useless for a few frames.
+      setAnimation(new DelayAnimation(self, sx, sy, sz, 0.334));
+    }
+
+    launching = undefined;
+    return false;
+  }
+
+  static canLaunchTo = function(sx, sy, sz, dx, dy, dz) {
+    if (!World.inBounds(dx, dy, dz)) {
+      return false;
+    }
+    if (canWalkTo(sx, sy, sz, dx, dy, dz)) {
+      return true;
+    }
+    var aboveMe = obj_World.getCovering(sx, sy, sz + 2);
+    if (!is_undefined(aboveMe)) {
+      return false; // Too heavy; there's something on top of us
+    }
+    var atDest = obj_World.getCovering(dx, dy, dz);
+    if (!is_undefined(atDest)) {
+      return false;
+    }
+    var aboveDest = obj_World.getCovering(dx, dy, dz + 1);
+    if (!is_undefined(aboveDest)) {
+      return false;
+    }
+    return true;
+  }
+
   static onArrive = function() {
     // We just got somewhere.
     var xx = getX();
@@ -271,6 +333,7 @@ function Character() : WorldObject() constructor {
     // If we're at Z=0, then we're dead.
     if (zz == 0) {
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
+      launching = undefined;
       return;
     }
 
@@ -286,6 +349,7 @@ function Character() : WorldObject() constructor {
     // If we're standing on spikes, then die.
     if (below.isSharp()) {
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
+      launching = undefined;
       return;
     }
 
@@ -322,6 +386,7 @@ function Character() : WorldObject() constructor {
     // If we're standing on flames, then die.
     if (below.isFlaming() && (element != Element.Fire)) {
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
+      launching = undefined;
       return;
     }
 
@@ -329,10 +394,21 @@ function Character() : WorldObject() constructor {
     if (falling > 2) {
       falling = 0;
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
+      launching = undefined;
       return;
     }
 
     falling = 0;
+
+    // Continue moving
+    if (!is_undefined(launching)) {
+      // Are we on an arrow panel?
+      var arrow = below.getArrow();
+      if (!is_undefined(arrow)) {
+        launching = arrow;
+      }
+      tryToLaunch(launching);
+    }
   }
 
   static isDoubleHeight = function() {
@@ -349,19 +425,23 @@ function Character() : WorldObject() constructor {
   }
 
   static hitWith = function(source, element) {
+    var launch_dir;
+    if (getX() > source.getX()) {
+      launch_dir = Dir.Right;
+    } else if (getX() < source.getX()) {
+      launch_dir = Dir.Left;
+    } else if (getY() > source.getY()) {
+      launch_dir = Dir.Down;
+    } else {
+      launch_dir = Dir.Up;
+    }
     if ((element == Element.Water) && (is_undefined(active_animation))) {
       // High jump
-      var launch_dir;
-      if (getX() > source.getX()) {
-        launch_dir = Dir.Right;
-      } else if (getX() < source.getX()) {
-        launch_dir = Dir.Left;
-      } else if (getY() > source.getY()) {
-        launch_dir = Dir.Down;
-      } else {
-        launch_dir = Dir.Up;
-      }
       tryToHighJump(launch_dir);
+    }
+    if ((element == Element.Fire) && (is_undefined(active_animation))) {
+      // Flaming run
+      tryToLaunch(launch_dir);
     }
   }
 
