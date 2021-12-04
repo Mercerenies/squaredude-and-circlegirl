@@ -251,12 +251,6 @@ function Character() : WorldObject() constructor {
       return;
     }
 
-    // If we're standing on flames, then die.
-    if (below.isFlaming() && (element != Element.Fire)) {
-      setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
-      return;
-    }
-
     // If we're standing on an element panel, transform.
     var belowElt = below.elementPanelOn();
     if ((!is_undefined(belowElt)) && (element != belowElt)) {
@@ -274,9 +268,18 @@ function Character() : WorldObject() constructor {
 
     var below = obj_World.getCovering(xx, yy, zz - 1);
 
-    // If we're on fire, then burn the ground
-    if ((element == Element.Fire) && (!is_undefined(below))) {
-      below.hitWith(self, element);
+    // If we have an element, passively use it on the ground below
+    if ((element != Element.None) && (element != Element.Air) && (!is_undefined(below))) {
+      // Note: Air would be far too chaotic if allowed here.
+      if ((instanceof(below) != "Squaredude") && (instanceof(below) != "Circlegirl")) {
+        below.hitWith(self, element);
+      }
+    }
+
+    // If we're standing on flames, then die.
+    if (below.isFlaming() && (element != Element.Fire)) {
+      setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
+      return;
     }
 
     // If we've fallen too far, then we're dead.
