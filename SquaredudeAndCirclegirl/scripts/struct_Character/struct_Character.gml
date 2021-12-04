@@ -301,6 +301,10 @@ function Character() : WorldObject() constructor {
     return true;
   }
 
+  static squishable = function() {
+    return true;
+  }
+
   static landedOn = function(top) {
     // Oh no, we are crushed :(
     setAnimation(new CharacterDeathAnimation(self, getX(), getY(), getZ()));

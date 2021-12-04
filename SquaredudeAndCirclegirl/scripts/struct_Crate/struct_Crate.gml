@@ -3,6 +3,7 @@ function Crate(_sprite) : WorldObject() constructor {
   sprite = _sprite;
   active_animation = undefined;
   painter = new _Crate_Painter(self);
+  launching = undefined; // Undefined or a direction constant
 
   part_system = part_system_create_layer("Instances", false);
   part_system_automatic_draw(part_system, false);
@@ -81,6 +82,37 @@ function Crate(_sprite) : WorldObject() constructor {
     return false;
   }
 
+  static tryToLaunch = function(dir) {
+    var sx = getX();
+    var sy = getY();
+    var sz = getZ();
+
+    var dx = sx + Dir_toX(dir);
+    var dy = sy + Dir_toY(dir);
+    var dz = sz;
+
+    if (canLaunchTo(sx, sy, sz, dx, dy, dz)) {
+
+      var atDest = obj_World.getCovering(dx, dy, dz);
+      var aboveDest = obj_World.getCovering(dx, dy, dz + 1);
+      if (!is_undefined(atDest)) {
+        atDest.setAnimation(new CharacterDeathAnimation(atDest, atDest.getX(), atDest.getY(), atDest.getZ()));
+      }
+      if ((!is_undefined(aboveDest)) && (aboveDest != atDest)) {
+        aboveDest.setAnimation(new CharacterDeathAnimation(aboveDest, aboveDest.getX(), aboveDest.getY(), aboveDest.getZ()));
+      }
+
+      launching = dir;
+      ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), undefined));
+      var anim = new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
+      setAnimation(anim);
+      return true;
+    }
+
+    launching = undefined;
+    return false;
+  }
+
   static canMoveTo = function(sx, sy, sz, dx, dy, dz) {
     if (!World.inBounds(dx, dy, dz)) {
       return false;
@@ -95,6 +127,28 @@ function Crate(_sprite) : WorldObject() constructor {
     }
     var aboveDest = obj_World.getCovering(dx, dy, dz + 1);
     if (!is_undefined(aboveDest)) {
+      return false;
+    }
+    return true;
+  }
+
+  static canLaunchTo = function(sx, sy, sz, dx, dy, dz) {
+    if (!World.inBounds(dx, dy, dz)) {
+      return false;
+    }
+    if (canMoveTo(sx, sy, sz, dx, dy, dz)) {
+      return true;
+    }
+    var aboveMe = obj_World.getCovering(sx, sy, sz + 2);
+    if (!is_undefined(aboveMe)) {
+      return false; // Too heavy; there's something on top of us
+    }
+    var atDest = obj_World.getCovering(dx, dy, dz);
+    if ((!is_undefined(atDest)) && (!atDest.squishable())) {
+      return false;
+    }
+    var aboveDest = obj_World.getCovering(dx, dy, dz + 1);
+    if ((!is_undefined(aboveDest)) && (!atDest.squishable())) {
       return false;
     }
     return true;
@@ -118,6 +172,7 @@ function Crate(_sprite) : WorldObject() constructor {
     // If we're at Z=0, then we're dead.
     if (zz == 0) {
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
+      launching = undefined;
       return;
     }
 
@@ -130,7 +185,13 @@ function Crate(_sprite) : WorldObject() constructor {
     // If we're standing on flames, then die.
     if (below.isFlaming() && (sprite == spr_WoodenCrate)) {
       burnAndSpreadFire();
+      launching = undefined;
       return;
+    }
+
+    // Continue moving
+    if (!is_undefined(launching)) {
+      tryToLaunch(launching);
     }
 
   }
@@ -142,6 +203,20 @@ function Crate(_sprite) : WorldObject() constructor {
   static hitWith = function(source, element) {
     if ((element == Element.Fire) && (sprite == spr_WoodenCrate)) {
       burnAndSpreadFire();
+    }
+    if ((element == Element.Air) && (is_undefined(active_animation))) {
+      // Launch
+      var launch_dir;
+      if (getX() > source.getX()) {
+        launch_dir = Dir.Right;
+      } else if (getX() < source.getX()) {
+        launch_dir = Dir.Left;
+      } else if (getY() > source.getY()) {
+        launch_dir = Dir.Down;
+      } else {
+        launch_dir = Dir.Up;
+      }
+      tryToLaunch(launch_dir);
     }
   }
 

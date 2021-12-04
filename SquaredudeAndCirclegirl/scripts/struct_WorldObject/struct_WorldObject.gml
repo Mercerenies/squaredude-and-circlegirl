@@ -79,4 +79,9 @@ function WorldObject() constructor {
     // Empty
   }
 
+  static squishable = function() {
+    // If this is true, then the object can be crushed by oncoming crates.
+    return false;
+  }
+
 }

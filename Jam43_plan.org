@@ -41,8 +41,8 @@
     high enough to destroy rocks.
 *** WATER
     A water character can spray water. Water causes plants to grow and
-    can put out flames. Water can also fill small holes, which will
-    cause objects in those holes to float to the top.
+    can put out flames. +Water can also fill small holes, which will
+    cause objects in those holes to float to the top.+
 
     If used on the partner, launches them higher into the air and
     allows them to land on a higher platform.
