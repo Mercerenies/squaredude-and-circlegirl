@@ -251,6 +251,12 @@ function Character() : WorldObject() constructor {
       return;
     }
 
+    // If we're standing on flames, then die.
+    if (below.isFlaming() && (element != Element.Fire)) {
+      setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
+      return;
+    }
+
     // If we're standing on an element panel, transform.
     var belowElt = below.elementPanelOn();
     if ((!is_undefined(belowElt)) && (element != belowElt)) {
@@ -322,7 +328,16 @@ function Character() : WorldObject() constructor {
     }
 
     if (element != Element.None) {
-      var target = obj_World.getCovering(dx, dy, dz);
+      var target;
+      target = obj_World.getCovering(dx, dy, dz + 1);
+      if (!is_undefined(target)) {
+        target.hitWith(self, element);
+      }
+      target = obj_World.getCovering(dx, dy, dz);
+      if (!is_undefined(target)) {
+        target.hitWith(self, element);
+      }
+      target = obj_World.getCovering(dx, dy, dz - 1);
       if (!is_undefined(target)) {
         target.hitWith(self, element);
       }

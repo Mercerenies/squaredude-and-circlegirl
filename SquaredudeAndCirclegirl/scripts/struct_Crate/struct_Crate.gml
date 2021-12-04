@@ -127,6 +127,12 @@ function Crate(_sprite) : WorldObject() constructor {
       return;
     }
 
+    // If we're standing on flames, then die.
+    if (below.isFlaming() && (sprite == spr_WoodenCrate)) {
+      burnAndSpreadFire();
+      return;
+    }
+
   }
 
   static canBePushed = function() {
@@ -134,7 +140,6 @@ function Crate(_sprite) : WorldObject() constructor {
   }
 
   static hitWith = function(source, element) {
-    // TODO Time permitting, some cutesy animations for the other elements
     if ((element == Element.Fire) && (sprite == spr_WoodenCrate)) {
       burnAndSpreadFire();
     }

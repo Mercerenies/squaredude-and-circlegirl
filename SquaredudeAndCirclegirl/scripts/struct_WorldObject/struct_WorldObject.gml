@@ -43,6 +43,10 @@ function WorldObject() constructor {
     return false;
   }
 
+  static isFlaming = function() {
+    return false;
+  }
+
   static canBePushed = function() {
     // If this returns true, then the object should define
     // canMoveTo(sx, sy, sz, dx, dy, dz) and tryToMove(dir). See Crate
