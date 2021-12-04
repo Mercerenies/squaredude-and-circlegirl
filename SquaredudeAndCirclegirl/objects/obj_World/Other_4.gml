@@ -60,12 +60,22 @@ setAt(12, 7, 3, new Wall(spr_SimpleTile));
 
 setAt(3, 7, 1, new Torch(2));
 setAt(4, 7, 1, new Wall(spr_SimpleTile));
+
 var door = new Door(2, false);
 setAt(4, 8, 1, door);
 setQuantumAt(4, 8, 0, door);
 door.originX = 4;
 door.originY = 8;
 door.originZ = 1;
+
+var door2 = new Door(3, false);
+setAt(5, 8, 1, door2);
+setQuantumAt(5, 8, 0, door2);
+door2.originX = 5;
+door2.originY = 8;
+door2.originZ = 1;
+
+setAt(10, 1, 1, new Device(3));
 
 for (var i = 7; i <= 10; i++) {
   var quantum = new QuantumBlock();
