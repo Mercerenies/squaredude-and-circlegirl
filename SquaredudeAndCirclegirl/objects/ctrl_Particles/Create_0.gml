@@ -22,3 +22,15 @@ part_type_orientation(player_water, 0, 360, 0, 0, false);
 part_type_colour_mix(player_water, $baa720, $e6dd9b);
 part_type_alpha1(player_water, 1.0);
 part_type_life(player_water, 10, 20);
+
+player_air = part_type_create();
+part_type_shape(player_air, pt_shape_cloud);
+part_type_size(player_air, 0.2, 0.2, 0, 0);
+part_type_scale(player_air, 1, 1);
+part_type_speed(player_air, 0, 0, 0, 0);
+part_type_direction(player_air, 0, 0, 0, 0);
+part_type_gravity(player_air, 0, 0);
+part_type_orientation(player_air, 0, 360, 0, 0, false);
+part_type_colour_mix(player_air, $d9d7cd, $b0ad99);
+part_type_alpha1(player_air, 0.2);
+part_type_life(player_air, 5, 15);
