@@ -9,7 +9,6 @@ function CharacterTransformAnimation(_owner, _target_elem, _k) constructor {
     var prev_progress = progress;
     progress += 0.05;
     if ((prev_progress < 0.5) && (progress >= 0.5)) {
-      // Do it halfway if going left or right
       owner.setActiveElement(target_elem);
     }
   }
