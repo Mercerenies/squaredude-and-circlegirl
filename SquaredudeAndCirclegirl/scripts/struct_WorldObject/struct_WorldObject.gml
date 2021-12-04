@@ -92,4 +92,8 @@ function WorldObject() constructor {
     return false;
   }
 
+  static getArrow = function() {
+    return undefined;
+  }
+
 }

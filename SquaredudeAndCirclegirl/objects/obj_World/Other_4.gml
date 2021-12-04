@@ -86,4 +86,7 @@ for (var i = 7; i <= 10; i++) {
   quantum.originZ = 1;
 }
 
+setAt(14, 1, 0, new Wall(spr_SimpleTile, undefined, undefined, Dir.Down));
+setAt(14, 12, 0, new Wall(spr_SimpleTile, undefined, undefined, Dir.Left));
+
 // END DEBUG CODE

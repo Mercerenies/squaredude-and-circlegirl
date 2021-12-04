@@ -1,8 +1,9 @@
 
-function Wall(_sprite, _element, _plate_channel) : WorldObject() constructor {
+function Wall(_sprite, _element, _plate_channel, _arrow_panel) : WorldObject() constructor {
   sprite = _sprite;
   element = _element;
   plate_channel = _plate_channel;
+  arrow_panel = _arrow_panel;
 
   static platePressed = function() {
     var above = obj_World.getCovering(getX(), getY(), getZ() + 1);
@@ -34,10 +35,17 @@ function Wall(_sprite, _element, _plate_channel) : WorldObject() constructor {
       draw_sprite(spr_PressurePlate, pressed, sx, sy - GRID_SIZE / 2);
       draw_sprite(spr_Zodiac, plate_channel, sx, sy - GRID_SIZE / 2 - 8 + pressed * 8);
     }
+    if (!is_undefined(arrow_panel)) {
+      draw_sprite(spr_ArrowPanel, arrow_panel, sx, sy - GRID_SIZE / 2);
+    }
   }
 
   static elementPanelOn = function() {
     return element;
+  }
+
+  static getArrow = function() {
+    return arrow_panel;
   }
 
 }

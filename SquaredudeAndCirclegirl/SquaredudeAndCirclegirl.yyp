@@ -2,6 +2,7 @@
   "resources": [
     {"id":{"name":"struct_Circlegirl","path":"scripts/struct_Circlegirl/struct_Circlegirl.yy",},"order":2,},
     {"id":{"name":"struct_CharacterFallingAnimation","path":"scripts/struct_CharacterFallingAnimation/struct_CharacterFallingAnimation.yy",},"order":1,},
+    {"id":{"name":"spr_ArrowPanel","path":"sprites/spr_ArrowPanel/spr_ArrowPanel.yy",},"order":7,},
     {"id":{"name":"struct_PlaceObjectUndoEvent","path":"scripts/struct_PlaceObjectUndoEvent/struct_PlaceObjectUndoEvent.yy",},"order":4,},
     {"id":{"name":"struct_BurningToDeathAnimation","path":"scripts/struct_BurningToDeathAnimation/struct_BurningToDeathAnimation.yy",},"order":6,},
     {"id":{"name":"struct_ThunderVisuals","path":"scripts/struct_ThunderVisuals/struct_ThunderVisuals.yy",},"order":6,},

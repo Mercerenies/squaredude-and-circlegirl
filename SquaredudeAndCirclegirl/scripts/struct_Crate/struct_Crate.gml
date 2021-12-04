@@ -205,6 +205,11 @@ function Crate(_sprite) : WorldObject() constructor {
 
     // Continue moving
     if (!is_undefined(launching)) {
+      // Are we on an arrow panel?
+      var arrow = below.getArrow();
+      if (!is_undefined(arrow)) {
+        launching = arrow;
+      }
       tryToLaunch(launching);
     }
 
