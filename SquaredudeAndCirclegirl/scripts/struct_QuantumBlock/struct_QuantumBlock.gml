@@ -24,7 +24,7 @@ function QuantumBlock() : WorldObject() constructor {
         obj_World.setAt(originX, originY, originZ, undefined);
       }
       if (prev_quantum_state) {
-        var above = obj_World.getAt(originX, originY, originZ + 2);
+        var above = obj_World.getCovering(originX, originY, originZ + 2);
         if (!is_undefined(above)) {
           // Check to see if the thing above us wants to fall down.
           above.onArrive();

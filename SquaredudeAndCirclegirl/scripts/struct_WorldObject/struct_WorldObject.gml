@@ -67,4 +67,8 @@ function WorldObject() constructor {
     // Empty
   }
 
+  static burnAndSpreadFire = function() {
+    // Empty
+  }
+
 }

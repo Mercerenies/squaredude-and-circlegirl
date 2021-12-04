@@ -122,3 +122,7 @@
     freeze and will be undone when the snowstorm ends).
 *** SPRING PANEL
     When leaving this tile, the player automatically jumps one tile.
+*** BOMB
+    Explodes when it falls or is set on fire. Kills anyone adjacent to
+    it and breaks cracked blocks nearby (the same blocks a flaming
+    player can run into)

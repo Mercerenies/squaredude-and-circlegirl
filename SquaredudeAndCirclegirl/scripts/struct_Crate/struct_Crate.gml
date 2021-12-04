@@ -136,15 +136,41 @@ function Crate(_sprite) : WorldObject() constructor {
   static hitWith = function(source, element) {
     // TODO Time permitting, some cutesy animations for the other elements
     if ((element == Element.Fire) && (sprite == spr_WoodenCrate)) {
+      burnAndSpreadFire();
+    }
+  }
+
+  static burnAndSpreadFire = function() {
+    if ((sprite == spr_WoodenCrate) && (instanceof(active_animation) != "BurningToDeathAnimation")) {
       var xx = getX();
       var yy = getY();
       var zz = getZ();
       setAnimation(new BurningToDeathAnimation(self, xx, yy, zz));
-      var above = obj_World.getAt(xx, yy, zz + 2);
+
+      // Spread the fire
+      for (var x1 = xx - 1; x1 <= xx + 1; x1++) {
+        for (var y1 = yy - 1; y1 <= yy + 1; y1++) {
+          for (var z1 = zz - 1; z1 <= zz + 2; z1++) {
+            // At least two coordinates must match
+            var xmatch = (x1 == xx) ? 1 : 0;
+            var ymatch = (y1 == yy) ? 1 : 0;
+            var zmatch = (z1 == zz) ? 1 : 0;
+            if (xmatch + ymatch + zmatch >= 2) {
+              var adjacent = obj_World.getCovering(x1, y1, z1);
+              if (!is_undefined(adjacent)) {
+                adjacent.burnAndSpreadFire();
+              }
+            }
+          }
+        }
+      }
+
+      var above = obj_World.getCovering(xx, yy, zz + 2);
       if (!is_undefined(above)) {
         // Check to see if the thing above us wants to fall down.
         above.onArrive();
       }
+
     }
   }
 
