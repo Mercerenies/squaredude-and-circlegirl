@@ -304,7 +304,7 @@ function Character() : WorldObject() constructor {
       obj_World.setVisualsAt(dx, dy, dz, new AirVisuals(dx, dy, dz));
       break;
     case Element.Thunder:
-      ////
+      obj_World.setVisualsAt(dx, dy, dz, new ThunderVisuals(dx, dy, dz));
       break;
     }
 
