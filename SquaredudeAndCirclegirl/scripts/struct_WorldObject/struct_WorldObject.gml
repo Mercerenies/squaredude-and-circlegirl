@@ -58,4 +58,8 @@ function WorldObject() constructor {
     return undefined;
   }
 
+  static onArrive = function() {
+    // Empty
+  }
+
 }

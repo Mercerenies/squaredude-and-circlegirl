@@ -21,7 +21,7 @@ setAt(6, 7, 0, new Wall(spr_SimpleTile, Element.None));
 setAt(9, 1, 0, new Spikes());
 
 setAt(8, 5, 1, new Crate(spr_WoodenCrate));
-setAt(8, 4, 3, new Crate(spr_WoodenCrate));
+setAt(8, 3, 3, new Crate(spr_WoodenCrate));
 
 setAt(4, 4, 1, new Wall(spr_SimpleTile));
 setAt(4, 4, 2, new Wall(spr_SimpleTile));
@@ -40,9 +40,13 @@ setAt(8, 3, 1, new Wall(spr_SimpleTile));
 setAt(8, 3, 2, new Wall(spr_SimpleTile));
 setAt(9, 3, 1, new Wall(spr_SimpleTile));
 
-setAt(7, 2, 1, new QuantumBlock());
-setAt(8, 2, 1, new QuantumBlock());
-setAt(9, 2, 1, new QuantumBlock());
-setAt(10, 2, 1, new QuantumBlock());
+for (var i = 7; i <= 10; i++) {
+  var quantum = new QuantumBlock();
+  setAt(i, 2, 1, quantum);
+  setQuantumAt(i, 2, 1, quantum);
+  quantum.originX = i;
+  quantum.originY = 2;
+  quantum.originZ = 1;
+}
 
 // END DEBUG CODE

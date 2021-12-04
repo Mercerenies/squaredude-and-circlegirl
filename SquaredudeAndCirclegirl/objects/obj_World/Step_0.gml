@@ -13,10 +13,17 @@ for (var idx = 0; idx < WORLD_HEIGHT * WORLD_LENGTH * WORLD_WIDTH; idx++) {
     value.step();
   }
 
+  // Quantum
+  value = quantum[idx];
+  if (!is_undefined(value)) {
+    value.quantumStep();
+  }
+
 }
+
+updateQuantumStates();
 
 // Check for shift
 if ((Input.shiftPressed()) && (!isMovingSomething()) && (!isSomeoneDead())) {
-  cycleChannel(); // TODO Visual indicator of this
+  cycleChannel();
 }
-

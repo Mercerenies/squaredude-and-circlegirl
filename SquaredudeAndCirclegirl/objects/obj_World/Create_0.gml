@@ -1,10 +1,7 @@
 
 world = [];
-
-// This array never shrinks and only grows. When things are "removed",
-// they're replaced with undefined and reused as slots later. This is
-// so we're not constantly reallocating array space.
 visuals = [];
+quantum = [];
 
 move_count = 0;
 channel_index = 0;
@@ -17,6 +14,7 @@ circlegirl = undefined;
 for (var i = WORLD_WIDTH * WORLD_LENGTH * WORLD_HEIGHT - 1; i >= 0; i--) {
   world[i] = undefined;
   visuals[i] = undefined;
+  quantum[i] = undefined;
 }
 
 _coord = function(xx, yy, zz) {
@@ -57,6 +55,12 @@ setAt = function(xx, yy, zz, v) {
   }
 }
 
+move = function(x1, y1, z1, x2, y2, z2) {
+  var v = getAt(x1, y1, z1);
+  setAt(x1, y1, z1, undefined);
+  setAt(x2, y2, z2, v);
+}
+
 getVisualsAt = function(xx, yy, zz) {
   if (!World.inBounds(xx, yy, zz)) {
     return undefined;
@@ -70,10 +74,17 @@ setVisualsAt = function(xx, yy, zz, v) {
   }
 }
 
-move = function(x1, y1, z1, x2, y2, z2) {
-  var v = getAt(x1, y1, z1);
-  setAt(x1, y1, z1, undefined);
-  setAt(x2, y2, z2, v);
+getQuantumAt = function(xx, yy, zz) {
+  if (!World.inBounds(xx, yy, zz)) {
+    return undefined;
+  }
+  return quantum[_coord(xx, yy, zz)];
+}
+
+setQuantumAt = function(xx, yy, zz, v) {
+  if (World.inBounds(xx, yy, zz)) {
+    quantum[_coord(xx, yy, zz)] = v;
+  }
 }
 
 getChannel = function() {
@@ -107,4 +118,20 @@ isMovingSomething = function() {
 
 isSomeoneDead = function() {
   return (squaredude.getX() < 0) || (circlegirl.getX() < 0);
+}
+
+updateQuantumStates = function() {
+  for (var idx = 0; idx < WORLD_HEIGHT * WORLD_LENGTH * WORLD_WIDTH; idx++) {
+    // Quantum
+    value = quantum[idx];
+    if (!is_undefined(value)) {
+      // Note: idx = (yy * WORLD_HEIGHT + zz) * WORLD_WIDTH + xx;
+      var xx = idx % WORLD_WIDTH;
+      var yy = idx div (WORLD_WIDTH * WORLD_HEIGHT);
+      var zz = (idx div WORLD_WIDTH) % WORLD_HEIGHT;
+      var observed = (squaredude.isLookingAt(xx, yy, zz) || circlegirl.isLookingAt(xx, yy, zz));
+      value.quantum_state = observed;
+      value.updateQuantumState();
+    }
+  }
 }

@@ -36,6 +36,7 @@ function Character() : WorldObject() constructor {
 
   static setFacingDir = function(d) {
     facing_dir = d;
+    obj_World.updateQuantumStates();
   }
 
   static setAnimation = function(anim) {
@@ -62,6 +63,7 @@ function Character() : WorldObject() constructor {
       if (input_dir >= 0) {
         var prev_dir = facing_dir;
         facing_dir = input_dir;
+        obj_World.updateQuantumStates();
         tryToMove(prev_dir);
       } else if (Input.spacePressed()) {
         emitElement();
@@ -308,6 +310,31 @@ function Character() : WorldObject() constructor {
     case Element.Thunder:
       obj_World.setVisualsAt(dx, dy, dz, new ThunderVisuals(dx, dy, dz));
       break;
+    }
+
+  }
+
+  static isLookingAt = function(dx, dy, dz) {
+    var xx = getX();
+    var yy = getY();
+    var zz = getZ();
+
+    if (xx < 0) {
+      return false; // We're not on the map, so we're looking at nothing
+    }
+
+    if ((zz != dz) && (zz != dz - 1)) {
+      return false; // Not aligned on Z
+    }
+
+    var dirx = Dir_toX(facing_dir);
+    var diry = Dir_toY(facing_dir);
+    if (dirx != 0) {
+      // Facing horizontally, so check horizontal coordinates
+      return sign(dx - xx) == dirx;
+    } else {
+      // Facing vertically, so check vertical coordinates
+      return sign(dy - yy) == diry;
     }
 
   }
