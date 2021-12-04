@@ -264,6 +264,13 @@ function Character() : WorldObject() constructor {
     var yy = getY();
     var zz = getZ();
 
+    var below = obj_World.getCovering(xx, yy, zz - 1);
+
+    // If we're on fire, then burn the ground
+    if ((element == Element.Fire) && (!is_undefined(below))) {
+      below.hitWith(self, element);
+    }
+
     // If we've fallen too far, then we're dead.
     if (falling > 2) {
       falling = 0;
