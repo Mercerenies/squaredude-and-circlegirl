@@ -48,3 +48,15 @@ part_type_orientation(player_thunder, 0, 0, 0, 0, false);
 part_type_colour_mix(player_thunder, $6aebf8, $09bbcd);
 part_type_alpha1(player_thunder, 1);
 part_type_life(player_thunder, 5, 10);
+
+attack_water = part_type_create();
+part_type_shape(attack_water, pt_shape_pixel);
+part_type_size(attack_water, 1, 2, 0, 0);
+part_type_scale(attack_water, 1, 1);
+part_type_speed(attack_water, 3.5, 4.0, 0, 0);
+part_type_direction(attack_water, 45, 135, 0, 5);
+part_type_gravity(attack_water, 0.2, 270);
+part_type_orientation(attack_water, 0, 360, 0, 0, false);
+part_type_colour_mix(attack_water, $baa720, $e6dd9b);
+part_type_alpha1(attack_water, 1.0);
+part_type_life(attack_water, 10, 20);

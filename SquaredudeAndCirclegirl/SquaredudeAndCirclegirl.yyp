@@ -28,6 +28,7 @@
     {"id":{"name":"spr_FinalizerGC","path":"sprites/spr_FinalizerGC/spr_FinalizerGC.yy",},"order":2,},
     {"id":{"name":"spr_ElementPanel","path":"sprites/spr_ElementPanel/spr_ElementPanel.yy",},"order":1,},
     {"id":{"name":"enum_Element","path":"scripts/enum_Element/enum_Element.yy",},"order":0,},
+    {"id":{"name":"struct_WaterVisuals","path":"scripts/struct_WaterVisuals/struct_WaterVisuals.yy",},"order":4,},
     {"id":{"name":"obj_Squaredude_TestModel","path":"objects/obj_Squaredude_TestModel/obj_Squaredude_TestModel.yy",},"order":0,},
     {"id":{"name":"struct_Character","path":"scripts/struct_Character/struct_Character.yy",},"order":4,},
     {"id":{"name":"spr_Circlegirl_Body","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"order":0,},
