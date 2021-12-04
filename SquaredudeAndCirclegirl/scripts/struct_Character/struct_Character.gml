@@ -301,7 +301,7 @@ function Character() : WorldObject() constructor {
       obj_World.setVisualsAt(dx, dy, dz, new WaterVisuals(dx, dy, dz));
       break;
     case Element.Air:
-      ////
+      obj_World.setVisualsAt(dx, dy, dz, new AirVisuals(dx, dy, dz));
       break;
     case Element.Thunder:
       ////

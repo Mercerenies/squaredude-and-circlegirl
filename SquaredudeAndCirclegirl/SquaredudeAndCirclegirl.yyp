@@ -8,6 +8,7 @@
     {"id":{"name":"module_Input","path":"scripts/module_Input/module_Input.yy",},"order":1,},
     {"id":{"name":"spr_Particles","path":"sprites/spr_Particles/spr_Particles.yy",},"order":6,},
     {"id":{"name":"spr_Squaredude_Body","path":"sprites/spr_Squaredude_Body/spr_Squaredude_Body.yy",},"order":1,},
+    {"id":{"name":"struct_AirVisuals","path":"scripts/struct_AirVisuals/struct_AirVisuals.yy",},"order":5,},
     {"id":{"name":"ctrl_FinalizerGC","path":"objects/ctrl_FinalizerGC/ctrl_FinalizerGC.yy",},"order":3,},
     {"id":{"name":"ctrl_Particles","path":"objects/ctrl_Particles/ctrl_Particles.yy",},"order":7,},
     {"id":{"name":"struct_ParticleResource","path":"scripts/struct_ParticleResource/struct_ParticleResource.yy",},"order":5,},

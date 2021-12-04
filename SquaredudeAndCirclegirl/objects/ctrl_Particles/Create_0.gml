@@ -60,3 +60,15 @@ part_type_orientation(attack_water, 0, 360, 0, 0, false);
 part_type_colour_mix(attack_water, $baa720, $e6dd9b);
 part_type_alpha1(attack_water, 1.0);
 part_type_life(attack_water, 10, 20);
+
+attack_air = part_type_create();
+part_type_shape(attack_air, pt_shape_cloud);
+part_type_size(attack_air, 0.2, 0.2, 0, 0);
+part_type_scale(attack_air, 1, 1);
+part_type_speed(attack_air, 0.5, 1.5, 0.2, 0);
+part_type_direction(attack_air, 85, 95, 0, 0);
+part_type_gravity(attack_air, 0, 0);
+part_type_orientation(attack_air, 0, 360, 0, 0, false);
+part_type_colour_mix(attack_air, $d9d7cd, $b0ad99);
+part_type_alpha1(attack_air, 0.2);
+part_type_life(attack_air, 5, 15);
