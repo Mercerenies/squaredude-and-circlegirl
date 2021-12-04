@@ -40,6 +40,9 @@ setAt(8, 3, 1, new Wall(spr_SimpleTile));
 setAt(8, 3, 2, new Wall(spr_SimpleTile));
 setAt(9, 3, 1, new Wall(spr_SimpleTile));
 
+setAt(3, 7, 1, new Torch());
+setAt(4, 7, 1, new Wall(spr_SimpleTile));
+
 for (var i = 7; i <= 10; i++) {
   var quantum = new QuantumBlock();
   setAt(i, 2, 1, quantum);

@@ -126,3 +126,6 @@
     Explodes when it falls or is set on fire. Kills anyone adjacent to
     it and breaks cracked blocks nearby (the same blocks a flaming
     player can run into)
+*** BURNING TILE
+    Kills anyone who touches it, unless they have the fire ability.
+    Also burns wooden objects that land on it.
