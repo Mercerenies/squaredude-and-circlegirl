@@ -59,7 +59,7 @@ function Character() : WorldObject() constructor {
     getPainter().step();
 
     var input_dir = Input.dirPressed();
-    if ((input_dir >= 0) && (!obj_World.isMovingSomething()) && (isActiveCharacter())) {
+    if ((input_dir >= 0) && (!obj_World.isMovingSomething()) && (!obj_World.isSomeoneDead()) && (isActiveCharacter())) {
       var prev_dir = facing_dir;
       facing_dir = input_dir;
       tryToMove(prev_dir);

@@ -9,6 +9,9 @@ visuals = [];
 move_count = 0;
 channel_index = 0;
 channels = [new Circlegirl().characterChannel(), new Squaredude().characterChannel()];
+// TODO Make sure these get set by whatever templating engine I use.
+squaredude = undefined;
+circlegirl = undefined;
 
 // Fill in reverse order so we only allocate memory once
 for (var i = WORLD_WIDTH * WORLD_LENGTH * WORLD_HEIGHT - 1; i >= 0; i--) {
@@ -100,4 +103,8 @@ moveCountDown = function() {
 
 isMovingSomething = function() {
   return move_count > 0;
+}
+
+isSomeoneDead = function() {
+  return (squaredude.getX() < 0) || (circlegirl.getX() < 0);
 }
