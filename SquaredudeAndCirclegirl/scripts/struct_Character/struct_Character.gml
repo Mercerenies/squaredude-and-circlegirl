@@ -290,6 +290,8 @@ function Character() : WorldObject() constructor {
       return;
     }
 
+    ctrl_UndoManager.pushStack(UndoCut);
+
     switch (element) {
     case Element.None:
       // Nothing to be done here.
