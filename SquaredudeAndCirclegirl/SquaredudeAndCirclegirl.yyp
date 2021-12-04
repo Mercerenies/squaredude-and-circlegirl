@@ -43,6 +43,7 @@
     {"id":{"name":"struct_DynamicResource","path":"scripts/struct_DynamicResource/struct_DynamicResource.yy",},"order":4,},
     {"id":{"name":"ctrl_Init","path":"objects/ctrl_Init/ctrl_Init.yy",},"order":1,},
     {"id":{"name":"struct_Torch","path":"scripts/struct_Torch/struct_Torch.yy",},"order":1,},
+    {"id":{"name":"spr_Zodiac","path":"sprites/spr_Zodiac/spr_Zodiac.yy",},"order":7,},
     {"id":{"name":"struct_IdlePaint","path":"scripts/struct_IdlePaint/struct_IdlePaint.yy",},"order":2,},
     {"id":{"name":"struct_Crate","path":"scripts/struct_Crate/struct_Crate.yy",},"order":1,},
     {"id":{"name":"obj_World","path":"objects/obj_World/obj_World.yy",},"order":0,},

@@ -1,7 +1,8 @@
 
-function Torch() : WorldObject() constructor {
+function Torch(_channel) : WorldObject() constructor {
   sprite = spr_Torch;
   on_fire = false;
+  channel = _channel;
 
   part_system = part_system_create_layer("Instances", false);
   part_system_automatic_draw(part_system, false);
@@ -28,6 +29,7 @@ function Torch() : WorldObject() constructor {
 
     var sx = World.toCenterX(xx, yy, zz);
     var sy = World.toCenterY(xx, yy, zz);
+    draw_sprite(spr_Zodiac, channel, sx, sy + 8);
     draw_sprite(sprite, 0, sx, sy);
     part_system_drawit(part_system);
   }
