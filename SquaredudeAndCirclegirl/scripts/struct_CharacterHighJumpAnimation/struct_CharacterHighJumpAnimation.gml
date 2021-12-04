@@ -1,6 +1,6 @@
 
-// Precondition: dz == sz + 1
-function CharacterHopUpAnimation(_owner, _sx, _sy, _sz, _dx, _dy, _dz) constructor {
+// Precondition: dz == sz + 2
+function CharacterHighJumpAnimation(_owner, _sx, _sy, _sz, _dx, _dy, _dz) constructor {
   owner = _owner;
   sx = _sx;
   sy = _sy;
@@ -11,16 +11,13 @@ function CharacterHopUpAnimation(_owner, _sx, _sy, _sz, _dx, _dy, _dz) construct
   progress = 0;
 
   static step = function() {
-    var prev_progress = progress;
     progress += 0.05;
-    if ((prev_progress < 0.5) && (progress >= 0.5)) {
-      obj_World.move(sx, sy, sz, dx, dy, dz);
-    }
   }
 
   static onStart = function() {
     obj_World.moveCountUp();
     ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(owner, sx, sy, sz, undefined));
+    obj_World.move(sx, sy, sz, dx, dy, dz);
   }
 
   static onEnd = function() {
@@ -41,7 +38,7 @@ function CharacterHopUpAnimation(_owner, _sx, _sy, _sz, _dx, _dy, _dz) construct
     var screen_x = lerp(screen_sx, screen_dx, progress);
     var screen_y = lerp(screen_sy, screen_dy, progress);
     // Hop anim
-    screen_y -= (GRID_SIZE * 4 * progress * (1 - progress) + GRID_SIZE * progress / 2);
+    screen_y -= (GRID_SIZE * 4 * progress * (1 - progress) + GRID_SIZE * progress);
 
     owner.getPainter().draw(screen_x, screen_y, owner.getFacingDir(), owner.getActiveElement());
 

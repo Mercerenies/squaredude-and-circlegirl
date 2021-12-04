@@ -171,6 +171,29 @@ function Character() : WorldObject() constructor {
     return false;
   }
 
+  static tryToHighJump = function(dir) {
+    ctrl_UndoManager.pushStack(new PlaceObjectUndoEvent(self, getX(), getY(), getZ(), facing_dir));
+    facing_dir = dir;
+
+    var sx = getX();
+    var sy = getY();
+    var sz = getZ();
+
+    var dx = sx + Dir_toX(facing_dir);
+    var dy = sy + Dir_toY(facing_dir);
+    var dz = sz + 2;
+
+    if (canHighJumpTo(sx, sy, sz, dx, dy, dz)) {
+      // Note: falling = -2 so we don't take fall damage simply for missing the jump
+      falling = -2;
+      setAnimation(new CharacterHighJumpAnimation(self, sx, sy, sz, dx, dy, dz));
+    } else {
+      // Failed, just show a small hop and go nowhere
+      setAnimation(new CharacterHopAnimation(self, sx, sy, sz, sx, sy, sz));
+    }
+
+  }
+
   static canWalkTo = function(sx, sy, sz, dx, dy, dz) {
     if (!World.inBounds(dx, dy, dz)) {
       return false;
@@ -202,6 +225,21 @@ function Character() : WorldObject() constructor {
     }
     var belowDest = obj_World.getCovering(dx, dy, dz - 1);
     if (is_undefined(belowDest)) {
+      return false;
+    }
+    var atDest = obj_World.getCovering(dx, dy, dz);
+    if (!is_undefined(atDest)) {
+      return false;
+    }
+    var aboveDest = obj_World.getCovering(dx, dy, dz + 1);
+    if (!is_undefined(aboveDest)) {
+      return false;
+    }
+    return true;
+  }
+
+  static canHighJumpTo = function(sx, sy, sz, dx, dy, dz) {
+    if (!World.inBounds(dx, dy, dz)) {
       return false;
     }
     var atDest = obj_World.getCovering(dx, dy, dz);
@@ -310,6 +348,23 @@ function Character() : WorldObject() constructor {
     setAnimation(new CharacterDeathAnimation(self, getX(), getY(), getZ()));
   }
 
+  static hitWith = function(source, element) {
+    if ((element == Element.Water) && (is_undefined(active_animation))) {
+      // High jump
+      var launch_dir;
+      if (getX() > source.getX()) {
+        launch_dir = Dir.Right;
+      } else if (getX() < source.getX()) {
+        launch_dir = Dir.Left;
+      } else if (getY() > source.getY()) {
+        launch_dir = Dir.Down;
+      } else {
+        launch_dir = Dir.Up;
+      }
+      tryToHighJump(launch_dir);
+    }
+  }
+
   static emitElement = function() {
 
     var dx = getX() + Dir_toX(facing_dir);
@@ -319,7 +374,7 @@ function Character() : WorldObject() constructor {
       return;
     }
 
-    ctrl_UndoManager.pushStack(UndoCut); // TODO Pop consecutive cuts if nothing has changed?
+    ctrl_UndoManager.pushStack(UndoCut);
 
     switch (element) {
     case Element.None:
