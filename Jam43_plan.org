@@ -70,12 +70,14 @@
     A wooden box can be pushed by a player. The player's strength is
     only able to push one box at a time. +Boxes can fill in holes.+
     Wooden boxes will burn if set on fire.
-*** METAL BOX
+*** DONE METAL BOX
     A metal box is exactly like a wooden box, except that it is
     fireproof. Also, metal boxes conduct electricity.
 *** DONE TORCH
     A torch can be set on fire. This usually activates or deactivates
     a mechanism somewhere.
+*** DONE DEVICE
+    Mechanism which toggles when hit with electricity.
 *** DONE QUANTUM BLOCK
     A quantum block is a solid block that only exists when a character
     is looking at it. Specifically, it counts as air if there is no

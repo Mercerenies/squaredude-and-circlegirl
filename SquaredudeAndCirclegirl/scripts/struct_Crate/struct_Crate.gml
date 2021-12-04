@@ -91,10 +91,9 @@ function Crate(_sprite) : WorldObject() constructor {
     var dy = sy + Dir_toY(dir);
     var dz = sz;
 
+    var atDest = obj_World.getCovering(dx, dy, dz);
+    var aboveDest = obj_World.getCovering(dx, dy, dz + 1);
     if (canLaunchTo(sx, sy, sz, dx, dy, dz)) {
-
-      var atDest = obj_World.getCovering(dx, dy, dz);
-      var aboveDest = obj_World.getCovering(dx, dy, dz + 1);
       if (!is_undefined(atDest)) {
         atDest.setAnimation(new CharacterDeathAnimation(atDest, atDest.getX(), atDest.getY(), atDest.getZ()));
       }
@@ -107,6 +106,21 @@ function Crate(_sprite) : WorldObject() constructor {
       var anim = new CharacterWalkingAnimation(self, sx, sy, sz, dx, dy, dz);
       setAnimation(anim);
       return true;
+    }
+
+    var transitive = undefined;
+    if ((!is_undefined(atDest)) && (is_undefined(aboveDest))) {
+      transitive = atDest;
+    } else if ((!is_undefined(aboveDest)) && (is_undefined(atDest))) {
+      transitive = aboveDest;
+    } else if ((!is_undefined(aboveDest)) && (atDest == aboveDest)) {
+      transitive = aboveDest;
+    }
+    if (!is_undefined(transitive)) {
+      transitive.onImpact(dir);
+      // Don't want to trip again due to the same air effect, so fill
+      // the animation slot with something useless for a few frames.
+      setAnimation(new DelayAnimation(self, sx, sy, sz, 0.334));
     }
 
     launching = undefined;
@@ -283,6 +297,10 @@ function Crate(_sprite) : WorldObject() constructor {
       }
 
     }
+  }
+
+  static onImpact = function(dir) {
+    tryToLaunch(dir);
   }
 
 }

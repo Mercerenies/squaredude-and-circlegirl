@@ -66,6 +66,10 @@ function WorldObject() constructor {
     // Empty
   }
 
+  static onImpact = function(dir) {
+    // Empty
+  }
+
   // Called when hit with the given elemental ability
   static hitWith = function(source, element) {
     // Empty

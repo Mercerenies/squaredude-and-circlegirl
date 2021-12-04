@@ -70,6 +70,7 @@
     {"id":{"name":"spr_Burner","path":"sprites/spr_Burner/spr_Burner.yy",},"order":5,},
     {"id":{"name":"spr_Spikes","path":"sprites/spr_Spikes/spr_Spikes.yy",},"order":2,},
     {"id":{"name":"struct_CharacterTransformAnimation","path":"scripts/struct_CharacterTransformAnimation/struct_CharacterTransformAnimation.yy",},"order":5,},
+    {"id":{"name":"struct_DelayAnimation","path":"scripts/struct_DelayAnimation/struct_DelayAnimation.yy",},"order":9,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [

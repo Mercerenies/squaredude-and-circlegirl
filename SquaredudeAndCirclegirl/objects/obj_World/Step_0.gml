@@ -47,5 +47,3 @@ updateQuantumStates();
 if ((Input.shiftPressed()) && (!isMovingSomething()) && (!isSomeoneDead())) {
   cycleChannel();
 }
-
-show_debug_message(move_count);
