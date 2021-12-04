@@ -94,7 +94,8 @@ function Character() : WorldObject() constructor {
       part_emitter_burst(part_system, part_emitter, ctrl_Particles.player_air, 40);
       break;
     case Element.Thunder:
-      ////
+      part_emitter_region(part_system, part_emitter, headX - 8, headX + 8, headY - 16, headY - 10, ps_shape_ellipse, ps_distr_linear);
+      part_emitter_burst(part_system, part_emitter, ctrl_Particles.player_thunder, 100);
       break;
     }
 
