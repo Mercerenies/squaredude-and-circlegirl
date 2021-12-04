@@ -1,14 +1,22 @@
 
-function CharacterFallingAnimation(_owner, _sx, _sy, _sz) constructor {
+function CharacterFallingAnimation(_owner, _sx, _sy, _sz, _slow) constructor {
   owner = _owner;
   sx = _sx;
   sy = _sy;
   sz = _sz;
   progress = 0;
+  slow = _slow;
+  if (is_undefined(slow)) {
+    slow = false;
+  }
 
   static step = function() {
     var prev_progress = progress;
-    progress += 0.2;
+    if (slow) {
+      progress += 0.1;
+    } else {
+      progress += 0.2;
+    }
     if ((prev_progress < 0.5) && (progress >= 0.5)) {
       obj_World.move(sx, sy, sz, sx, sy, sz - 1);
     }

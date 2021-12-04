@@ -44,8 +44,8 @@
     can put out flames. Water can also fill small holes, which will
     cause objects in those holes to float to the top.
 
-    TODO What happens if a water character uses water on their
-    partner?
+    If used on the partner, launches them higher into the air and
+    allows them to land on a higher platform.
 *** AIR
     An air character can summon wind in front of them. Any round
     objects like balls will roll when blown with wind. Air characters
@@ -66,9 +66,9 @@
     partner will be shocked and will move without changing direction.
     This effect continues until the partner uses an ability or jumps.
 ** FEATURES
-*** WOODEN BOX
+*** DONE WOODEN BOX
     A wooden box can be pushed by a player. The player's strength is
-    only able to push one box at a time. Boxes can fill in holes.
+    only able to push one box at a time. +Boxes can fill in holes.+
     Wooden boxes will burn if set on fire.
 *** METAL BOX
     A metal box is exactly like a wooden box, except that it is
@@ -76,14 +76,14 @@
 *** TORCH
     A torch can be set on fire. This usually activates or deactivates
     a mechanism somewhere.
-*** QUANTUM BLOCK
+*** DONE QUANTUM BLOCK
     A quantum block is a solid block that only exists when a character
     is looking at it. Specifically, it counts as air if there is no
     character facing toward it. If there is a character facing toward
     it, then it is solid. If there is something (or someone) in the
     way, it does not become solid. This mainly interacts with the
     partner-thunder ability, which changes the way someone faces.
-*** ICE
+*** +ICE+
     Ice causes players to slide. Using fire on it will melt it into
     water.
 *** ICOSASENTRY
@@ -94,10 +94,10 @@
 *** CRACKED ROCK
     A cracked rock, secured into the ground. Cannot be pushed, but can
     be destroyed if approached at high-speed (i.e. using partner-fire)
-*** SMALL BOULDER
+*** +SMALL BOULDER+
     A small boulder. Can be pushed like a crate. If the air ability is
     used on it, it will fly in one direction until it hits something.
-*** LARGE BOULDER
+*** +LARGE BOULDER+
     Like a small boulder but too heavy to be pushed on its own. Can
     only be moved with the air ability.
 *** PRESSURE PLATE
@@ -106,9 +106,9 @@
 *** DOOR
     Activates based on a pressure plate, electronic switch, or other
     control mechanism.
-*** ELEMENTAL PANEL
+*** DONE ELEMENTAL PANEL
     Switches the character who steps on it to the given element.
-*** WEATHER PANEL
+*** +WEATHER PANEL+
     Either a rain, sun, or snow panel. Causes that particular weather
     event.
 

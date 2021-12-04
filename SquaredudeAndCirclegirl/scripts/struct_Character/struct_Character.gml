@@ -238,8 +238,10 @@ function Character() : WorldObject() constructor {
 
     // If there's nothing below us, then fall.
     if (is_undefined(below)) {
-      falling += 1;
-      setAnimation(new CharacterFallingAnimation(self, xx, yy, zz));
+      if (element != Element.Air) {
+        falling += 1;
+      }
+      setAnimation(new CharacterFallingAnimation(self, xx, yy, zz, element == Element.Air));
       return;
     }
 
