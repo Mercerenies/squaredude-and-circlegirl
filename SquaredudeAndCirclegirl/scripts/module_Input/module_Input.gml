@@ -26,9 +26,13 @@ Input.shiftPressed = function() {
 }
 
 Input.escPressed = function() {
-  return keyboard_check(vk_escape);
+  return keyboard_check_pressed(vk_escape);
 }
 
 Input.backspacePressed = function() {
   return keyboard_check_pressed(vk_backspace);
+}
+
+Input.f1Pressed = function() {
+  return keyboard_check_pressed(vk_f1);
 }
