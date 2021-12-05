@@ -146,6 +146,7 @@
     {"id":{"name":"spr_CrackedBlock","path":"sprites/spr_CrackedBlock/spr_CrackedBlock.yy",},"order":11,},
     {"id":{"name":"struct_CharacterTransformAnimation","path":"scripts/struct_CharacterTransformAnimation/struct_CharacterTransformAnimation.yy",},"order":5,},
     {"id":{"name":"struct_DelayAnimation","path":"scripts/struct_DelayAnimation/struct_DelayAnimation.yy",},"order":9,},
+    {"id":{"name":"rm_L18","path":"rooms/rm_L18/rm_L18.yy",},"order":20,},
     {"id":{"name":"rm_DebugRoom","path":"rooms/rm_DebugRoom/rm_DebugRoom.yy",},"order":0,},
   ],
   "Options": [
@@ -183,6 +184,7 @@
     {"roomId":{"name":"rm_L15","path":"rooms/rm_L15/rm_L15.yy",},},
     {"roomId":{"name":"rm_L16","path":"rooms/rm_L16/rm_L16.yy",},},
     {"roomId":{"name":"rm_L17","path":"rooms/rm_L17/rm_L17.yy",},},
+    {"roomId":{"name":"rm_L18","path":"rooms/rm_L18/rm_L18.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Characters.yy","order":0,"resourceVersion":"1.0","name":"Characters","tags":[],"resourceType":"GMFolder",},
