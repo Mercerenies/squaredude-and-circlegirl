@@ -318,7 +318,7 @@ function Character() : WorldObject() constructor {
     }
     if (!is_undefined(transitive)) {
       var strength = Strength.PlayerRunning;
-      if (initial || do_fly) {
+      if (initial) { // (|| do_fly) ???
         strength = Strength.PlayerFlying;
       }
       transitive.onImpact(dir, strength);
