@@ -14,13 +14,7 @@ for (var xx = 0; xx < WORLD_WIDTH; xx++) {
     }
   }
 }
-*/
 
-squaredude = new Squaredude();
-circlegirl = new Circlegirl();
-setAt(2, 2, 1, squaredude);
-setAt(2, 5, 1, circlegirl);
-/*
 setAt(6, 3, 0, new Wall(spr_SimpleTile, Element.Fire));
 setAt(6, 4, 0, new Wall(spr_SimpleTile, Element.Water));
 setAt(6, 5, 0, new Wall(spr_SimpleTile, Element.Air));
