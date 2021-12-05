@@ -66,7 +66,7 @@ function Character() : WorldObject() constructor {
 
     getPainter().step();
 
-    if ((!obj_World.isMovingSomething()) && (!obj_World.isSomeoneDead()) && (isActiveCharacter())) {
+    if ((!obj_World.isMovingSomething()) && (!obj_World.isSomeoneDead()) && (isActiveCharacter()) && (!showingDia())) {
       var input_dir = Input.dirPressed();
       if (input_dir >= 0) {
         var prev_dir = facing_dir;

@@ -29,6 +29,7 @@
     {"id":{"name":"struct_AirVisuals","path":"scripts/struct_AirVisuals/struct_AirVisuals.yy",},"order":5,},
     {"id":{"name":"obj_RE_Burner","path":"objects/obj_RE_Burner/obj_RE_Burner.yy",},"order":9,},
     {"id":{"name":"struct_RisingAnimation","path":"scripts/struct_RisingAnimation/struct_RisingAnimation.yy",},"order":7,},
+    {"id":{"name":"showingDia","path":"scripts/showingDia/showingDia.yy",},"order":7,},
     {"id":{"name":"ctrl_FinalizerGC","path":"objects/ctrl_FinalizerGC/ctrl_FinalizerGC.yy",},"order":3,},
     {"id":{"name":"ctrl_Particles","path":"objects/ctrl_Particles/ctrl_Particles.yy",},"order":7,},
     {"id":{"name":"struct_ParticleResource","path":"scripts/struct_ParticleResource/struct_ParticleResource.yy",},"order":5,},
