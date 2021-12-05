@@ -1,5 +1,12 @@
 
 // DEBUG CODE
+
+with (par_RoomEditor) {
+  loadSelf();
+  instance_destroy();
+}
+
+/*
 for (var xx = 0; xx < WORLD_WIDTH; xx++) {
   for (var yy = 0; yy < WORLD_LENGTH; yy++) {
     if ((xx != 6) || (yy != 1)) {
@@ -7,11 +14,13 @@ for (var xx = 0; xx < WORLD_WIDTH; xx++) {
     }
   }
 }
+*/
+
 squaredude = new Squaredude();
 circlegirl = new Circlegirl();
 setAt(2, 2, 1, squaredude);
 setAt(2, 5, 1, circlegirl);
-
+/*
 setAt(6, 3, 0, new Wall(spr_SimpleTile, Element.Fire));
 setAt(6, 4, 0, new Wall(spr_SimpleTile, Element.Water));
 setAt(6, 5, 0, new Wall(spr_SimpleTile, Element.Air));
@@ -91,6 +100,7 @@ setAt(14, 12, 0, new Wall(spr_SimpleTile, undefined, undefined, Dir.Left));
 setAt(13, 10, 1, new CrackedBlock());
 setAt(15, 1, 0, new Wall(spr_SimpleTile, undefined, undefined, undefined, spr_SquarePanel));
 setAt(15, 12, 0, new Wall(spr_SimpleTile, undefined, undefined, undefined, spr_CirclePanel));
+*/
 setAt(16, 1, 0, new Wall(spr_SimpleTile, undefined, undefined, undefined, undefined, true));
 setAt(16, 12, 0, new Wall(spr_SimpleTile, undefined, undefined, undefined, undefined, true));
 
