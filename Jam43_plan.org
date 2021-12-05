@@ -146,6 +146,6 @@
   + [ ] SFX
   + [ ] Main menu screen
   + [ ] Game icon & titlebar
-  + [ ] Real tiles for the floor/spikes
+  + [X] Real tiles for the floor/spikes
   + [ ] Background image
   + [X] Fullscreen
