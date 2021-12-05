@@ -81,6 +81,7 @@
     {"id":{"name":"enum_Element","path":"scripts/enum_Element/enum_Element.yy",},"order":0,},
     {"id":{"name":"spr_RE_Circlegirl","path":"sprites/spr_RE_Circlegirl/spr_RE_Circlegirl.yy",},"order":1,},
     {"id":{"name":"struct_WaterVisuals","path":"scripts/struct_WaterVisuals/struct_WaterVisuals.yy",},"order":4,},
+    {"id":{"name":"rm_L03","path":"rooms/rm_L03/rm_L03.yy",},"order":5,},
     {"id":{"name":"struct_ShockedPaint","path":"scripts/struct_ShockedPaint/struct_ShockedPaint.yy",},"order":4,},
     {"id":{"name":"struct_ShockAnimation","path":"scripts/struct_ShockAnimation/struct_ShockAnimation.yy",},"order":8,},
     {"id":{"name":"spr_PressurePlate","path":"sprites/spr_PressurePlate/spr_PressurePlate.yy",},"order":4,},
@@ -153,6 +154,7 @@
     {"roomId":{"name":"rm_DebugRoom","path":"rooms/rm_DebugRoom/rm_DebugRoom.yy",},},
     {"roomId":{"name":"rm_Template","path":"rooms/rm_Template/rm_Template.yy",},},
     {"roomId":{"name":"rm_L02","path":"rooms/rm_L02/rm_L02.yy",},},
+    {"roomId":{"name":"rm_L03","path":"rooms/rm_L03/rm_L03.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Characters.yy","order":0,"resourceVersion":"1.0","name":"Characters","tags":[],"resourceType":"GMFolder",},
