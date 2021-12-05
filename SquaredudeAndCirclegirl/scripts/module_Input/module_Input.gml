@@ -36,3 +36,8 @@ Input.backspacePressed = function() {
 Input.f1Pressed = function() {
   return keyboard_check_pressed(vk_f1);
 }
+
+
+Input.f5Pressed = function() {
+  return keyboard_check_pressed(vk_f5);
+}

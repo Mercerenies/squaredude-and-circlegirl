@@ -137,7 +137,7 @@
 *** DONE SHAPED PANEL
     Either a square or a circle. If the wrong character touches it, they die.
 * STUFF TO DO
-  + [ ] Dialogue engine
+  + [X] Dialogue engine
   + [ ] Actual levels
   + [ ] Intro
   + [ ] Ending
@@ -148,3 +148,4 @@
   + [ ] Game icon & titlebar
   + [ ] Real tiles for the floor/spikes
   + [ ] Background image
+  + [X] Fullscreen
