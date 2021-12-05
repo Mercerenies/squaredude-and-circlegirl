@@ -371,6 +371,7 @@ function Character() : WorldObject() constructor {
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
       launching = undefined;
       flying = false;
+      falling = 0;
       return;
     }
 
