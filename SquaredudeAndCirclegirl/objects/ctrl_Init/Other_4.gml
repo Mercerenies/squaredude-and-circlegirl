@@ -1,2 +1,2 @@
 
-room_goto(rm_L27); // DEBUG CODE
+room_goto(rm_L33); // DEBUG CODE
