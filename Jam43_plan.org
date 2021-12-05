@@ -136,3 +136,15 @@
     Spray with water and it will grow into a platform
 *** DONE SHAPED PANEL
     Either a square or a circle. If the wrong character touches it, they die.
+* STUFF TO DO
+  + [ ] Dialogue engine
+  + [ ] Actual levels
+  + [ ] Intro
+  + [ ] Ending
+  + [ ] Credits
+  + [ ] Music
+  + [ ] SFX
+  + [ ] Main menu screen
+  + [ ] Game icon & titlebar
+  + [ ] Real tiles for the floor/spikes
+  + [ ] Background image

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_RE_CrackedBlock",
-    "path": "sprites/spr_RE_CrackedBlock/spr_RE_CrackedBlock.yy",
+    "name": "spr_RE_Spikes",
+    "path": "sprites/spr_RE_Spikes/spr_RE_Spikes.yy",
   },
   "solid": false,
   "visible": true,
@@ -33,7 +33,7 @@
     "path": "folders/RoomEditor.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_RE_CrackedBlock",
+  "name": "obj_RE_Spikes",
   "tags": [],
   "resourceType": "GMObject",
 }
