@@ -1,6 +1,6 @@
 
 if ((Input.escPressed()) && (!showingDia())) {
-  // TODO Don't replay tutorial dialogue if there was some
+  global.skipDia = true;
   room_restart();
 }
 
