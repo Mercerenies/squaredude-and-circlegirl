@@ -138,7 +138,7 @@
     Either a square or a circle. If the wrong character touches it, they die.
 * STUFF TO DO
   + [X] Dialogue engine
-  + [ ] Actual levels
+  + [X] Actual levels
   + [ ] Intro
   + [ ] Ending
   + [ ] Credits
@@ -149,6 +149,7 @@
   + [X] Real tiles for the floor/spikes
   + [ ] Background image
   + [X] Fullscreen
+  + [ ] Save/load
 * FINAL LEVEL
   1. Use Water Circlegirl to send Fire Squaredude to the lower-right.
      Burn one wooden crate and push the others into holes.
