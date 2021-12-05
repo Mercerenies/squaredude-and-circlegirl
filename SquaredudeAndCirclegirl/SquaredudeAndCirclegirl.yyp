@@ -49,6 +49,7 @@
     {"id":{"name":"rm_L24","path":"rooms/rm_L24/rm_L24.yy",},"order":26,},
     {"id":{"name":"obj_RE_Panel","path":"objects/obj_RE_Panel/obj_RE_Panel.yy",},"order":8,},
     {"id":{"name":"roomWin","path":"scripts/roomWin/roomWin.yy",},"order":6,},
+    {"id":{"name":"rm_L34","path":"rooms/rm_L34/rm_L34.yy",},"order":36,},
     {"id":{"name":"spr_World","path":"sprites/spr_World/spr_World.yy",},"order":1,},
     {"id":{"name":"spr_Device","path":"sprites/spr_Device/spr_Device.yy",},"order":10,},
     {"id":{"name":"obj_RE_Flower","path":"objects/obj_RE_Flower/obj_RE_Flower.yy",},"order":13,},
@@ -217,6 +218,7 @@
     {"roomId":{"name":"rm_L31","path":"rooms/rm_L31/rm_L31.yy",},},
     {"roomId":{"name":"rm_L32","path":"rooms/rm_L32/rm_L32.yy",},},
     {"roomId":{"name":"rm_L33","path":"rooms/rm_L33/rm_L33.yy",},},
+    {"roomId":{"name":"rm_L34","path":"rooms/rm_L34/rm_L34.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Characters.yy","order":0,"resourceVersion":"1.0","name":"Characters","tags":[],"resourceType":"GMFolder",},

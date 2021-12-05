@@ -149,3 +149,36 @@
   + [X] Real tiles for the floor/spikes
   + [ ] Background image
   + [X] Fullscreen
+* FINAL LEVEL
+  1. Use Water Circlegirl to send Fire Squaredude to the lower-right.
+     Burn one wooden crate and push the others into holes.
+  2. Use Air Squaredude to send Water Circlegirl toward the torch.
+  3. Still as air, stand on the lower-right blue platform. Extinguish
+     the torch.
+  4. Launch the metal crate using air. Move the crate to the
+     lower-left pressure plate.
+  5. Water Circlegirl can now safely jump down to the upper-left
+     wooden crate. Push it to the left.
+  6. Using Air Squaredude, launch the metal crate so that it's below
+     the (!) mechanism at the top.
+  7. Have Water Circlegirl ride the blue platform (using Air
+     Squaredude to push the button) and return to the main area at the
+     bottom of the map.
+  8. Use Air Squaredude to send Thunder Circlegirl to the torch
+     platform. Thunder Circlegirl should activate the (!) mechanism
+     and return to the hub once again.
+  9. Use Air Squaredude to send Air Circlegirl to the middle-right
+     platform with the wooden crate.
+ 10. Have Air Circlegirl launch the wooden crate into the one-block
+     gap to the left.
+ 11. With slow falling, Air Circlegirl can safely jump down to the
+     main hub area.
+ 12. Use Air Squaredude to send Fire Circlegirl to ignite the torch
+     and return to the main area.
+ 13. Turn Squaredude to Thunder and Circlegirl to anything except
+     Fire. Stand them both south of the wooden crate on the
+     middle-right of the screen.
+ 14. Use Thunder Squaredude to electrocute Circlegirl. With shocks in
+     place, she can now walk to the rightmost checkmark panel.
+ 15. Have Thunder Squaredude walk to the remaining checkmark panel,
+     completing the level.
