@@ -1,7 +1,8 @@
 
-function Crate(_sprite) : WorldObject() constructor {
+function Crate(_sprite, _arrow_panel) : WorldObject() constructor {
   sprite = _sprite;
   active_animation = undefined;
+  arrow_panel = _arrow_panel;
   painter = new _Crate_Painter(self);
   launching = undefined; // Undefined or a direction constant
 
@@ -310,6 +311,10 @@ function Crate(_sprite) : WorldObject() constructor {
     }
   }
 
+  static getArrow = function() {
+    return arrow_panel;
+  }
+
 }
 
 function _Crate_Painter(_crate) constructor {
@@ -317,6 +322,9 @@ function _Crate_Painter(_crate) constructor {
 
   static draw = function(screenx, screeny, dir, elt) {
     draw_sprite(crate.sprite, 0, screenx, screeny);
+    if (!is_undefined(crate.arrow_panel)) {
+      draw_sprite(spr_ArrowPanel, crate.arrow_panel, screenx, screeny - GRID_SIZE);
+    }
   }
 
 }
