@@ -10,4 +10,8 @@ function Circlegirl() : Character() constructor {
     return "Circlegirl.characterChannel";
   }
 
+  static compatibleShape = function() {
+    return spr_CirclePanel;
+  }
+
 }

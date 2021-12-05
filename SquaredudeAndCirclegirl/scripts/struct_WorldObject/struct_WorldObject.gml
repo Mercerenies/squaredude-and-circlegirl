@@ -96,4 +96,8 @@ function WorldObject() constructor {
     return undefined;
   }
 
+  static shapePanel = function() {
+    return undefined;
+  }
+
 }

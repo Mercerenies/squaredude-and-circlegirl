@@ -89,5 +89,9 @@ for (var i = 7; i <= 10; i++) {
 setAt(14, 1, 0, new Wall(spr_SimpleTile, undefined, undefined, Dir.Down));
 setAt(14, 12, 0, new Wall(spr_SimpleTile, undefined, undefined, Dir.Left));
 setAt(13, 10, 1, new CrackedBlock());
+setAt(15, 1, 0, new Wall(spr_SimpleTile, undefined, undefined, undefined, spr_SquarePanel));
+setAt(15, 12, 0, new Wall(spr_SimpleTile, undefined, undefined, undefined, spr_CirclePanel));
+setAt(16, 1, 0, new Wall(spr_SimpleTile, undefined, undefined, undefined, undefined, true));
+setAt(16, 12, 0, new Wall(spr_SimpleTile, undefined, undefined, undefined, undefined, true));
 
 // END DEBUG CODE

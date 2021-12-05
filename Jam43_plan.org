@@ -134,3 +134,5 @@
     Also burns wooden objects that land on it.
 *** DONE FLOWER
     Spray with water and it will grow into a platform
+*** DONE SHAPED PANEL
+    Either a square or a circle. If the wrong character touches it, they die.

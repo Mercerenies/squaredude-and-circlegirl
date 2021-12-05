@@ -1,4 +1,6 @@
 
+game_set_match = true;
+
 for (var idx = 0; idx < MECH_CHANNEL_COUNT; idx++) {
   mech_channels[idx] = false;
 }
@@ -46,4 +48,8 @@ updateQuantumStates();
 // Check for shift
 if ((Input.shiftPressed()) && (!isMovingSomething()) && (!isSomeoneDead())) {
   cycleChannel();
+}
+
+if ((game_set_match) && (!isMovingSomething())) {
+  roomWin();
 }

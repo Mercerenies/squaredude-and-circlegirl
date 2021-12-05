@@ -26,6 +26,10 @@ function Character() : WorldObject() constructor {
     return "Character.characterChannel";
   }
 
+  static compatibleShape = function() {
+    return undefined;
+  }
+
   static getActiveElement = function() {
     return element;
   }
@@ -381,6 +385,14 @@ function Character() : WorldObject() constructor {
 
     // If we're standing on spikes, then die.
     if ((!is_undefined(below)) && (below.isSharp()) && (!flying)) {
+      setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
+      launching = undefined;
+      flying = false;
+      return;
+    }
+
+    // If we're standing on the wrong shape, then die.
+    if ((!is_undefined(below)) && (!is_undefined(below.shapePanel())) && (below.shapePanel() != compatibleShape()) && (!flying)) {
       setAnimation(new CharacterDeathAnimation(self, xx, yy, zz));
       launching = undefined;
       flying = false;

@@ -7,6 +7,7 @@ quantum = [];
 attack = [];
 
 mech_channels = [];
+game_set_match = false;
 
 move_count = 0;
 channel_index = 0;

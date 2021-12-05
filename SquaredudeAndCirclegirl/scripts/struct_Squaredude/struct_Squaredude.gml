@@ -10,4 +10,8 @@ function Squaredude() : Character() constructor {
     return "Squaredude.characterChannel";
   }
 
+  static compatibleShape = function() {
+    return spr_SquarePanel;
+  }
+
 }
