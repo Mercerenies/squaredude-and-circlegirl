@@ -18,7 +18,7 @@ Input.dirPressed = function() {
 }
 
 Input.spacePressed = function() {
-  return keyboard_check_pressed(vk_space);
+  return keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter);
 }
 
 Input.shiftPressed = function() {
