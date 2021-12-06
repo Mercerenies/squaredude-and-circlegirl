@@ -142,8 +142,9 @@
   + [ ] Intro
   + [ ] Ending
   + [ ] Credits
+  + [ ] Splash screen
   + [X] Music
-  + [ ] SFX
+  + [X] SFX
   + [X] Main menu screen
   + [X] Game icon & titlebar
   + [X] Real tiles for the floor/spikes

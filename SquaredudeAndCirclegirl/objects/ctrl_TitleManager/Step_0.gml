@@ -19,8 +19,7 @@ if (Input.spacePressed()) {
     selection = continue_option + 1;
   }
   if (selection == 1) {
-    // TODO Opening cutscene
-    selection = "rm_L01";
+    selection = "rm_Intro";
   } else if (selection >= 10) {
     selection = "rm_L" + string(selection);
   } else {
