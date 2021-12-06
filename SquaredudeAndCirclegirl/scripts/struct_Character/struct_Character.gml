@@ -403,6 +403,7 @@ function Character() : WorldObject() constructor {
     // If we're standing on an element panel, transform.
     var belowElt = (is_undefined(below) ? undefined : below.elementPanelOn());
     if ((!is_undefined(belowElt)) && (element != belowElt)) {
+      audio_play_sound(snd_Transform, 5, false);
       setAnimation(new CharacterTransformAnimation(self, belowElt, method(self, self._onArrive_postContinuation)));
     } else {
       _onArrive_postContinuation();
@@ -530,15 +531,19 @@ function Character() : WorldObject() constructor {
       // Nothing to be done here.
       break;
     case Element.Fire:
+      audio_play_sound(snd_Fire, 5, false);
       obj_World.setAttackAt(dx, dy, dz, new FireVisuals(dx, dy, dz));
       break;
     case Element.Water:
+      audio_play_sound(snd_Water, 5, false);
       obj_World.setAttackAt(dx, dy, dz, new WaterVisuals(dx, dy, dz));
       break;
     case Element.Air:
+      audio_play_sound(snd_Air, 5, false);
       obj_World.setAttackAt(dx, dy, dz, new AirVisuals(dx, dy, dz));
       break;
     case Element.Thunder:
+      audio_play_sound(snd_Thunder, 5, false);
       obj_World.setAttackAt(dx, dy, dz, new ThunderVisuals(dx, dy, dz));
       break;
     }
