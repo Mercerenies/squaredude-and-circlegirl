@@ -1,2 +1,2 @@
 
-room_goto(rm_Title);
+room_goto(rm_Splash);

@@ -44,6 +44,7 @@
     {"id":{"name":"struct_RisingAnimation","path":"scripts/struct_RisingAnimation/struct_RisingAnimation.yy",},"order":7,},
     {"id":{"name":"showingDia","path":"scripts/showingDia/showingDia.yy",},"order":7,},
     {"id":{"name":"spr_Title_Squaredude","path":"sprites/spr_Title_Squaredude/spr_Title_Squaredude.yy",},"order":1,},
+    {"id":{"name":"rm_Splash","path":"rooms/rm_Splash/rm_Splash.yy",},"order":40,},
     {"id":{"name":"snd_Transform","path":"sounds/snd_Transform/snd_Transform.yy",},"order":4,},
     {"id":{"name":"obj_Title_Squaredude","path":"objects/obj_Title_Squaredude/obj_Title_Squaredude.yy",},"order":5,},
     {"id":{"name":"spr_Titlepage","path":"sprites/spr_Titlepage/spr_Titlepage.yy",},"order":0,},
@@ -161,6 +162,7 @@
     {"id":{"name":"rm_Title","path":"rooms/rm_Title/rm_Title.yy",},"order":37,},
     {"id":{"name":"obj_Titletext","path":"objects/obj_Titletext/obj_Titletext.yy",},"order":4,},
     {"id":{"name":"ctrl_Init","path":"objects/ctrl_Init/ctrl_Init.yy",},"order":1,},
+    {"id":{"name":"ctrl_Splash","path":"objects/ctrl_Splash/ctrl_Splash.yy",},"order":16,},
     {"id":{"name":"obj_RE_Block","path":"objects/obj_RE_Block/obj_RE_Block.yy",},"order":10,},
     {"id":{"name":"spr_Flower","path":"sprites/spr_Flower/spr_Flower.yy",},"order":6,},
     {"id":{"name":"spr_MetalCrate","path":"sprites/spr_MetalCrate/spr_MetalCrate.yy",},"order":8,},
@@ -216,6 +218,7 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"rm_Init","path":"rooms/rm_Init/rm_Init.yy",},},
+    {"roomId":{"name":"rm_Splash","path":"rooms/rm_Splash/rm_Splash.yy",},},
     {"roomId":{"name":"rm_DebugRoom","path":"rooms/rm_DebugRoom/rm_DebugRoom.yy",},},
     {"roomId":{"name":"rm_Template","path":"rooms/rm_Template/rm_Template.yy",},},
     {"roomId":{"name":"rm_Title","path":"rooms/rm_Title/rm_Title.yy",},},
