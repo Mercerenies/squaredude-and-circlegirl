@@ -1,1 +1,0 @@
-plate_channel = 7;

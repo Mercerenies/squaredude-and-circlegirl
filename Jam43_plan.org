@@ -145,9 +145,9 @@
   + [ ] Music
   + [ ] SFX
   + [ ] Main menu screen
-  + [ ] Game icon & titlebar
+  + [X] Game icon & titlebar
   + [X] Real tiles for the floor/spikes
-  + [ ] Background image
+  + [X] Background image
   + [X] Fullscreen
   + [ ] Save/load
 * FINAL LEVEL

@@ -87,6 +87,7 @@
     {"id":{"name":"spr_Door","path":"sprites/spr_Door/spr_Door.yy",},"order":4,},
     {"id":{"name":"struct_QuantumBlock","path":"scripts/struct_QuantumBlock/struct_QuantumBlock.yy",},"order":2,},
     {"id":{"name":"struct_SetActivePlayerEvent","path":"scripts/struct_SetActivePlayerEvent/struct_SetActivePlayerEvent.yy",},"order":5,},
+    {"id":{"name":"spr_BackgroundTile","path":"sprites/spr_BackgroundTile/spr_BackgroundTile.yy",},"order":9,},
     {"id":{"name":"enum_Dir","path":"scripts/enum_Dir/enum_Dir.yy",},"order":0,},
     {"id":{"name":"ctrl_UndoManager","path":"objects/ctrl_UndoManager/ctrl_UndoManager.yy",},"order":0,},
     {"id":{"name":"spr_FinalizerGC","path":"sprites/spr_FinalizerGC/spr_FinalizerGC.yy",},"order":2,},
