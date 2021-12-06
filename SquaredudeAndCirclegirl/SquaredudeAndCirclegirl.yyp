@@ -135,6 +135,7 @@
     {"id":{"name":"struct_Character","path":"scripts/struct_Character/struct_Character.yy",},"order":4,},
     {"id":{"name":"spr_RE_Block","path":"sprites/spr_RE_Block/spr_RE_Block.yy",},"order":8,},
     {"id":{"name":"spr_Dialogue","path":"sprites/spr_Dialogue/spr_Dialogue.yy",},"order":0,},
+    {"id":{"name":"snd_Background","path":"sounds/snd_Background/snd_Background.yy",},"order":10,},
     {"id":{"name":"spr_Circlegirl_Body","path":"sprites/spr_Circlegirl_Body/spr_Circlegirl_Body.yy",},"order":0,},
     {"id":{"name":"rm_L21","path":"rooms/rm_L21/rm_L21.yy",},"order":23,},
     {"id":{"name":"struct_Door","path":"scripts/struct_Door/struct_Door.yy",},"order":5,},

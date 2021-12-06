@@ -142,14 +142,14 @@
   + [ ] Intro
   + [ ] Ending
   + [ ] Credits
-  + [ ] Music
+  + [X] Music
   + [ ] SFX
-  + [ ] Main menu screen
+  + [X] Main menu screen
   + [X] Game icon & titlebar
   + [X] Real tiles for the floor/spikes
   + [X] Background image
   + [X] Fullscreen
-  + [ ] Save/load
+  + [X] Save/load
 * FINAL LEVEL
   1. Use Water Circlegirl to send Fire Squaredude to the lower-right.
      Burn one wooden crate and push the others into holes.
