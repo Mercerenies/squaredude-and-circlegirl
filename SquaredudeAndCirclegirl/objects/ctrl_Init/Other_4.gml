@@ -1,2 +1,2 @@
 
-room_goto(rm_L23); // DEBUG CODE
+room_goto(rm_Title);
